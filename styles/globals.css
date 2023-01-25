@@ -1,3 +1,25 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+@font-face {
+  font-family: "Paralucent-Medium";
+  src: url('../src/assets/fonts/paralucent/Paralucent-Medium.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+  
+@font-face {
+  font-family: "Paralucent-DemiBold";
+  src: url('../src/assets/fonts/paralucent/Paralucent-DemiBold.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+  
+@font-face {
+  font-family: "Paralucent-Light";
+  src: url('../src/assets/fonts/paralucent/Paralucent-Light.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
