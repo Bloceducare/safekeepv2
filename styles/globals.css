@@ -23,3 +23,10 @@
   font-weight: normal;
   font-style: normal;
 }
+
+@font-face {
+  font-family: "PolySans Trial";
+  src: url('../src/assets/fonts/polysans-trial/PolySansTrial-Neutral.otf');
+  font-weight: normal;
+  font-style: normal;
+}

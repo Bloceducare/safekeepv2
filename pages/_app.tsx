@@ -3,18 +3,20 @@ import '../styles/globals.css'
 import type { AppProps } from 'next/app'
 import { Provider } from "react-redux";
 import { store } from "../store/index";
-import { QueryClient, QueryClientProvider } from "react-query";
-import { ReactQueryDevtools } from "react-query/devtools";
+import {
+  persistStore,
+} from 'redux-persist'
+import { PersistGate } from 'redux-persist/integration/react'
+
+let persistor = persistStore(store)
 
 
 function MyApp({ Component, pageProps }: AppProps) {
-  const [queryClient] = useState(() => new QueryClient());
   return (
     <Provider store={store}>
-      <QueryClientProvider client={queryClient}>
-        <Component {...pageProps} />
-        <ReactQueryDevtools initialIsOpen={false} />
-      </QueryClientProvider>
+        <PersistGate loading={null} persistor={persistor}>
+          <Component {...pageProps} />
+        </PersistGate>
     </Provider>
   )
 }
