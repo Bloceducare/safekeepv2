@@ -11,9 +11,11 @@ import {
   REGISTER,
 } from 'redux-persist'
 import storage from 'redux-persist/lib/storage'
+import { safeKeepApi } from '../services/api';
 
 
 const reducers = combineReducers({
+  [safeKeepApi.reducerPath]:safeKeepApi.reducer
  //...            
 });
 
