@@ -1,7 +1,4 @@
 @tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 
 @font-face {
   font-family: "Paralucent-Medium";
@@ -30,3 +27,6 @@
   font-weight: normal;
   font-style: normal;
 }
+
+@tailwind components;
+@tailwind utilities;
