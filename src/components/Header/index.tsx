@@ -5,8 +5,8 @@ import ModeSwitch from "@images/Header/Mode-switch.svg";
 
 const Header = () => {
   return (
-    <div className="bg-header-background shadow-3xl backdrop-blur-xl ">
-      <div className="max-w-screen-2xl mx-auto py-5 lg:py-[30px] flex flex-row w-full px-9 justify-between items-center text-center">
+    <div className="bg-header-background shadow-3xl backdrop-blur-xl z-[100]">
+      <div className="max-w-screen-2xl mx-auto py-5 lg:py-[30px] flex flex-row w-full px-8 lg:px-9 justify-between items-center text-center">
         <HeaderLogo className="h-9 w-40 lg:h-11 lg:w-44" />
         <div className="hidden lg:flex max-w-md text-center h-full justify-between items-center">
           <p className="font-polySansTrial pr-4 text-base font-semibold">Home</p>
