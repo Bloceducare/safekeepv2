@@ -1,3 +1,5 @@
+import type { NextPage } from "next";
+import Head from "next/head";
 import Image from "next/image";
 import { useRouter } from "next/router";
 
@@ -8,14 +10,17 @@ const Blog = () => {
   const { author, title, content, tags, coverImg, createdAt } = blogContent;
   return (
     <>
+      <Head>
+        <title>Blog - {router.query.slug} </title>
+      </Head>
       <div className="max-w-2xl mx-auto px-4 pt-12">
         <button className="bg-safekeep-safeguard p-1 px-6 rounded-full text-[#fff] my-8">Back to Blog</button>
         <div className="">
           <h1 className="max-w-xl font-paralucentMedium text-5xl leading-tight">{title}</h1>
           <div className="">
-            <div className="flex my-6 items-center">
+            <div className="flex my-6 items-center flex-wrap">
               <div className="border rounded-full px-3 p-1">Newest Update⚡️</div>
-              <div className="flex ml-8">
+              <div className="flex lg:ml-8 mt-2 lg:mt-0 ">
                 <div className="blog-author">{author}</div>
                 <div className="ml-1">{createdAt}</div>
               </div>
