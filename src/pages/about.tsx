@@ -10,10 +10,8 @@ const About: NextPage = () => {
   return (
     <div className="flex flex-col items-center justify-center py-2">
       <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
+        <title>About US</title>
       </Head>
-
       <div className="w-full">
         <AboutHero />
         <Faq />
