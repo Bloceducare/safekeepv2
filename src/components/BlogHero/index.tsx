@@ -2,7 +2,7 @@
 
 const BlogHero = () => {
   return (
-    <div className="w-full max-w-screen-2xl mx-auto px-8 lg:px-9 pt-20 lg:pt-44 pb-32 lg:pb-64">
+    <div className="w-full px-8 pt-20 pb-32 mx-auto max-w-screen-2xl lg:px-9 lg:">
         <button className="bg-safekeep-safeguard px-4 py-2 rounded-[30px] font-polySansTrial font-light text-safekeep-white text-[11px] leading-[11px]">Safe Blog</button>
         <p 
           className="mt-1 font-paralucentLight text-4xl  leading-[48px] lg:text-[57px] lg:leading-[68px] max-w-[753px] w-full" 

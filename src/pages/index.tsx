@@ -1,12 +1,13 @@
-import type { NextPage } from 'next'
-import Head from 'next/head'
-import Hero from "components/Hero"
-import About from '@components/About';
-import Ecosystem from '@components/Ecosystem';
-import Development from '@components/Development';
-import Cta from '@components/Cta';
-import Faq from '@components/Faq';
-import BlogSlider from '@components/BlogSlider';
+import type { NextPage } from "next";
+import Head from "next/head";
+import Hero from "components/Hero";
+import About from "@components/About";
+import Ecosystem from "@components/Ecosystem";
+import Development from "@components/Development";
+import Cta from "@components/Cta";
+import Faq from "@components/Faq";
+import slides from "@data/blog/slides";
+import BlogSlider from "@components/BlogSlider";
 
 const Home: NextPage = () => {
   return (
@@ -23,7 +24,7 @@ const Home: NextPage = () => {
         <Development />
         <Cta />
         <Faq />
-        <BlogSlider />
+        <BlogSlider slides={slides} />
       </div>
     </div>
   );

@@ -1,9 +1,10 @@
-import type { NextPage } from 'next'
-import Head from 'next/head'
-import Faq from '@components/Faq';
-import BlogSlider from '@components/BlogSlider';
-import AboutHero from "@components/AboutHero"
-import TextWithImage from '@components/TextWithImage';
+import type { NextPage } from "next";
+import Head from "next/head";
+import Faq from "@components/Faq";
+import BlogSlider from "@components/BlogSlider";
+import AboutHero from "@components/AboutHero";
+import TextWithImage from "@components/TextWithImage";
+import slides from "@data/blog/slides";
 
 const About: NextPage = () => {
   return (
@@ -17,7 +18,7 @@ const About: NextPage = () => {
         <AboutHero />
         <Faq />
         <TextWithImage />
-        <BlogSlider />
+        <BlogSlider slides={slides} />
       </div>
     </div>
   );

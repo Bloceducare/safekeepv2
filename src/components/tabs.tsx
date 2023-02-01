@@ -16,11 +16,11 @@ const Tabs = ({ tabArray = [] }: IProps) => {
 
   return (
     <>
-      <div className="p-3 my-12 bg-safekeep-gradient-3">
-        <div className="flex items-center justify-between max-w-2xl mx-auto text-sm font-light font-polySansTrial">
+      <div className="flex-wrap w-full px-8 py-8 mb-10 bg-safekeep-encryption lg:px-9 lg:mb-20">
+        <div className="flex items-center justify-between max-w-2xl mx-auto font-light font-polySansTrial">
           {tabArray.map(item => (
             <div>
-              <button onClick={() => handleSort(item)} className={`${addCurentClass(item)}`}>
+              <button onClick={() => handleSort(item)} className={`${addCurentClass(item)}  p-[0.35rem] px-4 capitalize`}>
                 {item}
               </button>
             </div>

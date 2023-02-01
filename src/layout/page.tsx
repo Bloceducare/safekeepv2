@@ -3,7 +3,7 @@ import React from "react";
 const PageLayout = ({ children }: IChild) => {
   return (
     <>
-      <div className="max-w-4xl mx-auto px-4">{children}</div>
+      <div className="max-w-6xl px-4 mx-auto">{children}</div>
     </>
   );
 };
