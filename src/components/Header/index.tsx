@@ -2,7 +2,7 @@ import Link from "next/link";
 import HeaderLogo from "@images/Header/safekeepLogo.svg";
 import ChevronDown from "@images/Header/chevron-down.svg";
 import Hamburger from "@images/Header/hamburger.svg";
-import ModeSwitch from "@images/Header/Mode-switch.svg";
+import ModeSwitch from "@images/Header/mode-switch.svg";
 
 const Header = () => {
   return (
