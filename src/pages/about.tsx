@@ -1,14 +1,11 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
-import Hero from "components/Hero"
-import About from '@components/About';
-import Ecosystem from '@components/Ecosystem';
-import Development from '@components/Development';
-import Cta from '@components/Cta';
 import Faq from '@components/Faq';
 import BlogSlider from '@components/BlogSlider';
+import AboutHero from "@components/AboutHero"
+import TextWithImage from '@components/TextWithImage';
 
-const Home: NextPage = () => {
+const About: NextPage = () => {
   return (
     <div className="flex flex-col items-center justify-center py-2">
       <Head>
@@ -17,16 +14,13 @@ const Home: NextPage = () => {
       </Head>
 
       <div className="w-full">
-        <Hero />
-        <About />
-        <Ecosystem />
-        <Development />
-        <Cta />
+        <AboutHero />
         <Faq />
+        <TextWithImage />
         <BlogSlider />
       </div>
     </div>
   );
 };
 
-export default Home;
+export default About;
