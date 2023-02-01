@@ -24,6 +24,7 @@
       "@state/*": ["state/*"],
       "@pages/*": ["pages/*"],
       "@images/*": ["assets/images/*"],
+      "@data/*": ["data/*"],
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],

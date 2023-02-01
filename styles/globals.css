@@ -30,3 +30,36 @@
 
 @tailwind components;
 @tailwind utilities;
+
+
+.blog-title {
+  background: linear-gradient(91.58deg, #001873 0.13%, #011A91 101.16%);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+background-clip: text;
+text-fill-color: transparent;
+}
+
+.blog-author{
+  background: linear-gradient(206.51deg, #01A0FF -0.2%, #0123F7 130.88%);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+background-clip: text;
+text-fill-color: transparent;
+}
+
+
+.blog-active-btn {
+  @apply p-[0.35rem] px-4  text-[#fff] rounded-3xl bg-safekeep-safeguard
+}
+
+.brand-btn-1{
+  @apply bg-safekeep-blue rounded-md text-safekeep-white font-paralucentLight
+}
+
+.safe-gradient-glow {
+  background: linear-gradient(152.35deg, #0171FD 16.92%, #1AE52D 106.95%);
+}
+.safe-gradient-safeguard {
+  background: linear-gradient(206.51deg, #01A0FF -0.2%, #0123F7 130.88%);
+}
