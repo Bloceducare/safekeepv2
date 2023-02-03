@@ -27,6 +27,7 @@
     "redux": "^4.2.1",
     "redux-persist": "^6.0.0",
     "rippleui": "^1.6.0",
+    "tailwind-scrollbar": "^2.1.0",
     "wagmi": "^0.10.10",
     "yup": "^0.32.11"
   },
