@@ -1,12 +1,13 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./src/pages/**/*.{js,ts,jsx,tsx}", "./src/components/**/*.{js,ts,jsx,tsx}", "./app/**/*.{js,ts,jsx,tsx,json}", "./src/layout/**/*.{js,ts,jsx,tsx}", "./src/views/**/*.{js,ts,jsx,tsx}"],
+  content: ["./src/pages/**/*.{js,ts,jsx,tsx}", "./src/components/**/*.{js,ts,jsx,tsx}", "./app/**/*.{js,ts,jsx,tsx,json}", "./src/Layout/**/*.{js,ts,jsx,tsx}", "./src/views/**/*.{js,ts,jsx,tsx}"],
   theme: {
     fontFamily: {
       paralucentMedium: ["Paralucent-Medium", "sans-serif"],
       paralucentDemiBold: ["Paralucent-DemiBold", "sans-serif"],
       paralucentLight: ["Paralucent-Light", "sans-serif"],
-      polySansTrial: ["PolySans Trial", "sans-serif"]
+      polySansTrial: ["PolySans Trial", "sans-serif"],
+      dmSans: ["DM Sans", "sans-serif"]
     },
     extend: {
       colors: {
@@ -23,7 +24,11 @@ module.exports = {
         "safekeep-white": "#FEFFFF",
         "safe-light-100": "#FEFFFF",
         "header-background": "rgba(255, 255, 255, 0.5)",
-        "safe-dark-300": "#8A90BC"
+        "safe-dark-300": "#8A90BC",
+        "safe-green-700": "#00AF00",
+        "safe-dark-main": "#001268",
+        "safekeep-blue-100": "#E6F1FF",
+        "safekeep-blue-700": "#0150B4"
       },
       backgroundImage: {
         "footer-gradient": "linear-gradient(152.35deg, #0171FD 16.92%, #1AE52D 106.95%)",
@@ -38,7 +43,7 @@ module.exports = {
     }
   },
 
-  plugins: [require("rippleui"), require("@tailwindcss/typography")],
+  plugins: [require("rippleui"), require("@tailwindcss/typography"), require("tailwind-scrollbar")],
   rippleui: {
     removeThemes: ["dark", "light"]
   }

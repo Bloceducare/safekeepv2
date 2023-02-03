@@ -19,16 +19,16 @@ function MyApp({ Component, pageProps }: ComponentWithPageLayout) {
   return (
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
-        <Layout>
-          {Component.PageLayout ? (
-            // @ts-ignore
-            <Component.PageLayout>
-              <Component {...pageProps} />
-            </Component.PageLayout>
-          ) : (
+        {Component.PageLayout ? (
+          // @ts-ignore
+          <Component.PageLayout>
             <Component {...pageProps} />
-          )}
-        </Layout>
+          </Component.PageLayout>
+        ) : (
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
+        )}
       </PersistGate>
     </Provider>
   );
