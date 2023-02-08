@@ -24,18 +24,23 @@ module.exports = {
         "safekeep-white": "#FEFFFF",
         "safe-light-100": "#FEFFFF",
         "header-background": "rgba(255, 255, 255, 0.5)",
+        "safekeep-transparent": "rgba(255, 255, 255, 0.7)",
         "safe-dark-300": "#8A90BC",
         "safe-green-700": "#00AF00",
         "safe-dark-main": "#001268",
         "safekeep-blue-100": "#E6F1FF",
-        "safekeep-blue-700": "#0150B4"
+        "safekeep-blue-700": "#0150B4",
+        "safekeep-main": "#F0FCFF",
+        "safekeep-yellow-100": "#FEFDE6",
+        "safekeep-green-100": "#E6FEE6",
       },
       backgroundImage: {
         "footer-gradient": "linear-gradient(152.35deg, #0171FD 16.92%, #1AE52D 106.95%)",
         "safekeep-safeguard": "linear-gradient(206.51deg, #01A0FF -0.2%, #0123F7 130.88%)",
         "safekeep-gradient-3": "linear-gradient(91.58deg, #F8F8F8 0.13%, #F3FDFF 101.16%)",
         "safekeep-darky-blue": "linear-gradient(91.58deg, #001873 0.13%, #011A91 101.16%)",
-        "safekeep-glow": "linear-gradient(152.35deg, #0171FD 16.92%, #1AE52D 106.95%)"
+        "safekeep-glow": "linear-gradient(152.35deg, #0171FD 16.92%, #1AE52D 106.95%)",
+        "safekeep-encryption": "linear-gradient(91.58deg, #F8F8F8 0.13%, #F3FDFF 101.16%)"
       },
       boxShadow: {
         "3xl": "0px 30px 35px rgba(110, 194, 254, 0.1)"
