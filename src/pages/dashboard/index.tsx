@@ -1,7 +1,8 @@
 import DashboardLayout from "@components/Layout/dashboard";
+import ConnectWallet from "@components/connectWallet";
 
 const Dashboard = () => {
-  return <>Dasbaord</>;
+  return <><ConnectWallet /></>;
 };
 
 Dashboard.PageLayout = DashboardLayout;

@@ -15,7 +15,7 @@ const benefits = [
     BgSvg: BenefitsSvg,
     },
     {
-    bgColor: "bg-safekeep-main",
+    bgColor: "bg-safekeep-yellow-100",
     topic: "Bulletproof Security",
     text: "Safekeep has the industry’s first Active DEX offering competitive swap fees, deflationary mechanics, next-generation staking and farming, a simple yet dynamic UI, and offers the highest levels of safety.",
     containerLeft: false,
@@ -23,7 +23,7 @@ const benefits = [
     BgSvg: BenefitsSvg,
     },
     {
-    bgColor: "bg-safekeep-main",
+    bgColor: "bg-safekeep-green-100",
     topic: "Bulletproof Security",
     text: "Safekeep has the industry’s first Active DEX offering competitive swap fees, deflationary mechanics, next-generation staking and farming, a simple yet dynamic UI, and offers the highest levels of safety.",
     containerLeft: true,

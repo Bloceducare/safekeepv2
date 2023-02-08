@@ -14,7 +14,7 @@ const Hero = () => {
             height="415"
             />
         </div>
-     <div className="max-w-screen-2xl px-8 lg:px-9 w-full mx-auto">
+     <div className="max-w-screen-2xl px-8 lg:px-9 w-full mx-auto z-50">
        <div className=" p-2 lg:p-0 tracking-tight lg:tracking-normal lg:max-w-[771px] w-full lg:ml-32 z-50 text-4xl  leading-[48px] font-paralucentMedium lg:text-[69px] lg:leading-[83px]">
         <span>One Vault to </span> <span>Inherit </span> <span>Cryptocurrency Anytime, Automatically.</span>
           <div className="max-w-[592px] w-full ">
