@@ -39,10 +39,10 @@ const Header = () => {
           </Link>
         </div>
         <div className="items-center justify-center hidden lg:flex">
-          <button className="py-2 mr-8 text-white rounded-lg font-paralucentLight px-9 bg-safekeep-blue">Get Safekeep</button>
-          <button>
+          <a href="/dashboard" className="py-2 mr-8 text-white rounded-lg font-paralucentLight px-9 bg-safekeep-blue">Get Safekeep</a>
+          {/* <button>
             <ModeSwitch />
-          </button>
+          </button> */}
         </div>
         <div className="items-center justify-center lg:hidden">
           <button>

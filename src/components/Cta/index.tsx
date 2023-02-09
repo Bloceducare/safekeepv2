@@ -7,7 +7,7 @@ const Cta = () => {
         <p className="font-paralucentLight text-4xl leading-[48px] lg:text-[57px] lg:leading-[68px] max-w-[783px] text-center w-full self-center">
             Hold, Trade and Secure Your Tokens on Safekeep Vault
         </p>
-         <button className="font-paralucentMedium text-sm text-safekeep-white mt-6 px-24 py-3.5 bg-safekeep-blue rounded-lg mr-8 flex items-center justify-center"> <Wallet className=" mr-2.5" /> Get Safekeep</button>
+         <a href="/dashboard" className="font-paralucentMedium text-sm text-safekeep-white mt-6 px-24 py-3.5 bg-safekeep-blue rounded-lg mr-8 flex items-center justify-center"> <Wallet className=" mr-2.5" /> Get Safekeep</a>
     </div>
    </div>
   )
