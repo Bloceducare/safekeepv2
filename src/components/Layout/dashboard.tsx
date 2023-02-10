@@ -6,6 +6,8 @@ import { IChild } from "interface";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import ConnectWallet from "@components/connectWallet";
+import WalletConnect from "@components/WalletConnect";
+import ConnectionResult from "@components/WalletConnect/connectionResult"
 
 interface ILink {
   id: number;

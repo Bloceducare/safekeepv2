@@ -25,7 +25,7 @@ const SingleAbout = () => {
                 <div className="w-2/4 bg-footer-gradient h-full rounded-3xl"/>
             </div>
         </div>
-        <div className="lg:max-w-[634px] mt-11 lg:mt-0 w-full bg-footer-gradient rounded-[38px] h-[450px] lg:h-[762px]">
+        <div className="lg:max-w-[634px] mt-11 lg:mt-0 w-full bg-footer-gradient rounded-[38px] h-[450px] lg:h-[500px] self-start">
 
         </div>
     </div>

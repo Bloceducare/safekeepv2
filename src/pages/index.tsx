@@ -24,7 +24,7 @@ const Home: NextPage = () => {
         <Development />
         <Cta />
         <Faq />
-        <BlogSlider slides={slides} />
+        {/* <BlogSlider slides={slides} /> */}
       </div>
     </div>
   );
