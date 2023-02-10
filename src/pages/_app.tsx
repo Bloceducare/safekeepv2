@@ -6,7 +6,7 @@ import { persistStore } from "redux-persist";
 import { PersistGate } from "redux-persist/integration/react";
 import Layout from "@components/Layout";
 import { WagmiConfig, createClient } from "wagmi";
-import { ConnectKitProvider, ConnectKitButton, getDefaultClient } from "connectkit";
+import { ConnectKitProvider, getDefaultClient } from "connectkit";
 
 let persistor = persistStore(store);
 
@@ -15,8 +15,8 @@ const alchemyId = process.env.ALCHEMY_ID;
 const client = createClient(
   getDefaultClient({
     appName: "Safekeep",
-    alchemyId,
-  }),
+    alchemyId
+  })
 );
 
 type ComponentWithPageLayout = AppProps & {
@@ -42,7 +42,6 @@ function MyApp({ Component, pageProps }: ComponentWithPageLayout) {
                 <Component {...pageProps} />
               </Layout>
             )}
-            <ConnectKitButton />
           </ConnectKitProvider>
         </WagmiConfig>
       </PersistGate>

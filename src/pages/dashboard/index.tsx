@@ -2,7 +2,12 @@ import DashboardLayout from "@components/Layout/dashboard";
 import ConnectWallet from "@components/connectWallet";
 
 const Dashboard = () => {
-  return <><ConnectWallet /></>;
+  return (
+    <>
+      Dashboard
+      {/* <ConnectWallet /> */}
+    </>
+  );
 };
 
 Dashboard.PageLayout = DashboardLayout;
