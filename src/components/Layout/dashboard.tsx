@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Logo from "@images/Header/safekeepLogo.svg";
 import navs, { Dashfooter, newFeature } from "@config/navs";
 import GasStation from "@images/Dashboard/gas-station.svg";
@@ -61,13 +62,30 @@ const NavLinks = () => {
   );
 };
 const DashboardLayout = ({ children }: IChild) => {
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+
+  const toggleOpen = () => {
+    setSidebarOpen(state => !state);
+  };
+
   return (
     <>
-      <div className="grid grid-cols-12">
-        <div className="h-screen col-span-3 p-4 pt-10 pl-12 overflow-scroll overflow-x-hidden overflow-y-scroll pr-7 font-dmSans scrollbar-thin scrollbar-thumb-blue-700 scrollbar-track-blue-300">
+      <div className="lg:grid grid-cols-12 relative ">
+        <div
+          className={`h-screen col-span-3 p-4 pt-10 pl-12 overflow-scroll overflow-x-hidden overflow-y-scroll pr-7 font-dmSans scrollbar-thin scrollbar-thumb-blue-700 scrollbar-track-blue-300 absolute left-0 z-20 bg-safekeep-white lg:relative  ${
+            sidebarOpen ? "w-full" : "hidden"
+          } lg:block`}
+        >
           <div className="flex flex-col justify-center">
-            <div className="mb-6">
-              <Logo />
+            <div className="flex justify-between items-center mb-6 ">
+              <div className="">
+                <Logo className="h-12" />
+              </div>
+              <div className="lg:hidden">
+                <svg onClick={toggleOpen} stroke="currentColor" fill="currentColor" strokeWidth={0} viewBox="0 0 352 512" color="curentColor" height={20} width={20} xmlns="http://www.w3.org/2000/svg">
+                  <path d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z" />
+                </svg>
+              </div>
             </div>
             <div className="flex flex-col justify-between h-full">
               <div className="mb-12">
@@ -111,7 +129,7 @@ const DashboardLayout = ({ children }: IChild) => {
           <div className="flex justify-between grid-cols-10 p-3 lg:grid header-background">
             <div className="col-span-2"></div>
             <div className="col-span-4 ">
-              <div className="relative flex ">
+              <div className="relative hidden  lg:flex ">
                 <input placeholder="Search Assets,Transactions, Tokens..." className="w-full p-2 border rounded-md bg-safekeep-white placeholder:text-safekeep-gray-400 " />
                 <img className="absolute scale-110 -translate-y-1/2 right-4 top-1/2" src="/search-icon.svg" alt="searc icon" />
               </div>
@@ -131,7 +149,22 @@ const DashboardLayout = ({ children }: IChild) => {
                     </div>
                     <span className="text-sm font-medium text-black">0x45e7.....7410S</span>
                   </div>
-                  <div>
+
+                  <svg
+                    onClick={toggleOpen}
+                    stroke="currentColor"
+                    fill="currentColor"
+                    strokeWidth={0}
+                    viewBox="0 0 512 512"
+                    className="dark:text-white flex lg:hidden"
+                    height={30}
+                    width={30}
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path d="M32 96v64h448V96H32zm0 128v64h448v-64H32zm0 128v64h448v-64H32z" />
+                  </svg>
+
+                  <div className="lg:flex hidden">
                     <img src="toggle-light.svg" alt="toggle-light" />
                   </div>
                 </div>
@@ -139,7 +172,7 @@ const DashboardLayout = ({ children }: IChild) => {
             </div>
           </div>
           <div className="min-h-screen border bg-safekeep-blue-100">
-            {/* {children} */}
+            {children}
             <div className="flex justify-center mt-10 ">
               <ConnectWallet />
             </div>
