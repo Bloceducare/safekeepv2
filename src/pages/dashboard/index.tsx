@@ -4,7 +4,7 @@ import ConnectWallet from "@components/connectWallet";
 const Dashboard = () => {
   return (
     <>
-      Dashboard
+      {/* Dashboard */}
       {/* <ConnectWallet /> */}
     </>
   );

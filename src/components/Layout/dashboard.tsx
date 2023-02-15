@@ -70,14 +70,14 @@ const DashboardLayout = ({ children }: IChild) => {
 
   return (
     <>
-      <div className="lg:grid grid-cols-12 relative ">
+      <div className="relative grid-cols-12 lg:grid ">
         <div
           className={`h-screen col-span-3 p-4 pt-10 pl-12 overflow-scroll overflow-x-hidden overflow-y-scroll pr-7 font-dmSans scrollbar-thin scrollbar-thumb-blue-700 scrollbar-track-blue-300 absolute left-0 z-20 bg-safekeep-white lg:relative  ${
             sidebarOpen ? "w-full" : "hidden"
           } lg:block`}
         >
           <div className="flex flex-col justify-center">
-            <div className="flex justify-between items-center mb-6 ">
+            <div className="flex items-center justify-between mb-6 ">
               <div className="">
                 <Logo className="h-12" />
               </div>
@@ -126,7 +126,7 @@ const DashboardLayout = ({ children }: IChild) => {
         </div>
 
         <div className="col-span-9 ">
-          <div className="flex justify-between items-center p-4">
+          <div className="flex items-center justify-between p-4 lg:hidden">
             <div>
               <div className="">
                 <img src="safekeep-dark-bg.svg" alt="logo" className="w-2/3" />
@@ -137,10 +137,10 @@ const DashboardLayout = ({ children }: IChild) => {
               <img className="ml-4 scale-125" src="/wallet-header.svg" alt="search icon" />
             </div>
           </div>
-          <div className="hidden justify-between grid-cols-10 p-3 lg:grid header-background">
+          <div className="justify-between hidden grid-cols-10 p-3 lg:grid header-background">
             <div className="col-span-2"></div>
             <div className="col-span-4 ">
-              <div className="relative hidden  lg:flex ">
+              <div className="relative hidden lg:flex ">
                 <input placeholder="Search Assets,Transactions, Tokens..." className="w-full p-2 border rounded-md bg-safekeep-white placeholder:text-safekeep-gray-400 " />
                 <img className="absolute scale-110 -translate-y-1/2 right-4 top-1/2" src="/search-icon.svg" alt="search icon" />
               </div>
@@ -167,7 +167,7 @@ const DashboardLayout = ({ children }: IChild) => {
                     fill="currentColor"
                     strokeWidth={0}
                     viewBox="0 0 512 512"
-                    className="dark:text-white flex lg:hidden"
+                    className="flex dark:text-white lg:hidden"
                     height={30}
                     width={30}
                     xmlns="http://www.w3.org/2000/svg"
@@ -175,7 +175,7 @@ const DashboardLayout = ({ children }: IChild) => {
                     <path d="M32 96v64h448V96H32zm0 128v64h448v-64H32zm0 128v64h448v-64H32z" />
                   </svg>
 
-                  <div className="lg:flex hidden">
+                  <div className="hidden lg:flex">
                     <img src="toggle-light.svg" alt="toggle-light" />
                   </div>
                 </div>
@@ -184,14 +184,14 @@ const DashboardLayout = ({ children }: IChild) => {
           </div>
           <div className="h-[calc(100vh-70px)] border bg-safekeep-blue-100">
             {children}
-            <div className="flex justify-center mt-10 px-3">
+            <div className="flex justify-center px-3 mt-10">
               <ConnectWallet />
             </div>
           </div>
         </div>
       </div>
 
-      <div className="lg:hidden w-full fixed bottom-0 bg-safekeep-white/50 p-8 border border-3 py-4 text-safekeep-gray-300">
+      <div className="fixed bottom-0 w-full p-8 py-4 border bg-safekeep-white/50 border-3 text-safekeep-gray-300 lg:hidden">
         <div className="flex justify-between">
           <div>Overview</div>
           <div>SafeVault</div>
