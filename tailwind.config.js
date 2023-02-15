@@ -23,6 +23,7 @@ module.exports = {
         "safekeep-gray-900": "#070707",
         "safekeep-white": "#FEFFFF",
         "safe-light-100": "#FEFFFF",
+        "safe-light-800": "#848B8C",
         "header-background": "rgba(255, 255, 255, 0.5)",
         "safekeep-transparent": "rgba(255, 255, 255, 0.7)",
         "safe-dark-300": "#8A90BC",
@@ -32,7 +33,7 @@ module.exports = {
         "safekeep-blue-700": "#0150B4",
         "safekeep-main": "#F0FCFF",
         "safekeep-yellow-100": "#FEFDE6",
-        "safekeep-green-100": "#E6FEE6",
+        "safekeep-green-100": "#E6FEE6"
       },
       backgroundImage: {
         "footer-gradient": "linear-gradient(152.35deg, #0171FD 16.92%, #1AE52D 106.95%)",

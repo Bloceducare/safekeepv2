@@ -6,8 +6,6 @@ import { IChild } from "interface";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import ConnectWallet from "@components/connectWallet";
-import WalletConnect from "@components/WalletConnect";
-import ConnectionResult from "@components/WalletConnect/connectionResult";
 
 interface ILink {
   id: number;
@@ -128,12 +126,23 @@ const DashboardLayout = ({ children }: IChild) => {
         </div>
 
         <div className="col-span-9 ">
-          <div className="flex justify-between grid-cols-10 p-3 lg:grid header-background">
+          <div className="flex justify-between items-center p-4">
+            <div>
+              <div className="">
+                <img src="safekeep-dark-bg.svg" alt="logo" className="w-2/3" />
+              </div>
+            </div>
+            <div className="flex">
+              <img className="scale-125" src="/search-icon.svg" alt="search icon" />
+              <img className="ml-4 scale-125" src="/wallet-header.svg" alt="search icon" />
+            </div>
+          </div>
+          <div className="hidden justify-between grid-cols-10 p-3 lg:grid header-background">
             <div className="col-span-2"></div>
             <div className="col-span-4 ">
               <div className="relative hidden  lg:flex ">
                 <input placeholder="Search Assets,Transactions, Tokens..." className="w-full p-2 border rounded-md bg-safekeep-white placeholder:text-safekeep-gray-400 " />
-                <img className="absolute scale-110 -translate-y-1/2 right-4 top-1/2" src="/search-icon.svg" alt="searc icon" />
+                <img className="absolute scale-110 -translate-y-1/2 right-4 top-1/2" src="/search-icon.svg" alt="search icon" />
               </div>
             </div>
             <div className="col-span-4">
@@ -173,12 +182,21 @@ const DashboardLayout = ({ children }: IChild) => {
               </div>
             </div>
           </div>
-          <div className="min-h-screen border bg-safekeep-blue-100">
+          <div className="h-[calc(100vh-70px)] border bg-safekeep-blue-100">
             {children}
-            <div className="flex justify-center mt-10 ">
+            <div className="flex justify-center mt-10 px-3">
               <ConnectWallet />
             </div>
           </div>
+        </div>
+      </div>
+
+      <div className="lg:hidden w-full fixed bottom-0 bg-safekeep-white/50 p-8 border border-3 py-4 text-safekeep-gray-300">
+        <div className="flex justify-between">
+          <div>Overview</div>
+          <div>SafeVault</div>
+          <div>Settings</div>
+          <div>More</div>
         </div>
       </div>
     </>
