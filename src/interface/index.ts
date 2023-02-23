@@ -3,6 +3,18 @@ export interface IChild {
 } 
 
 
+export interface ICreateVault {
+    name:string
+    owner:string
+    address:string
+
+}
+
+
+export interface ICreateUser {
+    address:string
+    
+}
 export interface ISlide {
     id?:number
     title: string;

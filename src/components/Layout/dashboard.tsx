@@ -6,6 +6,7 @@ import { IChild } from "interface";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import ConnectWallet from "@components/connectWallet";
+import {siwe} from "siwe-app";
 
 interface ILink {
   id: number;
@@ -62,6 +63,7 @@ const NavLinks = () => {
   );
 };
 const DashboardLayout = ({ children }: IChild) => {
+  console.log("consile", siwe);
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   const toggleOpen = () => {
