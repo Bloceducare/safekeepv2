@@ -2,6 +2,7 @@ import {useState} from "react"
 import MetaMask from "assets/images/ConnectWallet/metamask.svg";
 import Cancel from "assets/images/Faq/close-circle.svg"
 import Form from "./form";
+
 const VaultSetUp = () => {
     const [createVault, setCreateVault] = useState(false);
   return (
