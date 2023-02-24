@@ -6,6 +6,7 @@ import { IChild } from "interface";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import ConnectWallet from "@components/connectWallet";
+import VaultSetUp from "@components/VaultSetup";
 
 interface ILink {
   id: number;
@@ -182,10 +183,10 @@ const DashboardLayout = ({ children }: IChild) => {
               </div>
             </div>
           </div>
-          <div className="h-[calc(100vh-70px)] border bg-safekeep-blue-100">
+          <div className="min-h-[calc(100vh-70px)] pb-32 border bg-safekeep-blue-100">
             {children}
             <div className="flex justify-center px-3 mt-10">
-              <ConnectWallet />
+              <VaultSetUp />
             </div>
           </div>
         </div>
