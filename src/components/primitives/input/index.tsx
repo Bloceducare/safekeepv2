@@ -95,51 +95,53 @@ const Input = ({
                             : 'false'
                     }
                     type={type}
-                    className={`p-3 w-full bg-white color-[#3A4662] placeholder-[#B2B7C2] text-base leading-6 rounded-lg border border-solid border-safekeep-gray-400 ${className}`}
+                    className={`p-3 w-full bg-white color-[#3A4662] placeholder-[#B2B7C2] text-base leading-6 rounded-lg border border-solid border-safekeep-gray-400 ${className} ${formContext && formContext.errors[name] ? 'border-[#FF8A8A] outline-[#FF8A8A]' : ''}`}
                     {...registerFn}
                     {...props}
                 />
             </span>
-            {formContext
-            && formContext.errors
-            && formContext.errors[name]
-            && !validationErrorMessage && (
-                <>
-                    {formContext?.errors[name]?.type === 'required' && showError && (
-                        <FormAlert>This Field is required</FormAlert>
-                    )}
-                    {formContext?.errors[name]?.type === 'pattern' && showError && (
-                        <>
-                            {type === 'password' && (
-                                <FormAlert>This password is not strong enough.</FormAlert>
-                            )}
-                            {type === 'email' && (
-                                <FormAlert>Please enter a valid email.</FormAlert>
-                            )}
-                            {type === 'tel' && (
-                                <FormAlert>
-                                    Please enter a valid phone number.
-                                </FormAlert>
-                            )}
-                            {type === 'number' && (
-                                <FormAlert>
-                                    Please enter a valid phone number.
-                                </FormAlert>
-                            )}
-                            {type !== 'password'
-                            && type !== 'tel'
-                            && type !== 'email'
-                            && type !== 'number' && <FormAlert>This is invalid.</FormAlert>}
-                        </>
-                    )}
-                    {formContext?.errors[name]?.type === 'maxLength' && (
-                        <FormAlert>Maximum length exceeded</FormAlert>
-                    )}
-                    {formContext?.errors[name]?.type === 'minLength' && (
-                        <FormAlert>Not long enough</FormAlert>
-                    )}
-                </>
-            )}
+            <div className="text-[#FF8A8A] text-xs">
+                {formContext
+                && formContext.errors
+                && formContext.errors[name]
+                && !validationErrorMessage && (
+                    <>
+                        {formContext?.errors[name]?.type === 'required' && showError && (
+                            <FormAlert>This Field is required</FormAlert>
+                        )}
+                        {formContext?.errors[name]?.type === 'pattern' && showError && (
+                            <>
+                                {type === 'password' && (
+                                    <FormAlert>This password is not strong enough.</FormAlert>
+                                )}
+                                {type === 'email' && (
+                                    <FormAlert>Please enter a valid email.</FormAlert>
+                                )}
+                                {type === 'tel' && (
+                                    <FormAlert>
+                                        Please enter a valid phone number.
+                                    </FormAlert>
+                                )}
+                                {type === 'number' && (
+                                    <FormAlert>
+                                        Please enter a valid phone number.
+                                    </FormAlert>
+                                )}
+                                {type !== 'password'
+                                && type !== 'tel'
+                                && type !== 'email'
+                                && type !== 'number' && <FormAlert>This is invalid.</FormAlert>}
+                            </>
+                        )}
+                        {formContext?.errors[name]?.type === 'maxLength' && (
+                            <FormAlert>Maximum length exceeded</FormAlert>
+                        )}
+                        {formContext?.errors[name]?.type === 'minLength' && (
+                            <FormAlert>Not long enough</FormAlert>
+                        )}
+                    </>
+                )}
+            </div>
         </div>
     );
 };

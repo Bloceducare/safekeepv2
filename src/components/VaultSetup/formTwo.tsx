@@ -48,9 +48,11 @@ const FormTwo = ({setStep}: FormTwoProps) => {
                     <div className="gap-6 rounded-lg max-w-auto flex items-center w-auto">
                     </div>
                 </div>
-                  {(formContext?.errors["backupAddress"]?.type === 'required' || formContext?.errors["backupName"]?.type === 'required') && (
-                        <FormAlert css={{ fontSize: '12px', color: '#FFFFFF', fontFamily: 'Beausite' }}>These fields are required</FormAlert>
+                <div className="text-xs text-[#FF8A8A]">
+                      {(formContext?.errors["backupAddress"]?.type === 'required' || formContext?.errors["backupName"]?.type === 'required') && (
+                        <FormAlert>These fields are required</FormAlert>
                     )}
+                </div>
                 <button type="submit" className="mt-6 w-full bg-safekeep-blue rounded-lg py-4 font-paralucentMedium text-safe-light-100 text-sm leading-[14px]">
                 Next
                 </button>
