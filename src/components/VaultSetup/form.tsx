@@ -6,6 +6,7 @@ import FormThree from "./formThree";
 import VaultCreatedForm from "./vaultCreatedForm";
 import LoadingModal from "./loadingModal";
 import { useCreateVaultMutation } from "@services/api";
+import { nanoid } from "nanoid";
 
 interface FormProps {
   setCreateVault: Dispatch<SetStateAction<boolean>>;
@@ -28,10 +29,10 @@ const Form = ({ setCreateVault }: FormProps) => {
       setStep("step-three");
       return;
     }
-    setStep("step-final");
+    // setStep("step-final");
 
     try {
-      await createVaultMut({ ...formData, vaultAddress: "0xsampleVault" });
+      await createVaultMut({ ...formData, vaultAddress: "0xsampleVault " + nanoid(3) });
     } catch (e) {
       console.log(e, "Error");
     }
@@ -44,27 +45,31 @@ const Form = ({ setCreateVault }: FormProps) => {
   };
   return (
     <div className="w-full">
-      <div className="w-full max-w-[590px] mx-auto flex justify-end mb-3.5 lg:hidden">
-        <button className="px-4 py-2 bg-safe-light-100 rounded-lg gap-2.5">
-          <span onClick={handleBackButton} className="font-paralucentLight leading-4 text-sm text-[#01A0FF]">
-            Back
-          </span>
-        </button>
-      </div>
-      {step === "step-one" && (
-        <FormProvider onSubmit={handleSubmit}>
-          <FormOne setCreateVault={setCreateVault} />
-        </FormProvider>
-      )}
-      {step === "step-two" && (
-        <FormProvider onSubmit={handleSubmit}>
-          <FormTwo setStep={setStep} />
-        </FormProvider>
-      )}
-      {step === "step-three" && (
-        <FormProvider onSubmit={handleSubmit}>
-          <FormThree setStep={setStep} formData={formData} actionStatus={actionStatus} />
-        </FormProvider>
+      {!vaultCreated && (
+        <>
+          <div className="w-full max-w-[590px] mx-auto flex justify-end mb-3.5 lg:hidden">
+            <button className="px-4 py-2 bg-safe-light-100 rounded-lg gap-2.5">
+              <span onClick={handleBackButton} className="font-paralucentLight leading-4 text-sm text-[#01A0FF]">
+                Back
+              </span>
+            </button>
+          </div>
+          {step === "step-one" && (
+            <FormProvider onSubmit={handleSubmit}>
+              <FormOne setCreateVault={setCreateVault} />
+            </FormProvider>
+          )}
+          {step === "step-two" && (
+            <FormProvider onSubmit={handleSubmit}>
+              <FormTwo setStep={setStep} />
+            </FormProvider>
+          )}
+          {step === "step-three" && (
+            <FormProvider onSubmit={handleSubmit}>
+              <FormThree setStep={setStep} formData={formData} actionStatus={actionStatus} />
+            </FormProvider>
+          )}
+        </>
       )}
       {vaultLoading && !vaultCreated && <LoadingModal />}
       {vaultCreated && <VaultCreatedForm />}

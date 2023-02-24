@@ -12,6 +12,7 @@ const router = createRouter<NextApiRequest, NextApiResponse>();
 router.get(async(req, res)=>{  
         
     try{
+      // @ts-ignore
       const users = await userDb.find({})
       return res.status(200).json(
      {
@@ -28,29 +29,6 @@ router.get(async(req, res)=>{
     }
 })
 
-interface IQuery {
-  type?: string | string[] | undefined;
-  page?: number | string;
-}
-router.get(async (req, res) => {
-  const { type }: IQuery = req.query;
-
-  try {
-    const users = await userDb.find({
-      ...(!!type && { type }),
-    });
-
-    return res.status(200).json({
-      status: true,
-      data: users,
-    });
-  } catch (e) {
-    return res.status(500).json({
-      status: false,
-      error: "server error",
-    });
-  }
-});
 
 export default router.handler({
   // @ts-ignore

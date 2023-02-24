@@ -39,7 +39,7 @@ router.post(async (req, res) => {
     })
   }
 
-
+      // @ts-ignore
     const creatingVault = await vaultDb.findOne({ vaultAddress });
     if (creatingVault) {
       return res
@@ -79,6 +79,7 @@ router.get(async (req, res) => {
   const { type }: IQuery = req.query;
 
   try {
+      // @ts-ignore
     const users = await vaultDb.find({
       ...(!!type && { type }),
     });

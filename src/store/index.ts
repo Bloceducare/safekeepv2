@@ -25,6 +25,10 @@ const persistConfig = {
   key: 'safekeep-root@0.0.1',
   version: 1,
   storage,
+  // blacklist: [
+  //   'Comment',
+  //   'Product',
+  // ], not to be persisted
 }
 
 const persistedReducer = persistReducer(persistConfig,  reducers)
@@ -36,7 +40,7 @@ export const store = configureStore({
       serializableCheck: {
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
-    }),
+    }).concat(safeKeepApi.middleware),
 })
 
 export type RootState = ReturnType<typeof store.getState>

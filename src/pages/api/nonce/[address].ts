@@ -7,8 +7,10 @@ import { ironOptions } from "@server/config";
 const router = createRouter<NextApiRequest, NextApiResponse>();
 router.post(async (req, res) => { 
   const key = req.query.address as string
-  let nonce =  generateNonce()    
+  let nonce =  generateNonce()   
+  // @ts-ignore 
   req.session.address=key
+  // @ts-ignore 
   req.session.nonce=nonce
 
   await req.session.save();

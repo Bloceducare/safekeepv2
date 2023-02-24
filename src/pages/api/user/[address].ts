@@ -15,6 +15,7 @@ router.post(async (req, res) => {
   const address = req.query.address as string
 
   try {
+      // @ts-ignore
     const creatingUser = await userDb.findOne({ address:address.toLowerCase() });
     if (creatingUser) {
       return res
@@ -47,8 +48,9 @@ router.post(async (req, res) => {
 
 router.get(async(req, res)=>{
   
-  console.log(req.session, "session")
+
     try{
+        // @ts-ignore
       const users = await userDb.find({})
       return res.status(200).json(
      {
@@ -73,6 +75,7 @@ router.get(async (req, res) => {
   const { type }: IQuery = req.query;
 
   try {
+      // @ts-ignore
     const users = await userDb.find({
       ...(!!type && { type }),
     });
