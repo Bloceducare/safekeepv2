@@ -27,10 +27,6 @@ const FormOne = ({setCreateVault}: FormOneProps) => {
                 <div className="flex-shrink-0 h-[17px] w-[17px] bg-[#CCCCCC] rounded-full flex items-center justify-center text-safe-light-100 text-xs leading-[14px] tracking-tighter">
                     3
                 </div>
-                 <div className="w-full bg-safe-light-600 h-[4px] rounded-l-lg"/>
-                <div className="flex-shrink-0  h-[17px] w-[17px] bg-[#CCCCCC] rounded-full flex items-center justify-center text-safe-light-100 text-xs leading-[14px] tracking-tighter">
-                    4
-                </div>
                 <div className="w-[5%] bg-safe-light-600 h-[4px] rounded-r-lg"/>
             </div>
             <div className="mt-6 w-full">

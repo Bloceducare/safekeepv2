@@ -2,6 +2,9 @@ import {useState, Dispatch, SetStateAction} from "react"
 import FormTwo from "./formTwo"
 import FormOne from "./formOne"
 import FormProvider from "../primitives/form-provider";
+import FormThree from "./formThree";
+import VaultCreatedForm from "./vaultCreatedForm";
+import LoadingModal from "./loadingModal";
 
 interface FormProps {
     setCreateVault: Dispatch<SetStateAction<boolean>>;
@@ -9,15 +12,20 @@ interface FormProps {
 
 const Form = ({setCreateVault}: FormProps) => {
     const [step, setStep] = useState("step-one");
+    const [formData, setFormData] = useState({});
+    const [isLoading, setIsLoading] = useState(false)
 
     const handleSubmit = (e)=>{
+        setFormData((prevData)=>({...prevData, ...e}))
         if(step === "step-one") setStep("step-two")
         if(step === "step-two") setStep("step-three")
+         console.log(formData);
     }
 
      const handleBackButton = (e)=>{
         if(step === "step-one") setCreateVault(false)
         if(step === "step-two") setStep("step-one")
+        if(step === "step-three") setStep("step-two")
     }
     return (
     <div className="w-full">
@@ -38,6 +46,19 @@ const Form = ({setCreateVault}: FormProps) => {
                 <FormProvider onSubmit={handleSubmit}>
                     <FormTwo setStep={setStep} />
                 </FormProvider>
+            )
+        }
+        {
+            step === "step-three" && (
+                <FormProvider onSubmit={handleSubmit}>
+                    <FormThree setStep={setStep} formData={formData} />
+                </FormProvider>
+            )
+        }
+
+        {
+            isLoading && (
+                <LoadingModal />
             )
         }
     </div>
