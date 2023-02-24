@@ -3,13 +3,19 @@ const Schema = mongoose.Schema;
 
 const VaultSchema = new Schema(
   {
-    name: {
+    vaultName: {
       type: String,
     },
     owner: {
       type: String,
     },
-    address: {
+    backupAddress: {
+      type: String,
+    },
+    vaultAddress: {
+      type: String,
+    },
+    backupName: {
       type: String,
     },
   },
@@ -17,5 +23,5 @@ const VaultSchema = new Schema(
   { timestamps: true }
 );
 const Vaults =
-  mongoose.models.Vault || mongoose.model("vault", VaultSchema, "vault");
+  mongoose.models.Vault || mongoose.model("Vault", VaultSchema, "Vault");
 export default Vaults;

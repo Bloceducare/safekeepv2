@@ -6,7 +6,10 @@ import { IChild } from "interface";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import ConnectWallet from "@components/connectWallet";
-import {siwe} from "siwe-app";
+import VaultSetUp from "@components/VaultSetup";
+import ConnectButton from "@components/ConnectButton";
+import { useAccount } from "wagmi";
+import { truncateWalletAddress } from "@utils/index";
 
 interface ILink {
   id: number;
@@ -63,8 +66,8 @@ const NavLinks = () => {
   );
 };
 const DashboardLayout = ({ children }: IChild) => {
-  console.log("consile", siwe);
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const { address } = useAccount();
 
   const toggleOpen = () => {
     setSidebarOpen(state => !state);
@@ -157,10 +160,14 @@ const DashboardLayout = ({ children }: IChild) => {
                     <img className="mr-4" src="/profile-header.svg" alt="base-token-logo" />
                   </div>
                   <div className="flex items-center p-2 px-3 mx-4 rounded-full bg-safekeep-blue-100">
-                    <div>
-                      <img className="mr-2" src="/wallet-header.svg" alt="base-token-logo" />
-                    </div>
-                    <span className="text-sm font-medium text-black">0x45e7.....7410S</span>
+                    <ConnectButton>
+                      <div className="flex items-center">
+                        <div>
+                          <img className="mr-2" src="/wallet-header.svg" alt="base-token-logo" />
+                        </div>
+                        <span className="text-sm font-medium text-black">{truncateWalletAddress(address, 5)}</span>
+                      </div>
+                    </ConnectButton>
                   </div>
 
                   <svg
@@ -184,10 +191,10 @@ const DashboardLayout = ({ children }: IChild) => {
               </div>
             </div>
           </div>
-          <div className="h-[calc(100vh-70px)] border bg-safekeep-blue-100">
+          <div className="min-h-[calc(100vh-70px)] pb-32 border bg-safekeep-blue-100">
             {children}
             <div className="flex justify-center px-3 mt-10">
-              <ConnectWallet />
+              <VaultSetUp />
             </div>
           </div>
         </div>

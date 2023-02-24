@@ -1,5 +1,7 @@
 import { SiweMessage } from "siwe";
 import axios from "axios"
+import { store } from "store";
+import { login, logout } from "store/auth";
 
 
 let currentAddress;
@@ -12,8 +14,7 @@ export const siweConfig = {
     // @ts-ignore
     window.ethereum.on('accountsChanged', function (accounts) {      
             currentAddress = accounts?.[0]
-    });
-   
+    });  
     
     const {data} = await axios.post(`/api/nonce/${currentAddress}`)
     
@@ -35,6 +36,7 @@ export const siweConfig = {
     const verify = await axios.post("/api/auth/verify", {
       message, signature
     })
+     store.dispatch(login(verify.data))
     return verify?.status === 200;
   },
 
@@ -48,5 +50,8 @@ export const siweConfig = {
       console.log("Error Session", e)
      }
   },
-  signOut: async () => fetch("/api/auth/logout").then(res => res.ok)
+  signOut: async () => {
+    store.dispatch(logout())
+    return fetch("/api/auth/logout").then(res => res.ok)
+  }
 };

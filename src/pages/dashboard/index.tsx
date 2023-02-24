@@ -1,6 +1,5 @@
 import DashboardLayout from "@components/Layout/dashboard";
 import ConnectWallet from "@components/connectWallet";
-import { siwe } from "siwe-app.js";
 import { GetServerSideProps } from "next";
 
 const walletHasToken = async (address: string): Promise<boolean> => {

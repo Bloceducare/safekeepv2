@@ -2,11 +2,19 @@ export interface IChild {
     children: React.ReactNode
 } 
 
-
-export interface ICreateVault {
-    name:string
-    owner:string
+export interface IToken   {
     address:string
+    iat:number
+    exp:number
+    nonce:string
+  }
+export interface ICreateVault {
+    vaultName:string
+    owner?:string
+    vaultAddress:string
+    backupName:string
+    backupAddress:string
+
 
 }
 

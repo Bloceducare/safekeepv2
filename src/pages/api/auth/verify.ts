@@ -3,6 +3,16 @@ import { createRouter } from "next-connect";
 import { withIronSessionApiRoute } from "iron-session/next";
 import { ironOptions } from "@server/config";
 import { SiweMessage } from "siwe";
+import { SignJWT  as sign} from "jose";
+import {randomUUID} from "crypto"
+
+
+declare module "iron-session" { 
+  interface IronSessionData { 
+    address?: string; 
+    nonce?: string; 
+  }   
+} 
 
 const router = createRouter<NextApiRequest, NextApiResponse>();
 
@@ -12,19 +22,31 @@ router.post(handler)
   req: NextApiRequest,
   res: NextApiResponse
 ) {
+  const secretKey = process.env.NEXTAUTH_SECRET as string
 
   try{
+
   
     const { message, signature } = req.body;
+   
       const siwe = new SiweMessage(message)
       const result = await siwe.verify({
         signature: signature || "",
-        domain: "localhost:3000",
+        domain: req.rawHeaders?.[1],
+          // @ts-ignore
         nonce: req.session.nonce,
       })
-      
-      if (result.success) {       
-        res.status(200).json(req.session)
+  
+      if (result.success) { 
+        const current = Math.round((new Date().getTime()/1000))
+        // @ts-ignore
+        const token = await new sign(req.session)
+        .setProtectedHeader({ alg: 'HS256' })
+        .setJti(randomUUID())
+        .setIssuedAt(current)
+        .setExpirationTime('2h')
+        .sign(new TextEncoder().encode(secretKey))         
+        res.status(200).json({...req.session, accessToken:token })
       }
       return null
 

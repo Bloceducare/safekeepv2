@@ -1,5 +1,8 @@
 import connectDB from "./db";
 
+
+export const secretKey = process.env.NEXTAUTH_SECRET as string
+
 export const redis = {
     host: process.env.REDIS_HOST,
     password: process.env.REDIS_PASSWORD,

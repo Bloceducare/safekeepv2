@@ -4,12 +4,11 @@ import { RootState } from 'store';
 const baseUrl ="/api"
 export const safeKeepApi = createApi({
     reducerPath: 'safeKeepApi',
-  baseQuery: fetchBaseQuery({
+    baseQuery: fetchBaseQuery({
        baseUrl,
        prepareHeaders(headers, {getState}) {
         const store = (getState() as RootState )
-        // const token = store?.userReducer?.user?.token
-        const token = ""
+        const token = store?.authReducer?.auth.accessToken
         headers.set('Authorization', `Bearer ${token}`)    
         return headers
        },  
@@ -35,10 +34,20 @@ export const safeKeepApi = createApi({
         },       
         invalidatesTags:['User']
       }),
+      createVault:builder.mutation({
+        query: (body) =>{
+          return{
+            url: "/vault",
+            method: 'POST',  
+            body        
+          }
+        },  
+      })
     }),
   });
   
   export const {  
     useGetUserQuery, 
-    useUpdateUserMutation
+    useUpdateUserMutation,
+    useCreateVaultMutation
    } =  safeKeepApi;
