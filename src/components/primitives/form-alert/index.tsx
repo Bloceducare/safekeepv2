@@ -1,7 +1,9 @@
 import React from "react";
 
-const FormAlert: React.FC = React.forwardRef<HTMLSpanElement, HtmlProps<HTMLSpanElement>>((props, ref) => <span ref={ref} role="alert" className="pt-1.5 font-[10px] block" {...props} />);
+interface FormAlertProps {
+  children: string;
+}
 
-FormAlert.displayName = "FormAlert";
+const FormAlert = (({children}: FormAlertProps) => <span role="alert" className="pt-1.5 font-[10px] block">{children} </span>);
 
 export default FormAlert;

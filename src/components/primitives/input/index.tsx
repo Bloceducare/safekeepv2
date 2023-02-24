@@ -1,9 +1,10 @@
 import React from "react";
+import type  {}  from 'next/document';
 import { useFormProvider } from "../form-provider";
 import FormAlert from "../form-alert";
 import usePersistedId from "../utils/use-persisted-id";
 
-export interface InputProps extends HtmlPropsNoRef<HTMLInputElement> {
+export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   name: string;
   placeholder?: string;
   type?: "email" | "text" | "tel" | "number" | "password";
