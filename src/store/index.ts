@@ -12,18 +12,23 @@ import {
 } from 'redux-persist'
 import storage from 'redux-persist/lib/storage'
 import { safeKeepApi } from '../services/api';
+import auth from './auth';
 
 
 const reducers = combineReducers({
-  [safeKeepApi.reducerPath]:safeKeepApi.reducer
+  [safeKeepApi.reducerPath]:safeKeepApi.reducer,
+  authReducer:auth
  //...            
 });
 
-
 const persistConfig = {
-  key: 'root',
+  key: 'safekeep-root@0.0.1',
   version: 1,
   storage,
+  // blacklist: [
+  //   'Comment',
+  //   'Product',
+  // ], not to be persisted
 }
 
 const persistedReducer = persistReducer(persistConfig,  reducers)
@@ -35,7 +40,7 @@ export const store = configureStore({
       serializableCheck: {
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
-    }),
+    }).concat(safeKeepApi.middleware),
 })
 
 export type RootState = ReturnType<typeof store.getState>

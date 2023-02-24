@@ -5,6 +5,8 @@ import FormProvider from "../primitives/form-provider";
 import FormThree from "./formThree";
 import VaultCreatedForm from "./vaultCreatedForm";
 import LoadingModal from "./loadingModal";
+import { useCreateVaultMutation } from "@services/api";
+import { nanoid } from "nanoid";
 
 interface FormProps {
   setCreateVault: Dispatch<SetStateAction<boolean>>;
@@ -13,9 +15,11 @@ interface FormProps {
 const Form = ({ setCreateVault }: FormProps) => {
   const [step, setStep] = useState("step-one");
   const [formData, setFormData] = useState({});
-  const [isLoading, setIsLoading] = useState(false);
+  const [createVaultMut, { ...actionStatus }] = useCreateVaultMutation();
+  const vaultLoading = actionStatus?.isLoading;
+  const vaultCreated = actionStatus?.isSuccess;
 
-  const handleSubmit = e => {
+  const handleSubmit = async e => {
     setFormData(prevData => ({ ...prevData, ...e }));
     if (step === "step-one") {
       setStep("step-two");
@@ -25,7 +29,13 @@ const Form = ({ setCreateVault }: FormProps) => {
       setStep("step-three");
       return;
     }
-    console.log(formData);
+    // setStep("step-final");
+
+    try {
+      await createVaultMut({ ...formData, vaultAddress: "0xsampleVault " + nanoid(3) });
+    } catch (e) {
+      console.log(e, "Error");
+    }
   };
 
   const handleBackButton = e => {
@@ -35,30 +45,34 @@ const Form = ({ setCreateVault }: FormProps) => {
   };
   return (
     <div className="w-full">
-      <div className="w-full max-w-[590px] mx-auto flex justify-end mb-3.5 lg:hidden">
-        <button className="px-4 py-2 bg-safe-light-100 rounded-lg gap-2.5">
-          <span onClick={handleBackButton} className="font-paralucentLight leading-4 text-sm text-[#01A0FF]">
-            Back
-          </span>
-        </button>
-      </div>
-      {step === "step-one" && (
-        <FormProvider onSubmit={handleSubmit}>
-          <FormOne setCreateVault={setCreateVault} />
-        </FormProvider>
+      {!vaultCreated && (
+        <>
+          <div className="w-full max-w-[590px] mx-auto flex justify-end mb-3.5 lg:hidden">
+            <button className="px-4 py-2 bg-safe-light-100 rounded-lg gap-2.5">
+              <span onClick={handleBackButton} className="font-paralucentLight leading-4 text-sm text-[#01A0FF]">
+                Back
+              </span>
+            </button>
+          </div>
+          {step === "step-one" && (
+            <FormProvider onSubmit={handleSubmit}>
+              <FormOne setCreateVault={setCreateVault} />
+            </FormProvider>
+          )}
+          {step === "step-two" && (
+            <FormProvider onSubmit={handleSubmit}>
+              <FormTwo setStep={setStep} />
+            </FormProvider>
+          )}
+          {step === "step-three" && (
+            <FormProvider onSubmit={handleSubmit}>
+              <FormThree setStep={setStep} formData={formData} actionStatus={actionStatus} />
+            </FormProvider>
+          )}
+        </>
       )}
-      {step === "step-two" && (
-        <FormProvider onSubmit={handleSubmit}>
-          <FormTwo setStep={setStep} />
-        </FormProvider>
-      )}
-      {step === "step-three" && (
-        <FormProvider onSubmit={handleSubmit}>
-          <FormThree setStep={setStep} formData={formData} />
-        </FormProvider>
-      )}
-
-      {isLoading && <LoadingModal />}
+      {vaultLoading && !vaultCreated && <LoadingModal />}
+      {vaultCreated && <VaultCreatedForm />}
     </div>
   );
 };

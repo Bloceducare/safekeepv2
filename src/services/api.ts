@@ -1,26 +1,20 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { RootState } from 'store';
 
-
-
-
-const baseUrl ="https://jsonplaceholder.typicode.com"
-
+const baseUrl ="/api"
 export const safeKeepApi = createApi({
     reducerPath: 'safeKeepApi',
-  baseQuery: fetchBaseQuery({
+    baseQuery: fetchBaseQuery({
        baseUrl,
        prepareHeaders(headers, {getState}) {
         const store = (getState() as RootState )
-        // const token = store?.userReducer?.user?.token
-        const token = ""
+        const token = store?.authReducer?.auth.accessToken
         headers.set('Authorization', `Bearer ${token}`)    
         return headers
-       },
+       },  
      }),
      tagTypes: ['User'],
-    endpoints: (builder) => ({
-        // Examples API
+    endpoints: (builder) => ({       
       getUser: builder.query({
         query: () =>{
           return{
@@ -28,10 +22,8 @@ export const safeKeepApi = createApi({
             method: 'GET',          
           }
         }, 
-        providesTags: ['User']
-        // invalidatesTags:['User']
-      }),
-       // Examples API
+        providesTags: ['User']       
+      }),      
       updateUser: builder.mutation({
         query: (body) =>{
           return{
@@ -42,10 +34,20 @@ export const safeKeepApi = createApi({
         },       
         invalidatesTags:['User']
       }),
+      createVault:builder.mutation({
+        query: (body) =>{
+          return{
+            url: "/vault",
+            method: 'POST',  
+            body        
+          }
+        },  
+      })
     }),
   });
   
   export const {  
     useGetUserQuery, 
-    useUpdateUserMutation
+    useUpdateUserMutation,
+    useCreateVaultMutation
    } =  safeKeepApi;

@@ -6,7 +6,8 @@ import { persistStore } from "redux-persist";
 import { PersistGate } from "redux-persist/integration/react";
 import Layout from "@components/Layout";
 import { WagmiConfig, createClient } from "wagmi";
-import { ConnectKitProvider, getDefaultClient } from "connectkit";
+import { ConnectKitProvider, getDefaultClient, SIWEProvider } from "connectkit";
+import { siweConfig } from "@config/siwe";
 
 let persistor = persistStore(store);
 
@@ -31,18 +32,20 @@ function MyApp({ Component, pageProps }: ComponentWithPageLayout) {
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
         <WagmiConfig client={client}>
-          <ConnectKitProvider>
-            {Component.PageLayout ? (
-              // @ts-ignore
-              <Component.PageLayout>
-                <Component {...pageProps} />
-              </Component.PageLayout>
-            ) : (
-              <Layout>
-                <Component {...pageProps} />
-              </Layout>
-            )}
-          </ConnectKitProvider>
+          <SIWEProvider {...siweConfig}>
+            <ConnectKitProvider>
+              {Component.PageLayout ? (
+                // @ts-ignore
+                <Component.PageLayout>
+                  <Component {...pageProps} />
+                </Component.PageLayout>
+              ) : (
+                <Layout>
+                  <Component {...pageProps} />
+                </Layout>
+              )}
+            </ConnectKitProvider>
+          </SIWEProvider>
         </WagmiConfig>
       </PersistGate>
     </Provider>
