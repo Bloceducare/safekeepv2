@@ -2,6 +2,7 @@ import type { NextApiRequest, NextApiResponse } from "next";
 import { createRouter } from "next-connect";
 import connectDB from "@server/config/db";
 import vaultDb from "@server/models/vault";
+import userDb from "@server/models/user"
 import { ICreateVault } from "interface";
 import { isAuthenticated } from "@lib/auth";
 
@@ -58,6 +59,17 @@ router.post(async (req, res) => {
       ...data
     })
     await created.save()
+    const userUpdates = await userDb.findOneAndUpdate({
+      address:tokenData?.address?.toLocaleLowerCase()
+    }, {
+      $push:{
+        vaults:{
+          _id:created._doc._id,
+          vaultName: vaultName.toLowerCase(),
+          vaultAddress: vaultAddress.toLowerCase(),
+        },      
+      }
+    })
 
     return res.status(200).json({
       status: true,

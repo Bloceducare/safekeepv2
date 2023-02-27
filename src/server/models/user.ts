@@ -6,6 +6,7 @@ const userSchema = new Schema(
     name: {
       type: String,
     },
+    vaults:[],
     address: {
       type: String,
       required:"Wallet address is required"

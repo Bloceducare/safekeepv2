@@ -33,6 +33,11 @@ const persistConfig = {
 
 const persistedReducer = persistReducer(persistConfig,  reducers)
 
+const authMiddleware = (store)=>(next)=>(action)=>{
+  const currentState = store.getState() as RootState
+  // console.log(currentState.authReducer,  "next middleware")
+  next(action)
+}
 export const store = configureStore({
   reducer: persistedReducer,
   middleware: (getDefaultMiddleware) =>
@@ -40,7 +45,9 @@ export const store = configureStore({
       serializableCheck: {
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
-    }).concat(safeKeepApi.middleware),
+    })
+    .concat(safeKeepApi.middleware)
+    .concat(authMiddleware)
 })
 
 export type RootState = ReturnType<typeof store.getState>
