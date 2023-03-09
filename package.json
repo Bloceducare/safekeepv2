@@ -9,6 +9,7 @@
     "test": "jest --watch"
   },
   "dependencies": {
+    "@radix-ui/react-select": "^1.2.0",
     "@rainbow-me/rainbowkit": "^0.8.1",
     "@reduxjs/toolkit": "^1.9.2",
     "@svgr/webpack": "^6.5.1",

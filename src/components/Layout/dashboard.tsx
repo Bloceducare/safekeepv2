@@ -7,6 +7,9 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import ConnectWallet from "@components/connectWallet";
 import VaultSetUp from "@components/VaultSetup";
+import Transfer from "@components/Transfer";
+import Dashboard from '@components/Dashboard';
+import VaultProfile from '@components/VaultProfile';
 import ConnectButton from "@components/ConnectButton";
 import { useAccount } from "wagmi";
 import { truncateWalletAddress } from "@utils/index";
@@ -194,7 +197,7 @@ const DashboardLayout = ({ children }: IChild) => {
           <div className="min-h-[calc(100vh-70px)] pb-32 border bg-safekeep-blue-100">
             {children}
             <div className="flex justify-center px-3 mt-10">
-              <VaultSetUp />
+              <Dashboard />
             </div>
           </div>
         </div>
