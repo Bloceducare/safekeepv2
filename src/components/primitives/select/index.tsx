@@ -61,6 +61,11 @@ export interface SelectProps {
     name: string;
     arrowLeft?: boolean
     variant?: string
+    width?: string
+    placeholder?: string
+    required?: boolean
+    disabled?: boolean
+    className?: string
 }
 
 const Select = ({
@@ -114,7 +119,7 @@ const Select = ({
     }, [children, formContext, name, placeholder]);
 
     return (
-        <div className="w-full pb-0 h-full">
+        <div className="w-full pb-0 h-full relative">
             <SelectPrimitive.Root
                 onValueChange={(e) => {
                     if (onChange) {
@@ -130,10 +135,10 @@ const Select = ({
                 required={required}
                 defaultValue={children[0].props.value}
                 {...formContext?.register(name, { required })}
-                className='relative'
-                style={{
-                    position: 'relative'
-                }}
+                // className="relative"
+                // style={{
+                //     position: 'relative'
+                // }}
             >
                 <SelectPrimitive.SelectTrigger
                     style={{
