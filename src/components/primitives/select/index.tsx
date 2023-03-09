@@ -52,11 +52,7 @@ export const SelectOption: React.FC<SelectOptionProps> = ({
     </SelectPrimitive.Item>
 );
 
-export interface SelectProps
-    extends Omit<
-    HtmlPropsNoRef<SelectPrimitive.SelectProps>,
-    'onChange' | 'onBlur'
-    > {
+export interface SelectProps {
     paddingTop?: string;
     onChange?(value: string): void;
     onBlur?(value: boolean): void;
