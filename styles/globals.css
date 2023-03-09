@@ -50,6 +50,20 @@ background-clip: text;
 text-fill-color: transparent;
 }
 
+.empty-home-gradient {
+  background: linear-gradient(152.35deg, rgba(1, 113, 253, 0.4) 16.92%, rgba(26, 229, 45, 0.4) 106.95%);
+mix-blend-mode: darken;
+filter: blur(158px);
+transform: matrix(1, 0, 0, -1, 0, 0);
+}
+.safe-darky {
+  background: linear-gradient(91.58deg, #001873 0.13%, #011A91 101.16%);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+background-clip: text;
+text-fill-color: transparent;
+}
+
 .blog-author{
   background: linear-gradient(206.51deg, #01A0FF -0.2%, #0123F7 130.88%);
 -webkit-background-clip: text;
