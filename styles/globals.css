@@ -81,6 +81,10 @@ text-fill-color: transparent;
   @apply bg-safekeep-blue rounded-md text-safekeep-white font-paralucentLight
 }
 
+.pill-btn-grey {
+  @apply bg-safe-light-700 rounded-2xl text-safekeep-white  text-xl py-1 px-4 mb-6 uppercase
+}
+
 .safe-gradient-glow {
   background: linear-gradient(152.35deg, #0171FD 16.92%, #1AE52D 106.95%);
 }
