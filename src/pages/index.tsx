@@ -2,12 +2,12 @@ import { useEffect, useRef, useState } from "react";
 import type { NextPage } from "next";
 import Head from "next/head";
 import Image from "@components/primitives/image";
-import Hero from "components/Hero";
+import Hero from "@components/home/Hero";
 import About from "@components/About";
 import Ecosystem from "@components/Ecosystem";
 import Development from "@components/Development";
-import Cta from "@components/Cta";
-import Faq from "@components/Faq";
+import Cta from "@components/home/Cta";
+import Faq from "@components/home/Faq";
 import slides from "@data/blog/slides";
 import BlogSlider from "@components/BlogSlider";
 import DashboardIcon from "../../public/dashboard-icon.svg";
@@ -133,7 +133,7 @@ const Features = () => {
         <div className="text-safe-light-100 bg-safekeep-grey-200 inline-block rounded-3xl lg:py-2 py-4 px-4 lg:text-xl text-lg text-center mx-auto uppercase mb-6">Safekeep Ecosystem</div>
         <p className="text-4xl  mx-auto  text-safekeep-blue leading-tight mb-16">Safekeep is the safest, most secure crypto vault to explore web3 without risk.</p>
 
-        <div className="lg:grid grid-cols-6 gap-6 lg:p-0 p-5  lg:p-0 p-5">
+        <div className="lg:grid grid-cols-6 gap-6   lg:p-0 p-5">
           <div className="col-span-3 lg:mb-0 mb-12 ">
             <div className="relative">
               <div className="">
@@ -184,7 +184,7 @@ const Features = () => {
           </div>
         </div>
 
-        <div className="lg:grid grid-cols-6 gap-6 lg:translate-y-[15rem]  lg:p-0 p-5">
+        <div className="lg:grid grid-cols-6 gap-6 lg:translate-y-[15rem]  lg:p-0 p-5 lg:mb-[20rem] ">
           <div className="col-span-3">
             <div className="flex w-full">
               <Image className="lg:flex hidden" width={150} height={400} src="./assets-home-dash-left.svg" alt="assets-home-dash-left" />
@@ -207,7 +207,7 @@ const Features = () => {
               </div>
             </div>
           </div>
-          <div className="col-span-3 testl bg-gradient-to-r  from-[#0171FD]/40 to-[#1AE52D]/40 empty-home-gradient  lg:h-36 hidden lg:flex "></div>
+          <div className="col-span-3  bg-gradient-to-r  from-[#0171FD]/40 to-[#1AE52D]/40 empty-home-gradient  lg:h-36 hidden lg:flex "></div>
         </div>
       </div>
     </div>
@@ -230,8 +230,8 @@ const Home: NextPage = () => {
 
         {/* <Ecosystem /> */}
         {/* <Development /> */}
-        <Cta />
         <Faq />
+        <Cta />
         {/* <BlogSlider slides={slides} /> */}
       </div>
     </div>

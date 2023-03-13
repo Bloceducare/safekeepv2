@@ -24,6 +24,7 @@
       "@state/*": ["state/*"],
       "@pages/*": ["pages/*"],
       "@images/*": ["assets/images/*"],
+      "@video/*": ["assets/video/*"],
       "@data/*": ["data/*"],
       "@config/*": ["config/*"],
       "@server/*": ["server/*"],    
