@@ -105,3 +105,7 @@ text-fill-color: transparent;
     margin: 0;
   }
 }
+
+.box-shadow-one {
+  box-shadow: 0px 0.909091px 2.72727px rgba(16, 24, 40, 0.1), 0px 0.909091px 1.81818px rgba(16, 24, 40, 0.06);
+}

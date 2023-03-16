@@ -6,9 +6,7 @@ import { IChild } from "interface";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import ConnectWallet from "@components/connectWallet";
-import VaultSetUp from "@components/VaultSetup";
 import Transfer from "@components/Transfer";
-import Dashboard from "@components/Dashboard";
 import VaultProfile from "@components/VaultProfile";
 import ConnectButton from "@components/ConnectButton";
 import { useAccount } from "wagmi";
@@ -43,8 +41,9 @@ const NavLink = ({ ...data }: ILink) => {
   const router = useRouter();
   // const isActive = data.href === router.pathname;
   const isActive = false;
+  const { href } = data;
   return (
-    <Link href="/dashboard" className={`${isActive ? "bg-safekeep-blue text-safekeep-white " : ""} flex  items-center  p-2 rounded-md `}>
+    <Link href={href} className={`${isActive ? "bg-safekeep-blue text-safekeep-white " : ""} flex  items-center  p-2 rounded-md `}>
       <div className="mr-2">
         <div className="mr-2">
           <Icon />
@@ -80,26 +79,18 @@ const DashboardLayout = ({ children }: IChild) => {
     <>
       <div className="relative grid-cols-12 lg:grid ">
         <div
-          className={`h-screen col-span-3 p-4 pt-10 pl-12 overflow-scroll overflow-x-hidden overflow-y-scroll pr-7 font-dmSans scrollbar-thin scrollbar-thumb-blue-700 scrollbar-track-blue-300 absolute left-0 z-20 bg-safekeep-white lg:relative  ${
-            sidebarOpen ? "w-full" : "hidden"
-          } lg:block`}
+          className={`h-screen col-span-3 p-4 pt-10 pl-12 overflow-scroll overflow-x-hidden overflow-y-scroll pr-7 font-dmSans   bg-safekeep-white lg:relative hidden w-full lg:block`}
         >
           <div className="flex flex-col justify-center">
             <div className="flex items-center justify-between mb-6 ">
               <div className="">
                 <Logo className="h-12" />
               </div>
-              <div className="lg:hidden">
-                <svg onClick={toggleOpen} stroke="currentColor" fill="currentColor" strokeWidth={0} viewBox="0 0 352 512" color="curentColor" height={20} width={20} xmlns="http://www.w3.org/2000/svg">
-                  <path d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z" />
-                </svg>
-              </div>
             </div>
             <div className="flex flex-col justify-between h-full">
               <div className="mb-12">
                 <NavLinks />
               </div>
-
               <div className="">
                 <div className="mb-6 font-medium tracking-widest uppercase">new features</div>
                 {newFeature.map(item => (
@@ -195,11 +186,7 @@ const DashboardLayout = ({ children }: IChild) => {
             </div>
           </div>
           <div className="min-h-[calc(100vh-70px)] pb-32 border bg-safekeep-blue-100">
-            {children}
-            <div className="flex justify-center px-3 mt-10">
-              {/* <Dashboard /> */}
-              <VaultSetUp />
-            </div>
+            <div className="flex justify-center px-3 mt-10 ">{children}</div>
           </div>
         </div>
       </div>
