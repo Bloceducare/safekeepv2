@@ -1,5 +1,10 @@
 import ConnectButton from "@components/ConnectButton";
 import { useAccount } from "wagmi";
+
+const buttonType = {
+  solid: "bg-safekeep-blue w-full text-safekeep-white p-2 py-3 rounded-[8px]",
+  outline: "border border-safekeep-blue text-safekeep-blue  w-full  p-2 py-3 rounded-[8px]"
+};
 const Button = ({ children, type = "solid", className = "", ...props }) => {
   const { isConnected } = useAccount();
 
@@ -8,7 +13,7 @@ const Button = ({ children, type = "solid", className = "", ...props }) => {
   }
   return (
     <>
-      <button {...props} className={`${type == "solid" ? "bg-safekeep-blue w-full text-safekeep-white p-2 py-3 rounded-[8px]" : ""} ${className} `}>
+      <button {...props} className={`${buttonType[type]} ${className}  `}>
         {children}
       </button>
     </>

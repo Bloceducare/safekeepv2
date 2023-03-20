@@ -12,6 +12,10 @@ import ModalToggle from "@components/primitives/modal/modalToggle";
 import ModalDescription from "@components/primitives/modal/body";
 import AddMultiOne from "@components/Dashboard/multiSig/AddMultiOne";
 import AddMultiTwo from "@components/Dashboard/multiSig/AddMultiTwo";
+import useMultiStep from "../../hooks/useMultiStep";
+import Button from "@components/primitives/button";
+import RemoveSig from "@components/Dashboard/multiSig/Remove";
+import SuccessAdd from "@components/Dashboard/multiSig/SuccessAdd";
 
 const MultiStatusBox = ({ title = "", description = "", buttonText = "", maxW = false }) => {
   return (
@@ -43,13 +47,53 @@ const NotConnected = () => {
   );
 };
 
-const Sig = () => {
+const totalStep = 2;
+const ModalContent = () => {
+  const { currentStep, prev, next, isFirstStep, isLastStep } = useMultiStep(totalStep);
+  const MultiSteps = [AddMultiOne, AddMultiTwo];
+  const CurrentStep = MultiSteps[currentStep];
+  const [txnSuccess, setTxnSuccess] = useState(false);
+  const nextStep = () => {
+    console.log(currentStep, totalStep, "cecks");
+    if (currentStep < totalStep - 1) return next();
+    console.log("tred finised");
+    setTxnSuccess(true);
+  };
+  return (
+    <>
+      <Modal
+        open={true}
+        Toggle={
+          <Dialog.Trigger asChild>
+            <button className="text-violet11 shadow-blackA7 hover:bg-mauve3 inline-flex h-[35px] items-center justify-center rounded-[4px] bg-white px-[15px] font-medium leading-none shadow-[0_2px_10px] focus:shadow-[0_0_0_2px] focus:shadow-black focus:outline-none">
+              Open
+            </button>
+          </Dialog.Trigger>
+        }
+      >
+        {txnSuccess ? <SuccessAdd /> : <CurrentStep />}
+
+        <div className={`mt-2  ${txnSuccess ? "block w-full" : isFirstStep ? "" : "flex justify-between"}`}>
+          <div>
+            <Button className={`px-4 ${txnSuccess ? "hidden" : isFirstStep ? "hidden" : "flex"}`} onClick={prev}>
+              Prev
+            </Button>
+          </div>
+          <div>
+            <Button className={`px-4 ${txnSuccess ? "block w-full" : ""}`} onClick={nextStep}>
+              {txnSuccess ? "Done" : isLastStep ? "Submit" : "Next"}
+            </Button>
+          </div>
+        </div>
+      </Modal>
+    </>
+  );
+};
+export const Sig = ({ className="", hideActions = false }) => {
   return (
     <>
       <div className="">
-        {/* <AddMultiOne /> */}
-        <AddMultiTwo />
-        <div className="flex justify-between">
+        <div className={`flex justify-between ${className}`}>
           <div className="flex">
             <div className="w-12 h-12 rounded-full bg-safekeep-blue-500 mr-2"></div>
             <div>
@@ -57,23 +101,25 @@ const Sig = () => {
               <div className="text-xs text-safekeep-gray-200">My Friend</div>
             </div>
           </div>
-          <div className="flex items-center">
-            <div className="mr-3">
-              <button>
-                <Image width={20} height={20} src="/copy.svg" />
-              </button>
+          {!hideActions && (
+            <div className="flex items-center">
+              <div className="mr-3">
+                <button>
+                  <Image width={20} height={20} src="/copy.svg" />
+                </button>
+              </div>
+              <div className="mr-3">
+                <button>
+                  <Image width={20} height={20} src="/eye.svg" />
+                </button>
+              </div>
+              <div className="mr-3">
+                <button>
+                  <Image width={20} height={20} src="/trash.svg" />
+                </button>
+              </div>
             </div>
-            <div className="mr-3">
-              <button>
-                <Image width={20} height={20} src="/eye.svg" />
-              </button>
-            </div>
-            <div className="mr-3">
-              <button>
-                <Image width={20} height={20} src="/trash.svg" />
-              </button>
-            </div>
-          </div>
+          )}
         </div>
       </div>
     </>
@@ -87,39 +133,41 @@ const Connected = () => {
     buttonText: "Add Multi-Sig",
     maxW: true
   };
-  const [sig, setSig] = useState(0);
+  const [sig] = useState(0);
   return (
-    <div className="lg:grid grid-cols-10 gap-4  mt-4 flex flex-col-reverse ">
-      <div className="col-span-6 bg-safekeep-white p-10 rounded-2xl lg:mb-0 mb-4">
-        <Lock />
-        <p className="text-safekeep-gray-300 mt-3 mb-4 ">
-          Add, remove and replace or rename existing Multisignatories. Wallet names are only stored locally and will never be shared with us or any third parties.
-        </p>
-        {/* {sig == 0 && <MultiStatusBox {...data} />} */}
+    <>
+      <div className="lg:grid grid-cols-10 gap-4  mt-4 flex flex-col-reverse ">
+        <div className="col-span-6 bg-safekeep-white p-10 rounded-2xl lg:mb-0 mb-4">
+          <Lock />
+          <p className="text-safekeep-gray-300 mt-3 mb-4 ">
+            Add, remove and replace or rename existing Multisignatories. Wallet names are only stored locally and will never be shared with us or any third parties.
+          </p>
+          <ModalContent />
+          <RemoveSig />
+          {sig == 0 ? <MultiStatusBox {...data} /> : <Sig />}
+        </div>
+        <div className="col-span-4 ">
+          <div className="bg-safekeep-white p-10 rounded-2xl">
+            <Edit className="scale-125" />
+            <p className="text-safekeep-gray-300 mt-3 ">Set the number of authentications needed for transactions.s</p>
+            <div>
+              <Select name="sig" className="bg-safekeep-blue-100 p-3 border rounded-2xl mt-3">
+                <SelectOption value="select one">Option A</SelectOption>
+                <SelectOption value="select tow">Option B</SelectOption>
+              </Select>
+            </div>
 
-        <Sig />
-      </div>
-      <div className="col-span-4 ">
-        <div className="bg-safekeep-white p-10 rounded-2xl">
-          <Edit className="scale-125" />
-          <p className="text-safekeep-gray-300 mt-3 ">Set the number of authentications needed for transactions.s</p>
-          <div>
-            <Select name="sig" className="bg-safekeep-blue-100 p-3 border rounded-2xl mt-3">
-              <SelectOption value="select one">Option A</SelectOption>
-              <SelectOption value="select tow">Option B</SelectOption>
-            </Select>
-          </div>
-
-          <div className="mt-6">
-            <p className="text-xs text-safekeep-blue-500 mb-2">Required Confirmations</p>
-            <div className="inline-flex bg-safekeep-green-100 rounded-xl p-2 px-3 items-center  ">
-              <Verify className="mr-1" />
-              <span>2/3</span>
+            <div className="mt-6">
+              <p className="text-xs text-safekeep-blue-500 mb-2">Required Confirmations</p>
+              <div className="inline-flex bg-safekeep-green-100 rounded-xl p-2 px-3 items-center  ">
+                <Verify className="mr-1" />
+                <span>2/3</span>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 const MultiSig = () => {

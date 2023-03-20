@@ -1,8 +1,5 @@
-import Button from "@components/primitives/button";
 import Input from "@components/primitives/input";
-import Modal from "@components/primitives/modal";
 import ModalDescription from "@components/primitives/modal/body";
-import * as Dialog from "@radix-ui/react-dialog";
 import Email from "assets/images/dashboard/multi/email.svg";
 
 const Content = () => {
@@ -32,27 +29,13 @@ const Content = () => {
           </div>
         </div>
       </div>
-      <div className="mt-2">
-        <Button>Next</Button>
-      </div>
     </div>
   );
 };
 const AddMultiTwo = () => {
   return (
     <>
-      <Modal
-        open={true}
-        Toggle={
-          <Dialog.Trigger asChild>
-            <button className="text-violet11 shadow-blackA7 hover:bg-mauve3 inline-flex h-[35px] items-center justify-center rounded-[4px] bg-white px-[15px] font-medium leading-none shadow-[0_2px_10px] focus:shadow-[0_0_0_2px] focus:shadow-black focus:outline-none">
-              Open
-            </button>
-          </Dialog.Trigger>
-        }
-      >
-        <Content />
-      </Modal>
+      <Content />
     </>
   );
 };

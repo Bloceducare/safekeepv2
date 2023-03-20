@@ -78,9 +78,7 @@ const DashboardLayout = ({ children }: IChild) => {
   return (
     <>
       <div className="relative grid-cols-12 lg:grid ">
-        <div
-          className={`h-screen col-span-3 p-4 pt-10 pl-12 overflow-scroll overflow-x-hidden overflow-y-scroll pr-7 font-dmSans   bg-safekeep-white lg:relative hidden w-full lg:block`}
-        >
+        <div className={`h-screen col-span-3 p-4 pt-10 pl-12 overflow-scroll overflow-x-hidden overflow-y-scroll pr-7 font-dmSans   bg-safekeep-white lg:relative hidden w-full lg:block`}>
           <div className="flex flex-col justify-center">
             <div className="flex items-center justify-between mb-6 ">
               <div className="">
