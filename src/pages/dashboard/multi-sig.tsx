@@ -1,6 +1,6 @@
 import DashboardLayout from "@components/Layout/dashboard";
 import Cancel from "@images/Dashboard/multi/multi-disc.svg";
-import Lock from "a@images/Dashboard/multi/lock.svg";
+import Lock from "@images/Dashboard/multi/lock.svg";
 import Edit from "@images/Dashboard/multi/message-edit.svg";
 import Verify from "@images/Dashboard/multi/verify.svg";
 import { useState } from "react";
