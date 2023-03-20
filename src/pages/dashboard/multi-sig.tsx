@@ -8,16 +8,15 @@ import Select, { SelectOption } from "@components/primitives/select";
 import Image from "@components/primitives/image";
 import * as Dialog from "@radix-ui/react-dialog";
 import Modal from "@components/primitives/modal";
-import ModalToggle from "@components/primitives/modal/modalToggle";
-import ModalDescription from "@components/primitives/modal/body";
 import AddMultiOne from "@components/Dashboard/multiSig/AddMultiOne";
 import AddMultiTwo from "@components/Dashboard/multiSig/AddMultiTwo";
 import useMultiStep from "../../hooks/useMultiStep";
 import Button from "@components/primitives/button";
 import RemoveSig from "@components/Dashboard/multiSig/Remove";
 import SuccessAdd from "@components/Dashboard/multiSig/SuccessAdd";
+import Disconnect from "@components/Dashboard/multiSig/Disconnect";
 
-const MultiStatusBox = ({ title = "", description = "", buttonText = "", maxW = false }) => {
+const MultiStatusBox = ({ btnAction = () => {}, title = "", description = "", buttonText = "", maxW = false }) => {
   return (
     <div>
       <div className={`bg-safekeep-white ${maxW ? "" : "max-w-[32rem]"} m-auto p-5 text-center mt-8 rounded-lg border-safekeep-gray-200 border box-shadow-one`}>
@@ -27,18 +26,21 @@ const MultiStatusBox = ({ title = "", description = "", buttonText = "", maxW = 
         <div className="text-safekeep-gray-900 text-[18px]">{title}</div>
         <div className="text-[14px] line-[10px] text-safekeep-gray-600 mb-6 mt-4">{description}</div>
         <div className="mt-4">
-          <button className="bg-safekeep-blue w-full text-safekeep-white p-2 rounded-[8px]">{buttonText}</button>
+          <Button onClick={btnAction} type="solid">
+            {buttonText}
+          </Button>
         </div>
       </div>
     </div>
   );
 };
 
-const NotConnected = () => {
+const NotConnected = ({ connect }) => {
   const data = {
     title: "Multi-Sig Not Connected",
     description: "View all your transactions on your Safevault by adding assets & Tokens.",
-    buttonText: "Connect feature"
+    buttonText: "Connect feature",
+    btnAction: connect
   };
   return (
     <>
@@ -54,9 +56,7 @@ const ModalContent = () => {
   const CurrentStep = MultiSteps[currentStep];
   const [txnSuccess, setTxnSuccess] = useState(false);
   const nextStep = () => {
-    console.log(currentStep, totalStep, "cecks");
     if (currentStep < totalStep - 1) return next();
-    console.log("tred finised");
     setTxnSuccess(true);
   };
   return (
@@ -89,7 +89,7 @@ const ModalContent = () => {
     </>
   );
 };
-export const Sig = ({ className="", hideActions = false }) => {
+export const Sig = ({ className = "", hideActions = false }) => {
   return (
     <>
       <div className="">
@@ -114,9 +114,11 @@ export const Sig = ({ className="", hideActions = false }) => {
                 </button>
               </div>
               <div className="mr-3">
-                <button>
-                  <Image width={20} height={20} src="/trash.svg" />
-                </button>
+                <RemoveSig>
+                  <button>
+                    <Image width={20} height={20} src="/trash.svg" />
+                  </button>
+                </RemoveSig>
               </div>
             </div>
           )}
@@ -133,7 +135,7 @@ const Connected = () => {
     buttonText: "Add Multi-Sig",
     maxW: true
   };
-  const [sig] = useState(0);
+  const [sig] = useState(1);
   return (
     <>
       <div className="lg:grid grid-cols-10 gap-4  mt-4 flex flex-col-reverse ">
@@ -143,7 +145,6 @@ const Connected = () => {
             Add, remove and replace or rename existing Multisignatories. Wallet names are only stored locally and will never be shared with us or any third parties.
           </p>
           <ModalContent />
-          <RemoveSig />
           {sig == 0 ? <MultiStatusBox {...data} /> : <Sig />}
         </div>
         <div className="col-span-4 ">
@@ -191,12 +192,18 @@ const MultiSig = () => {
             <p className="text-[18px] text-safekeep-blue-500">Manage Multi-Signatories.</p>
           </div>
           <div>
-            <button onClick={toggle} className="border-safekeep-blue rounded-md px-4 py-2 text-safekeep-blue-700 border">
-              {isConnected ? "Disconnect" : "Connect"}
-            </button>
+            {isConnected ? (
+              <>
+                <Disconnect toggle={toggle} text="Disconnect" />
+              </>
+            ) : (
+              <button onClick={toggle} className="border-safekeep-blue rounded-md px-4 py-2 text-safekeep-blue-700 border">
+                Connect
+              </button>
+            )}
           </div>
         </div>
-        {isConnected ? <Connected /> : <NotConnected />}
+        {isConnected ? <Connected /> : <NotConnected connect={toggle} />}
       </div>
     </>
   );

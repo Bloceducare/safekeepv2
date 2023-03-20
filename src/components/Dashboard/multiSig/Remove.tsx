@@ -1,5 +1,5 @@
 import ModalDescription from "@components/primitives/modal/body";
-import Email from "assets/images/dashboard/multi/email.svg";
+import Email from "@images/dashboard/multi/email.svg";
 import Button from "@components/primitives/button";
 import Modal from "@components/primitives/modal";
 import * as Dialog from "@radix-ui/react-dialog";
@@ -32,7 +32,7 @@ const Content = () => {
     </div>
   );
 };
-const RemoveSig = () => {
+const RemoveSig = ({ children }) => {
   const [removing, setRemovin] = useState(false);
   const [txnSuccess, setTxnSuccess] = useState(false);
   const removeSig = async () => {
@@ -44,16 +44,7 @@ const RemoveSig = () => {
   };
   return (
     <>
-      <Modal
-        open={true}
-        Toggle={
-          <Dialog.Trigger asChild>
-            <button className="text-violet11 shadow-blackA7 hover:bg-mauve3 inline-flex h-[35px] items-center justify-center rounded-[4px] bg-white px-[15px] font-medium leading-none shadow-[0_2px_10px] focus:shadow-[0_0_0_2px] focus:shadow-black focus:outline-none">
-              Remove
-            </button>
-          </Dialog.Trigger>
-        }
-      >
+      <Modal open={true} Toggle={<Dialog.Trigger asChild>{children}</Dialog.Trigger>}>
         {removing ? (
           <RemovingSig />
         ) : txnSuccess ? (
