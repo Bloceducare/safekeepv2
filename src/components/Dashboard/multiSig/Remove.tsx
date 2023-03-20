@@ -1,5 +1,5 @@
 import ModalDescription from "@components/primitives/modal/body";
-import Email from "@images/dashboard/multi/email.svg";
+import Email from "@images/Dashboard/multi/email.svg";
 import Button from "@components/primitives/button";
 import Modal from "@components/primitives/modal";
 import * as Dialog from "@radix-ui/react-dialog";
