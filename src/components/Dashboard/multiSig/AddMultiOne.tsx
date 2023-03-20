@@ -9,7 +9,7 @@ const Content = () => {
   return (
     <div>
       <ModalDescription>
-        <Lock className="mb-2" />
+        <Lock className="mb-2 " />
       </ModalDescription>
       <div className="">
         <p className="text-2xl">
