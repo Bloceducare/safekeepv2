@@ -1,6 +1,6 @@
 import Input from "@components/primitives/input";
 import ModalDescription from "@components/primitives/modal/body";
-import Email from "@images/dashboard/multi/email.svg";
+import Email from "@images/Dashboard/multi/email.svg";
 
 const Content = () => {
   return (

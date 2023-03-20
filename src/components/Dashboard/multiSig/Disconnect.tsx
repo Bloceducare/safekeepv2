@@ -2,7 +2,7 @@ import Button from "@components/primitives/button";
 import Modal from "@components/primitives/modal";
 import * as Dialog from "@radix-ui/react-dialog";
 import { useState } from "react";
-import Cancel from "assets/images/dashboard/multi/multi-disc.svg";
+import Cancel from "@images/Dashboard/multi/multi-disc.svg";
 import VaultIcon from "@images/Dashboard/multi/vault.svg";
 import VaultSuccess from "@images/Dashboard/multi/vaultsuccess.svg";
 
