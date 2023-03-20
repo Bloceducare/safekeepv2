@@ -1,13 +1,11 @@
 import Input from "@components/primitives/input";
 import ModalDescription from "@components/primitives/modal/body";
-
-import Lock from "assets/images/dashboard/multi/lock.svg";
-import Trash from "assets/images/dashboard/multi/trash.svg";
+import Lock from "@images/dashboard/multi/lock.svg";
+import Trash from "@images/dashboard/multi/trash.svg";
 import { useNetwork } from "wagmi";
 
 const Content = () => {
   const { chain } = useNetwork();
-
   return (
     <div>
       <ModalDescription>

@@ -1,9 +1,8 @@
 import Button from "@components/primitives/button";
-import Input from "@components/primitives/input";
 import ModalDescription from "@components/primitives/modal/body";
 import { Sig } from "@pages/dashboard/multi-sig";
 import { PlusIcon } from "@radix-ui/react-icons";
-import Email from "assets/images/dashboard/multi/email.svg";
+import Email from "@images/dashboard/multi/email.svg";
 
 const Content = () => {
   return (
