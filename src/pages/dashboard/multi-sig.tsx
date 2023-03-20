@@ -1,8 +1,8 @@
 import DashboardLayout from "@components/Layout/dashboard";
-import Cancel from "assets/images/dashboard/multi/multi-disc.svg";
-import Lock from "assets/images/dashboard/multi/lock.svg";
-import Edit from "assets/images/dashboard/multi/message-edit.svg";
-import Verify from "assets/images/dashboard/multi/verify.svg";
+import Cancel from "@images/Dashboard/multi/multi-disc.svg";
+import Lock from "a@images/Dashboard/multi/lock.svg";
+import Edit from "@images/Dashboard/multi/message-edit.svg";
+import Verify from "@images/Dashboard/multi/verify.svg";
 import { useState } from "react";
 import Select, { SelectOption } from "@components/primitives/select";
 import Image from "@components/primitives/image";
