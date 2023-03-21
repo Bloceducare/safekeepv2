@@ -44,7 +44,7 @@ const RemoveSig = ({ children }) => {
   };
   return (
     <>
-      <Modal open={true} Toggle={<Dialog.Trigger asChild>{children}</Dialog.Trigger>}>
+      <Modal open={false} Toggle={<Dialog.Trigger asChild>{children}</Dialog.Trigger>}>
         {removing ? (
           <RemovingSig />
         ) : txnSuccess ? (

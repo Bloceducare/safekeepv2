@@ -46,7 +46,7 @@ const Disconnect = ({ toggle, text }) => {
   return (
     <>
       <Modal
-        open={true}
+        open={false}
         Toggle={
           <Dialog.Trigger asChild>
             <Button type="outline">{text}</Button>

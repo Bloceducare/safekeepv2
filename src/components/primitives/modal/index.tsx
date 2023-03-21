@@ -9,7 +9,7 @@ interface IModal {
   open: boolean;
 }
 const Modal = ({ Toggle, Title, children, Description, open = false }: IModal) => (
-  <Dialog.Root>
+  <Dialog.Root modal={true} defaultOpen={open} open={open}>
     {Toggle && Toggle}
     <Dialog.Portal>
       <Dialog.Overlay className={`bg-blackA9 data-[state=${open ? "open" : "closed"}]:animate-overlayShow fixed inset-0`} />
