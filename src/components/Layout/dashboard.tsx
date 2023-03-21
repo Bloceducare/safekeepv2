@@ -13,6 +13,7 @@ import VaultProfile from "@components/VaultProfile";
 import ConnectButton from "@components/ConnectButton";
 import { useAccount } from "wagmi";
 import { truncateWalletAddress } from "@utils/index";
+import Inheritors from "@components/inheritors";
 
 interface ILink {
   id: number;
@@ -198,7 +199,8 @@ const DashboardLayout = ({ children }: IChild) => {
             {children}
             <div className="flex justify-center px-3 mt-10">
               {/* <Dashboard /> */}
-              <VaultSetUp />
+              {/* <VaultSetUp /> */}
+              <Inheritors />
             </div>
           </div>
         </div>
