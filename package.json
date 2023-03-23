@@ -9,6 +9,9 @@
     "test": "jest --watch"
   },
   "dependencies": {
+    "@radix-ui/colors": "^0.1.8",
+    "@radix-ui/react-dialog": "^1.0.3",
+    "@radix-ui/react-icons": "^1.2.0",
     "@radix-ui/react-select": "^1.2.0",
     "@rainbow-me/rainbowkit": "^0.8.1",
     "@reduxjs/toolkit": "^1.9.2",

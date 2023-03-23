@@ -13,11 +13,11 @@ const Header = () => {
   const { signedIn } = useSIWE();
   const { address } = useAccount();
   const router = useRouter();
-  console.log(signedIn, address, "");
+  console.log(signedIn, address, "", router);
 
   useEffect(() => {
     if (signedIn && address) {
-      router.push("/dashboard");
+      // router.push("/dashboard");
     }
   }, [signedIn, address]);
 

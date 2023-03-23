@@ -1,4 +1,6 @@
 /** @type {import('tailwindcss').Config} */
+const { violet, blackA, mauve, green } = require("@radix-ui/colors");
+
 module.exports = {
   content: ["./src/pages/**/*.{js,ts,jsx,tsx}", "./src/components/**/*.{js,ts,jsx,tsx}", "./app/**/*.{js,ts,jsx,tsx,json}", "./src/Layout/**/*.{js,ts,jsx,tsx}", "./src/views/**/*.{js,ts,jsx,tsx}"],
   theme: {
@@ -11,12 +13,17 @@ module.exports = {
     },
     extend: {
       colors: {
+        ...mauve,
+        ...violet,
+        ...green,
+        ...blackA,
         "safekeep-blue": "#0171FD",
         "safekeep-blue-400": "#55A0FE",
+        "safekeep-blue-500": "#333D8A",
         "safekeep-blue-600": "#0167E6",
         "safekeep-gray": "#070707",
         "safekeep-gray-100": "#606060",
-        "safekeep-gray-200": "#B5B5B5",
+        "safekeep-gray-200": "#E4E7EC",
         "safekeep-gray-300": "#929292",
         "safekeep-gray-400": "#E2E4E8",
         "safekeep-gray-500": "#525C76",
@@ -31,7 +38,9 @@ module.exports = {
         "safekeep-transparent": "rgba(255, 255, 255, 0.7)",
         "safe-dark-300": "#8A90BC",
         "safe-dark-400": "#545D9D",
+        "safe-green-100": "#E6FEE6",
         "safe-green-700": "#00AF00",
+        "safe-green-800": "#008800",
         "safe-dark-main": "#001268",
         "safekeep-blue-100": "#E6F1FF",
         "safekeep-blue-700": "#0150B4",
@@ -51,11 +60,25 @@ module.exports = {
       },
       boxShadow: {
         "3xl": "0px 30px 35px rgba(110, 194, 254, 0.1)"
+      },
+      keyframes: {
+        overlayShow: {
+          from: { opacity: 0 },
+          to: { opacity: 1 }
+        },
+        contentShow: {
+          from: { opacity: 0, transform: "translate(-50%, -48%) scale(0.96)" },
+          to: { opacity: 1, transform: "translate(-50%, -50%) scale(1)" }
+        }
+      },
+      animation: {
+        overlayShow: "overlayShow 150ms cubic-bezier(0.16, 1, 0.3, 1)",
+        contentShow: "contentShow 150ms cubic-bezier(0.16, 1, 0.3, 1)"
       }
     }
   },
 
-  plugins: [require("rippleui"), require("@tailwindcss/typography"), require("tailwind-scrollbar")],
+  plugins: [require("rippleui"), require("@tailwindcss/typography")],
   rippleui: {
     removeThemes: ["dark", "light"]
   }

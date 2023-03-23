@@ -4,7 +4,6 @@ import Head from "next/head";
 import Image from "@components/primitives/image";
 import Hero from "@components/home/Hero";
 import About from "@components/About";
-import Ecosystem from "@components/Ecosystem";
 import Development from "@components/Development";
 import Cta from "@components/home/Cta";
 import Faq from "@components/home/Faq";
@@ -186,7 +185,7 @@ const Features = () => {
 
         <div className="lg:grid grid-cols-6 gap-6 lg:translate-y-[15rem]  lg:p-0 p-5 lg:mb-[20rem] ">
           <div className="col-span-3">
-            <div className="flex w-full">
+            <div className="flex  justify-center lg:justify-start">
               <Image className="lg:flex hidden" width={150} height={400} src="./assets-home-dash-left.svg" alt="assets-home-dash-left" />
               <Image width={300} height={200} src="./assets-home-dash.svg" alt="assets-home-dash" />
               <Image className="lg:flex hidden" width={150} height={400} src="./assets-home-dash-right.svg" alt="assets-home-dash-rights" />

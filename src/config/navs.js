@@ -8,6 +8,7 @@ import Wallet from "@images/Dashboard/wallet.svg";
 import Settings from "@images/Dashboard/settings.svg";
 import Support from "@images/Dashboard/support.svg";
 import Logout from "@images/Dashboard/logout.svg";
+import Lock from "@images/Dashboard/lock.svg";
 
 const navs = [
   {
@@ -21,6 +22,12 @@ const navs = [
     title: "Safevault",
     icon: HomeGrid,
     href: "/dashboard/vault"
+  },
+  {
+    id: 2,
+    title: "Multi Sig",
+    icon: Lock,
+    href: "/dashboard/multi-sig"
   }
 ];
 

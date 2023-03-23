@@ -33,7 +33,7 @@ function MyApp({ Component, pageProps }: ComponentWithPageLayout) {
       <PersistGate loading={null} persistor={persistor}>
         <WagmiConfig client={client}>
           <SIWEProvider {...siweConfig}>
-            <ConnectKitProvider  mode="light">
+            <ConnectKitProvider mode="light">
               {Component.PageLayout ? (
                 // @ts-ignore
                 <Component.PageLayout>
