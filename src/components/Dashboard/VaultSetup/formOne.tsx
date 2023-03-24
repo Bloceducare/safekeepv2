@@ -1,5 +1,5 @@
 import { Dispatch, SetStateAction} from "react"
-import Input from "../primitives/input";
+import Input from "@components/primitives/input";
 
 interface FormOneProps {
     setCreateVault:  Dispatch<SetStateAction<boolean>>;

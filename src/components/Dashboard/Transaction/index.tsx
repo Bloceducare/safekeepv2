@@ -1,23 +1,16 @@
 import ChevronLeft from '@images/transfer/arrow-left.svg';
 import ArrowDown from '@images/Dashboard/arrow-down.svg';
-import SendSquare from '@images/Dashboard/send-square.svg';
-import ReceiveSquare from '@images/Dashboard/receive-square.svg';
-import BSCSvg from '@images/Dashboard/bsc-svg.svg';
-import CloseSquare from '@images/Dashboard/close-square.svg';
-import TickSquare from '@images/Dashboard/tick-square.svg';
-import ApeImage from '@images/Dashboard/ape-image.svg';
-import ChevronDown from '@images/Dashboard/chevron-down.svg';
 import FeaturedIcon from '@images/Dashboard/featured-icon.svg';
 import SingleTransaction from './single-transaction';
 
-const TransactionsProfile = ({setSection}) => {
+const TransactionsProfile = () => {
   return (
     <div className="w-full">
        <div className="flex flex-col gap-4 w-full max-w-[1208px] mx-auto">
             <div className="pb-6 flex gap-4 items-center">
-                <button onClick={(e)=>setSection('dashboard')} className='bg-safekeep-white rounded flex items-center py-2 px-2.5'>
+                <a href="/dashboard" className='bg-safekeep-white rounded flex items-center py-2 px-2.5'>
                     <ChevronLeft />
-                </button>
+                </a>
                 <p className='font-paralucentMedium text-xl leading-6 text-[#333D8A]'>Transaction</p>
             </div> 
             <div className="w-full">

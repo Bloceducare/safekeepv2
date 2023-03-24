@@ -6,15 +6,15 @@ import AvatarGroup from '@images/Dashboard/avatar-group.png';
 import InheritorsLogo from '@images/Dashboard/inheritors.svg';
 import Image from 'next/image';
 
-const Assets = ({setSection}) => {
+const Assets = () => {
   return (
     <div className="w-full flex flex-col lg:flex-row gap-4 lg:justify-between">
         <div className="w-full order-1 lg:max-w-[33%] bg-[#FFFFFF] rounded-lg py-6 px-5">
             <div className="flex justify-between">
                 <p className='font-paralucentMedium text-lg leading-5 text-[#333D8A]'>My Assets</p>
-                <button onClick={(e)=> setSection('vaultProfile')} className="rounded-lg py-2 px-4 bg-safekeep-blue-100 text-sm text-[#0123F7] tracking-wide">
+                <a href="/dashboard/vault" className="rounded-lg py-2 px-4 bg-safekeep-blue-100 text-sm text-[#0123F7] tracking-wide">
                     View All
-                </button>
+                </a>
             </div>
             <div className="w-full mt-5 gap-4 flex flex-col font-dmSans">
                 <div className="w-full flex justify-between font-dmSans text-sm leading-5 text-safe-dark-400">
@@ -63,9 +63,9 @@ const Assets = ({setSection}) => {
             </div>
             <p className="mt-3 font-dmSans text-sm leading-5 tracking-widest">Allocate a percentage of your token to wallets as inheritors.</p>
            </div>
-            <button className=" font-paralucentMedium w-full py-2.5 px-8 rounded-lg justify-center bg-safekeep-blue text-safekeep-white text-sm flex items-center gap-2">
+            <a href="/dashboard/inheritors" className="font-paralucentMedium w-full py-2.5 px-8 rounded-lg justify-center bg-safekeep-blue text-safekeep-white text-sm flex items-center gap-2">
                 Explore Safevault
-            </button>
+            </a>
         </div>
     </div>
   )

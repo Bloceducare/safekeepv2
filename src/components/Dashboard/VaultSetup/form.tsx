@@ -1,7 +1,7 @@
 import { useState, Dispatch, SetStateAction } from "react";
 import FormTwo from "./formTwo";
 import FormOne from "./formOne";
-import FormProvider from "../primitives/form-provider";
+import FormProvider from "@components/primitives/form-provider";
 import FormThree from "./formThree";
 import VaultCreatedForm from "./vaultCreatedForm";
 import LoadingModal from "./loadingModal";

@@ -1,10 +1,10 @@
 import DashboardLayout from "@components/Layout/dashboard";
-import VaultSetUp from "@components/Dashboard/VaultSetup";
+import Transaction from "@components/Dashboard/transaction";
 
 const Vault = () => {
   return (
     <>
-      <VaultSetUp />
+      <Transaction />
     </>
   );
 };

@@ -1,6 +1,6 @@
-import Select, {SelectOption} from '../../primitives/select';
+import Select, {SelectOption} from '@components/primitives/select';
 import TetherIcon from '@images/transfer/tether.svg';
-import Input from "../../primitives/input";
+import Input from '@components/primitives/input';
 import QrCodeIcon from '@images/transfer/QrCode.svg';
 import EthereumIcon from '@images/transfer/ethereum.svg';
 
