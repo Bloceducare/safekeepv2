@@ -6,8 +6,6 @@ import { IChild } from "interface";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import ConnectWallet from "@components/connectWallet";
-import Transfer from "@components/Transfer";
-import VaultProfile from "@components/VaultProfile";
 import ConnectButton from "@components/ConnectButton";
 import { useAccount } from "wagmi";
 import { truncateWalletAddress } from "@utils/index";

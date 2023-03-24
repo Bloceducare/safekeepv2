@@ -1,16 +1,9 @@
 import ArrowDown from '@images/Dashboard/arrow-down.svg';
-import SendSquare from '@images/Dashboard/send-square.svg';
-import ReceiveSquare from '@images/Dashboard/receive-square.svg';
-import BSCSvg from '@images/Dashboard/bsc-svg.svg';
-import CloseSquare from '@images/Dashboard/close-square.svg';
-import TickSquare from '@images/Dashboard/tick-square.svg';
-import ApeImage from '@images/Dashboard/ape-image.svg';
-import ChevronDown from '@images/Dashboard/chevron-down.svg';
 import FeaturedIcon from '@images/Dashboard/featured-icon.svg';
-import SingleTransaction from '@components/Transaction/single-transaction';
+import SingleTransaction from '@components/Dashboard/Transaction/single-transaction';
 
 
-const Transaction = ({setSection}) => {
+const Transaction = () => {
   return (
    <div className="w-full">
     <div className="flex flex-col gap-4 mb-5 items-start lg:hidden justify-between">
@@ -19,9 +12,9 @@ const Transaction = ({setSection}) => {
             <p className="text-[#0123F7]">
               pending
             </p>
-            <button onClick={(e)=>setSection('transactions')} className="py-1 px-5 rounded-lg bg-safekeep-blue text-safekeep-hover ">
+            <a href="/dashboard/transactions" className="py-1 px-5 rounded-lg bg-safekeep-blue text-safekeep-hover ">
               History
-            </button>
+            </a>
           </div>
       </div>
     <div className="pt-11 hidden pb-7 lg:flex flex-col gap-10 px-10 w-full bg-safekeep-white rounded-lg">
@@ -31,9 +24,9 @@ const Transaction = ({setSection}) => {
               <p className="text-[#0123F7]">
                 pending
               </p>
-              <button onClick={(e)=>setSection('transactions')} className="py-1 px-5 rounded-lg bg-safekeep-blue text-safekeep-hover ">
+              <a href="/dashboard/transactions" className="py-1 px-5 rounded-lg bg-safekeep-blue text-safekeep-hover ">
                 History
-              </button>
+              </a>
             </div>
         </div>
         <div className="border-[0.5px] flex border-solid gap-2 border-safe-light-600 w-full p-3 rounded-lg font-dmSans font-medium text-sm text-[#545D9D]">

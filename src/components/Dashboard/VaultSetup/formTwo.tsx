@@ -1,6 +1,6 @@
 import { Dispatch, SetStateAction} from "react"
-import Input from "../primitives/input";
-import { useFormProvider } from '../primitives/form-provider';
+import Input from "@components/primitives/input";
+import { useFormProvider } from "@components/primitives/form-provider";
 import FormAlert from "@components/primitives/form-alert";
 interface FormTwoProps {
     setStep: Dispatch<SetStateAction<string>>;

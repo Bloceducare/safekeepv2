@@ -1,5 +1,5 @@
 import ChevronLeft from '@images/transfer/arrow-left.svg';
-import FormProvider from "../../primitives/form-provider";
+import FormProvider from '@components/primitives/form-provider';
 import StepOne from './step-one';
 import StepTwo from './step-two';
 

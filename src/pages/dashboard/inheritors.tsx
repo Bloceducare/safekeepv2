@@ -1,10 +1,10 @@
 import DashboardLayout from "@components/Layout/dashboard";
-import VaultSetUp from "@components/Dashboard/VaultSetup";
+import Inheritors from "@components/Dashboard/inheritors";
 
 const Vault = () => {
   return (
     <>
-      <VaultSetUp />
+      <Inheritors />
     </>
   );
 };

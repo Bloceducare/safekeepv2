@@ -1,8 +1,8 @@
-import {useState} from "react"
-import Select, {SelectOption} from '../../primitives/select';
+import {useState} from "react";
+import Select, {SelectOption} from "@components/primitives/select";
 import TetherIcon from '@images/transfer/tether.svg';
 import EthereumIcon from '@images/transfer/ethereum.svg';
-import FormProvider from "../../primitives/form-provider";
+import FormProvider from "@components/primitives/form-provider";
 import TransferIcon from "@images/transfer/transfer-arrow.svg";
 import DepositModal from "./deposit-modal";
 import Input from "@components/primitives/input";

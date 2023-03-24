@@ -12,12 +12,7 @@ import RoundVector from '@images/Dashboard/round-vector.png';
 import DashboardImageOne from '@images/Dashboard/dashboard-image-one.png';
 import Image from 'next/image';
 
-const Banner = ({setSection, setTransferType}) => {
-
-    const handleTransfer = (transferType: string) => {
-        setSection('transfer')
-        setTransferType(transferType)
-    }
+const Banner = () => {
 
   return (
     <div className="w-full">
@@ -102,14 +97,14 @@ const Banner = ({setSection, setTransferType}) => {
             </div>
         </div>
         <div className="mt-9 flex flex-col lg:flex-row gap-4">
-            <button onClick={(e) => handleTransfer("deposit")} className="flex w-full lg:max-w-[197px] gap-2.5 items-center rounded-lg bg-[#0123F7] justify-center p-4 text-safekeep-white font-paralucentMedium text-sm">
+            <a href="/dashboard/deposit-token" className="flex w-full lg:max-w-[197px] gap-2.5 items-center rounded-lg bg-[#0123F7] justify-center p-4 text-safekeep-white font-paralucentMedium text-sm">
                 <ArrowDown />
                 <p>Deposit Token</p>
-            </button>
-            <button onClick={(e) => handleTransfer("withdraw")} className="flex w-full lg:max-w-[197px] gap-2.5 rounded-lg border border-solid border-[#0123F7] items-center justify-center p-4 text-safekeep-blue font-paralucentMedium text-sm">
+            </a>
+            <a href="/dashboard/withdraw-token" className="flex w-full lg:max-w-[197px] gap-2.5 rounded-lg border border-solid border-[#0123F7] items-center justify-center p-4 text-safekeep-blue font-paralucentMedium text-sm">
                 <ArrowUp className="text-safekeep-blue" />
                 <p>Withdraw</p>
-            </button>
+            </a>
 
         </div>
         <Image src={DashboardImageOne} alt="background" className="hidden lg:flex absolute z-50 right-0 bottom-0" />
