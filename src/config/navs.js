@@ -28,6 +28,12 @@ const navs = [
     title: "Multi Sig",
     icon: Lock,
     href: "/dashboard/multi-sig"
+  },
+  {
+    id: 3,
+    title: "Inheritors",
+    icon: Lock,
+    href: "/dashboard/inheritors"
   }
 ];
 
