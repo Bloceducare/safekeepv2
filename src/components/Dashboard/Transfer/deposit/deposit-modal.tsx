@@ -1,3 +1,4 @@
+import React, {Dispatch, SetStateAction} from "react";
 import CopyLogo from "@images/transfer/copy.svg";
 import SendLogo from "@images/transfer/send.svg";
 import ScanLogo from "@images/transfer/scan.svg";
@@ -5,12 +6,16 @@ import InformationLogo from "@images/transfer/information.svg";
 import Modal from "@components/primitives/modal";
 import ModalDescription from "@components/primitives/modal/body";
 
-const DepositModal = () => {
+interface IDepositModal {
+  setShowModal: Dispatch<SetStateAction<boolean>>;
+}
+
+const DepositModal = ({setShowModal}:IDepositModal) => {
     return (
     <div className="w-full">
-        <Modal open={true}>
+        <Modal open={true} showClose={false} className="max-w-[544px] w-full bg-transparent shadow-none">
                <ModalDescription>
-                 <div className=" max-w-[544px] w-full flex flex-col mx-auto">
+                 <div className="max-w-[544px] w-full flex flex-col mx-auto">
                     <div className="w-full flex flex-col bg-[#FFFFFF] rounded-[18px] p-8 items-center gap-5">
                         <p className="font-dmSans text-sm leading-5 text-safekeep-gray-100">This is the address of your Safe. Deposit funds by scanning the QR code or copying the address below.</p>
                         <div className="w-full rounded-lg bg-safekeep-hover py-2.5 px-2 flex gap-5 items-center justify-between">
@@ -26,7 +31,7 @@ const DepositModal = () => {
                             </div>
                             <ScanLogo />
                         </div>
-                        <button type='submit' className="mt-5 w-full rounded-lg py-4 bg-safekeep-blue flex items-center justify-center font-paralucentMedium text-xs text-safekeep-white">
+                        <button type='submit' onClick={()=>{setShowModal(false)}} className="mt-5 w-full rounded-lg py-4 bg-safekeep-blue flex items-center justify-center font-paralucentMedium text-xs text-safekeep-white">
                             Done
                         </button>
                     </div>

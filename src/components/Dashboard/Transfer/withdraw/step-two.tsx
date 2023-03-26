@@ -2,7 +2,7 @@ import TetherIcon from '@images/transfer/tether.svg';
 import EthereumIcon from '@images/transfer/ethereum.svg';
 import Wallet from '@images/transfer/wallet.svg'
 
-const StepTwo = () => {
+const StepTwo = ({formData}) => {
   return (
     <div className="w-full">
         <p className="font-dmSans text-xs leading-5 text-safekeep-gray-600 pb-1">You are withdrawing</p>
@@ -21,7 +21,7 @@ const StepTwo = () => {
         <div className='flex gap-5 flex-col font-dmSans w-full mt-7'>
             <div className='w-full flex gap-5 justify-between text-[#3A4662]'>
                 <p className='text-xs'>Token:</p>
-                <p className='text-sm'>USDT</p>
+                <p className='text-sm'>{formData?.assetType}</p>
             </div>
             <div className='w-full flex gap-5 justify-between text-[#3A4662]'>
                 <p className='text-xs'>From:</p>
@@ -29,11 +29,11 @@ const StepTwo = () => {
             </div>
             <div className='w-full flex gap-5 justify-between text-[#3A4662]'>
                 <p className='text-xs'>To:</p>
-                <p className='text-sm break-all'>0x45e7b6ad8dd0f02329ce34d21f4bb6218f497410</p>
+                <p className='text-sm break-all'>{formData?.address}</p>
             </div>
              <div className='w-full flex gap-5 justify-between text-[#3A4662]'>
                 <p className='text-xs'>Amount:</p>
-                <p className='text-sm'>0.09 MATIC</p>
+                <p className='text-sm'>{formData?.amount}</p>
             </div>
              <div className='w-full flex gap-5 justify-between text-[#3A4662]'>
                 <p className='text-xs'>Network:</p>

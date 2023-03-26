@@ -1,11 +1,17 @@
+import { useState } from 'react';
 import ChevronLeft from '@images/transfer/arrow-left.svg';
 import FormProvider from '@components/primitives/form-provider';
 import StepOne from './step-one';
 import StepTwo from './step-two';
 
 const Withdraw= () => {
+  const [step, setStep] = useState("one");
+  const [formData, setFormData] = useState(null);
   const handleSubmit = (e)=>{
-    console.log(e)
+    setFormData(e)
+    if(step==="one"){
+      setStep("two")
+    }
   }
   return (
     <div className="w-full">
@@ -17,9 +23,14 @@ const Withdraw= () => {
       </div> */}
       <div className='w-full lg:max-w-[596px] p-8 bg-safekeep-white rounded-lg'>
         <FormProvider onSubmit={handleSubmit}>
-          <StepOne />
-          {/* <StepTwo /> */}
-        </FormProvider>
+          {
+           step==="one" ? (
+            <StepOne />
+           ) : (
+            <StepTwo formData={formData}/>
+           )
+          }
+        </FormProvider >
       </div>
     </div>
   )

@@ -29,7 +29,7 @@ const StepOne = () => {
         </div>
         <div className='w-full lg:max-w-[379px]'>
             <p className="font-dmSans text-[10px] leading-3 text-safekeep-gray-600 pb-1">Amount to Withdraw</p>
-            <Input name="vaultName" placeholder="Amount to Withdraw" type='number' required className="w-full h-[60px] py-3.5 px-2 bg-[#F8F8F8] rounded-[3px] border-none focus:border-none focus:outline-none" />
+            <Input name="amount" placeholder="Amount to Withdraw" type='number' required className="w-full h-[60px] py-3.5 px-2 bg-[#F8F8F8] rounded-[3px] border-none focus:border-none focus:outline-none" />
         </div>
         </div>
         <div className="mt-5">

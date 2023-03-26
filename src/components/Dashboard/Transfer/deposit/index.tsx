@@ -67,7 +67,7 @@ const Deposit = () => {
                         To Vault
                       </p>
                     </div>
-                    <div className='absolute z-50 left-1/2 top-0 bottom-0 flex items-center -ml-3'>
+                    <div className='absolute left-1/2 top-0 bottom-0 flex items-center -ml-3'>
                     <TransferIcon />
                     </div>
                  </div>
@@ -122,7 +122,7 @@ const Deposit = () => {
       </div>
       {
         showModal && (
-          <DepositModal />
+          <DepositModal setShowModal={setShowModal} />
         )
       }
     </div>

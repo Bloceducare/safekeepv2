@@ -7,9 +7,10 @@ interface IModal {
   Description?: any;
   children: React.ReactNode;
   open: boolean;
+  showClose?: boolean;
   className?: string;
 }
-const Modal = ({ Toggle, Title, children, Description, open = false, className }: IModal) => (
+const Modal = ({ Toggle, Title, children, Description, open = false, className, showClose=true }: IModal) => (
   <Dialog.Root modal={true} defaultOpen={open}>
     {Toggle && Toggle}
     <Dialog.Portal>
@@ -18,14 +19,18 @@ const Modal = ({ Toggle, Title, children, Description, open = false, className }
         {Title && <Title />}
         {Description && <Description />}
         {children}
-        <Dialog.Close asChild>
-          <button
-            className="text-violet11 hover:bg-violet4 focus:shadow-violet7 absolute top-[10px] right-[10px] inline-flex h-[25px] w-[25px] appearance-none items-center justify-center rounded-full focus:shadow-[0_0_0_2px] focus:outline-none"
-            aria-label="Close"
-          >
-            <Cross2Icon className="scale-125" />
-          </button>
-        </Dialog.Close>
+        {
+          showClose && (
+            <Dialog.Close asChild>
+              <button
+                className="text-violet11 hover:bg-violet4 focus:shadow-violet7 absolute top-[10px] right-[10px] inline-flex h-[25px] w-[25px] appearance-none items-center justify-center rounded-full focus:shadow-[0_0_0_2px] focus:outline-none"
+                aria-label="Close"
+              >
+                <Cross2Icon className="scale-125" />
+              </button>
+            </Dialog.Close>
+          )
+        }
       </Dialog.Content>
     </Dialog.Portal>
   </Dialog.Root>
