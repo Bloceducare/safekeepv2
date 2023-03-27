@@ -20,18 +20,20 @@ interface ILink {
 const DashOtherLinks = ({ ...data }: ILink & { soon?: boolean }) => {
   const { title, soon = false, icon: Icon } = data;
   return (
-    <div className="flex justify-between mb-6">
-      <div className="flex">
-        {/* @ts-ignore */}
-        <Icon className="mr-2" />
-        <span className="text-safekeep-gray-200">{title}</span>
-      </div>
-      {!!soon && (
-        <div>
-          <span className="p-1 px-2 text-xs border rounded-full text-safe-green-700 border-safe-green-700">SOON</span>
+    <Link href={data.href ?? "/"}>
+      <div className="flex justify-between mb-6">
+        <div className="flex">
+          {/* @ts-ignore */}
+          <Icon className="mr-2" />
+          <span className="text-safekeep-gray-200">{title}</span>
         </div>
-      )}
-    </div>
+        {!!soon && (
+          <div>
+            <span className="p-1 px-2 text-xs border rounded-full text-safe-green-700 border-safe-green-700">SOON</span>
+          </div>
+        )}
+      </div>
+    </Link>
   );
 };
 const NavLink = ({ ...data }: ILink) => {
