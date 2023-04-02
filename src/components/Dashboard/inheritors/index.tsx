@@ -1,10 +1,7 @@
-import ConnectInheritors from "./connect-inheritors";
-import ConnectedInheritors from "./connected-inheritors";
+import ConnectInheritors from './connect-inheritors';
 
 const Inheritors = () => {
-    return (
-        <ConnectedInheritors />
-    )
-}
+  return <ConnectInheritors />;
+};
 
 export default Inheritors;
