@@ -78,12 +78,21 @@ const Settings = () => {
           <div>
             Follow Us
           </div>
-          <div>
-            Twi
+         <div className="flex gap-x-6">
+         <div >
+          <Image src="/twitter.svg"  width={20} height={10}/>
+           
           </div>
           <div>
-            Github
+          <Image src="/github.svg"  width={20} height={10}/>          
           </div>
+          <div>
+          <Image src="/discord.svg"  width={20} height={10}/>          
+          </div>
+          <div>
+          <Image src="/telegram.svg"  width={20} height={10}/>          
+          </div>
+         </div>
           </div>
          </div>
           

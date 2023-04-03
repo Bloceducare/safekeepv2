@@ -1,14 +1,18 @@
-import { useState } from "react";
-import Logo from "@images/Header/safekeepLogo.svg";
-import navs, { Dashfooter, newFeature } from "@config/navs";
-import GasStation from "@images/Dashboard/gas-station.svg";
-import { IChild } from "interface";
-import Link from "next/link";
-import { useRouter } from "next/router";
-import ConnectWallet from "@components/connectWallet";
-import ConnectButton from "@components/ConnectButton";
-import { useAccount } from "wagmi";
-import { truncateWalletAddress } from "@utils/index";
+import { useState } from 'react';
+import Logo from '@images/Header/safekeepLogo.svg';
+import navs, { Dashfooter, newFeature } from '@config/navs';
+import GasStation from '@images/Dashboard/gas-station.svg';
+import { IChild } from 'interface';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
+import ConnectWallet from '@components/connectWallet';
+import ConnectButton from '@components/ConnectButton';
+import { useAccount } from 'wagmi';
+import { truncateWalletAddress } from '@utils/index';
+import Settings from '@images/Dashboard/settings.svg';
+import Support from '@images/Dashboard/support.svg';
+import Logout from '@images/Dashboard/logout.svg';
+import SupportDropdownMenu from '@components/Dashboard/support/SupportMenu';
 
 interface ILink {
   id: number;
@@ -17,15 +21,15 @@ interface ILink {
   href?: string;
 }
 
-const DashOtherLinks = ({ ...data }: ILink & { soon?: boolean }) => {
+export const DashOtherLinks = ({ ...data }: ILink & { soon?: boolean }) => {
   const { title, soon = false, icon: Icon } = data;
   return (
-    <Link href={data.href ?? "/"}>
+    <Link href={data.href ?? '/'}>
       <div className="flex justify-between mb-6">
         <div className="flex">
           {/* @ts-ignore */}
           <Icon className="mr-2" />
-          <span className="text-safekeep-gray-200">{title}</span>
+          <span className="text-safekeep-gray-200 font-bold font-dmSans" >{title}</span>
         </div>
         {!!soon && (
           <div>
@@ -43,14 +47,19 @@ const NavLink = ({ ...data }: ILink) => {
   const isActive = false;
   const { href } = data;
   return (
-    <Link href={href} className={`${isActive ? "bg-safekeep-blue text-safekeep-white " : ""} flex  items-center  p-2 rounded-md `}>
+    <Link
+      href={href}
+      className={`${isActive ? 'bg-safekeep-blue text-safekeep-white ' : ''} flex  items-center  p-2 rounded-md `}
+    >
       <div className="mr-2">
         <div className="mr-2">
           <Icon />
         </div>
       </div>
       <div>
-        <span className={isActive ? "" : "text-transparent bg-clip-text bg-gradient-to-r from-[#001873] to-[#011A91] "}>{data.title}</span>
+        <span className={isActive ? '' : 'text-transparent bg-clip-text bg-gradient-to-r from-[#001873] to-[#011A91] '}>
+          {data.title}
+        </span>
       </div>
     </Link>
   );
@@ -59,7 +68,7 @@ const NavLink = ({ ...data }: ILink) => {
 const NavLinks = () => {
   return (
     <>
-      {navs.map(item => (
+      {navs.map((item) => (
         <div className="mb-6 safekeep-darky-blue " key={item.id}>
           <NavLink {...item} />
         </div>
@@ -72,13 +81,16 @@ const DashboardLayout = ({ children }: IChild) => {
   const { address } = useAccount();
 
   const toggleOpen = () => {
-    setSidebarOpen(state => !state);
+    setSidebarOpen((state) => !state);
   };
-
+  const { pathname } = useRouter();
+  
   return (
     <>
       <div className="relative grid-cols-12 lg:grid ">
-        <div className={`h-screen col-span-3 p-4 pt-10 pl-12 overflow-scroll overflow-x-hidden overflow-y-scroll pr-7 font-dmSans   bg-safekeep-white lg:relative hidden w-full lg:block`}>
+        <div
+          className={`h-screen col-span-3 p-4 pt-10 pl-12 overflow-scroll overflow-x-hidden overflow-y-scroll pr-7 font-dmSans   bg-safekeep-white lg:relative hidden w-full lg:block`}
+        >
           <div className="flex flex-col justify-center">
             <div className="flex items-center justify-between mb-6 ">
               <div className="">
@@ -91,7 +103,7 @@ const DashboardLayout = ({ children }: IChild) => {
               </div>
               <div className="">
                 <div className="mb-6 font-medium tracking-widest uppercase">new features</div>
-                {newFeature.map(item => (
+                {newFeature.map((item) => (
                   <div key={item.id}>
                     <DashOtherLinks {...item} />
                   </div>
@@ -101,21 +113,33 @@ const DashboardLayout = ({ children }: IChild) => {
           </div>
 
           <div className="mt-10">
-            {Dashfooter.map(item => (
-              <div key={item.id}>
+            <DashOtherLinks href="/dashboard/settings" id={0} title="Settings" icon={Settings} />
+            <div className="flex justify-between">
+              <div>
+                {' '}
+                <DashOtherLinks href={pathname} id={1} title="Support" icon={Support} />
+              </div>
+              <div>
+                <SupportDropdownMenu />
+                </div>
+            </div>
+            <DashOtherLinks href={pathname} id={2} title="Logout" icon={Logout} />
+
+            {/* {Dashfooter.map(item => (
+              <div key={item.id}>               
                 <DashOtherLinks {...item} />
               </div>
-            ))}
+            ))} */}
           </div>
 
           <div>
-            <div className="flex items-center justify-between text-safe-dark-main">
-              <div className="text-xs">Privacy Policy</div>
-              <div className="text-xs">Terms of Service</div>
+            <div className="flex items-center justify-between text-safe-dark-main font-bold ">
+              <div className="text-[10px]">Privacy Policy</div>
+              <div className="text-[10px]">Terms of Service</div>
               <div>
                 <div className="flex items-center">
                   <GasStation className="mr-2" />
-                  <span className="font-medium">19.2</span>
+                  <span className=" text-xs">19.2</span>
                 </div>
               </div>
             </div>
@@ -138,8 +162,15 @@ const DashboardLayout = ({ children }: IChild) => {
             <div className="col-span-2"></div>
             <div className="col-span-4 ">
               <div className="relative hidden lg:flex ">
-                <input placeholder="Search Assets,Transactions, Tokens..." className="w-full p-2 border rounded-md bg-safekeep-white placeholder:text-safekeep-gray-400 " />
-                <img className="absolute scale-110 -translate-y-1/2 right-4 top-1/2" src="/search-icon.svg" alt="search icon" />
+                <input
+                  placeholder="Search Assets,Transactions, Tokens..."
+                  className="w-full p-2 border rounded-md bg-safekeep-white placeholder:text-safekeep-gray-400 "
+                />
+                <img
+                  className="absolute scale-110 -translate-y-1/2 right-4 top-1/2"
+                  src="/search-icon.svg"
+                  alt="search icon"
+                />
               </div>
             </div>
             <div className="col-span-4">
