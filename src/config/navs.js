@@ -9,6 +9,7 @@ import Settings from "@images/Dashboard/settings.svg";
 import Support from "@images/Dashboard/support.svg";
 import Logout from "@images/Dashboard/logout.svg";
 import Lock from "@images/Dashboard/lock.svg";
+import HelpComm from "assets/images/support/help-comm.svg"
 
 const navs = [
   {
@@ -32,7 +33,7 @@ const navs = [
   {
     id: 3,
     title: "Inheritors",
-    icon: Lock,
+    icon: HelpComm,
     href: "/dashboard/inheritors"
   }
 ];
@@ -83,7 +84,7 @@ export const Dashfooter = [
     id: 1,
     title: "Support",
     icon: Support,
-    href: "/dashboard/support"
+    href: ""
   },
   {
     id: 2,
