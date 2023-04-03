@@ -19,12 +19,15 @@ interface ILink {
   title: string;
   icon: string;
   href?: string;
+  aLink?:boolean
 }
 
 export const DashOtherLinks = ({ ...data }: ILink & { soon?: boolean }) => {
-  const { title, soon = false, icon: Icon } = data;
+  const { title, soon = false, icon: Icon , aLink=true} = data;
   return (
-    <Link href={data.href ?? '/'}>
+    <>
+    {
+      aLink ? <>    <Link href={data.href ?? '/'}>
       <div className="flex justify-between mb-6">
         <div className="flex">
           {/* @ts-ignore */}
@@ -37,7 +40,25 @@ export const DashOtherLinks = ({ ...data }: ILink & { soon?: boolean }) => {
           </div>
         )}
       </div>
-    </Link>
+    </Link></> :<>  <div className="flex justify-between mb-6">
+        <div className="flex">
+          {/* @ts-ignore */}
+          <Icon className="mr-2" />
+          <span className="text-safekeep-gray-200 font-bold font-dmSans" >{title}</span>
+        </div>
+        {!!soon && (
+          <div>
+            <span className="p-1 px-2 text-xs border rounded-full text-safe-green-700 border-safe-green-700">SOON</span>
+          </div>
+        )}
+      </div>
+    
+    
+    </>
+    }
+ 
+    </>
+
   );
 };
 const NavLink = ({ ...data }: ILink) => {
@@ -113,16 +134,8 @@ const DashboardLayout = ({ children }: IChild) => {
           </div>
 
           <div className="mt-10">
-            <DashOtherLinks href="/dashboard/settings" id={0} title="Settings" icon={Settings} />
-            <div className="flex justify-between">
-              <div>
-                {' '}
-                <DashOtherLinks href={pathname} id={1} title="Support" icon={Support} />
-              </div>
-              <div>
-                <SupportDropdownMenu />
-                </div>
-            </div>
+            <DashOtherLinks href="/dashboard/settings" id={0} title="Settings" icon={Settings} />         
+            <SupportDropdownMenu />
             <DashOtherLinks href={pathname} id={2} title="Logout" icon={Logout} />
 
             {/* {Dashfooter.map(item => (
