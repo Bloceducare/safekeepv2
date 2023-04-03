@@ -4,25 +4,25 @@ import Button from "@components/primitives/button"
 import InputFile from "@components/primitives/file"
 import Input from "@components/primitives/input"
 import TextArea from "@components/primitives/textarea"
-import Feat from "assets/images/support/feat.svg"
+import ReportBug from 'assets/images/support/report-bug.svg';
 
 
-const RequestFeauture = ()=>{
+const ReportABug = ()=>{
     return (
        
         <SupportContainer>  
-            <SupportHeader icon={Feat} title="Request a Feature" 
-            description=" You can share any ideas, updates and features you feel would really make your experience on safekeep better.
+            <SupportHeader icon={ReportBug} title="Report a Bug" 
+            description="Experienced an bug whilst using safekeep? lets help you address it..
                    " />
               <SupportBodyContainer>
                <div className="safe-darky mb-6">
-               What can you call this feature
+               Where did you find this bug?
                <div className="mt-2">
                 <Input name="name" placeholder="suggest a name" className="bg-[#F5F5F5] border-0 placeholder-safekeep-gray-300"  placeholderClassName="placeholder-safekeep-gray-300" />               
                </div>               
                </div>
                  <div className="safe-darky mb-6">
-           What the feature can do.
+                 How did you find this bug?
                <div className="mt-2">
                 <TextArea name="description" 
                 className="bg-[#F5F5F5] border-0 placeholder-safekeep-gray-300"
@@ -30,7 +30,8 @@ const RequestFeauture = ()=>{
                </div>               
                </div> 
                     <div className="safe-darky mb-6">
-               What can you call this feature
+                   
+                    Please share a screenshot of the bug if any.
                <div className="mt-2">
                 <InputFile name="attachment"  />
                </div>               
@@ -52,5 +53,5 @@ const RequestFeauture = ()=>{
 
 
 
-RequestFeauture.PageLayout = DashboardLayout
-export default RequestFeauture
+ReportABug.PageLayout = DashboardLayout
+export default ReportABug
