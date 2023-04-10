@@ -233,7 +233,7 @@ const DashboardLayout = ({ children }: IChild) => {
         </div>
       </div>
 
-      <div className="fixed bottom-0 w-full p-8 py-4 border bg-safekeep-white/50 border-3 text-safekeep-gray-300 lg:hidden">
+      <div className="fixed bottom-0 w-full  p-8 py-4 border bg-safekeep-white border-3 text-safekeep-gray-300 lg:hidden">
         <div className="flex justify-between">
           <div>Overview</div>
           <div>SafeVault</div>

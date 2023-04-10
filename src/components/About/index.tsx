@@ -1,4 +1,5 @@
 // import Encryption from "./encryption";
+import AnimatedSection from "@components/AnimatedSetion";
 import LineSvg from "assets/images/line.svg";
 import PhoneSvg from "assets/images/phone.svg";
 import SingleAbout from "./about";
@@ -32,9 +33,11 @@ const About = () => {
             safekeep prepares you for the <span className="blog-author font-paralucentDemiBold">unexpected</span>
           </p>
           {aboutData.map(i => (
-            <div key={i.id} className="pt-10 lg:pt-22 w-full lg:mb-24">
+            <AnimatedSection key={i.id}>
+            <div  className="pt-10 lg:pt-22 w-full lg:mb-24">
               <SingleAbout {...i} />
             </div>
+            </AnimatedSection>
           ))}
         </div>
       </div>

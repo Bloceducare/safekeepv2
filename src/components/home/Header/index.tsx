@@ -8,6 +8,11 @@ import Hamburger from "@images/Header/hamburger.svg";
 import ModeSwitch from "@images/Header/mode-switch.svg";
 import ConnectButton from "@components/ConnectButton";
 import { useAccount } from "wagmi";
+import React from 'react';
+import { motion } from "framer-motion";
+import { useState } from "react";
+import MobileHeader from "./mobile-header";
+
 
 const Header = () => {
   const { signedIn } = useSIWE();
@@ -15,12 +20,19 @@ const Header = () => {
   const router = useRouter();
   console.log(signedIn, address, "", router);
 
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
+
+
   useEffect(() => {
     if (signedIn && address) {
       // router.push("/dashboard");
     }
   }, [signedIn, address]);
-
+// 
   return (
     <>
       <div className="bg-header-background shadow-3xl backdrop-blur-xl z-[100] fixed w-full left-0 top-0">
@@ -62,12 +74,13 @@ const Header = () => {
             <ModeSwitch />
           </div>
           <div className="items-center justify-center lg:hidden">
-            <button>
-              <Hamburger />
-            </button>
+            <MobileHeader />          
           </div>
         </div>
+      <div >  
       </div>
+      </div>
+     
     </>
   );
 };
