@@ -11,6 +11,33 @@ import Logout from "@images/Dashboard/logout.svg";
 import Lock from "@images/Dashboard/lock.svg";
 import HelpComm from "assets/images/support/help-comm.svg"
 
+export const headerNavs = [
+  {
+  id:0,
+  title:"Home",
+  href:"/",
+  subMenu:[],
+},
+{
+  id:1,
+  title:"Company",
+  subMenu:[],
+  href:"/about",
+},
+{
+  id:2,
+  title:"Resources",
+  subMenu:[],
+  // href:"/t-us",
+
+},
+{
+  id:2,
+  title:"Support",
+  subMenu:[],
+  href:"/contact-us",
+},
+]
 const navs = [
   {
     id: 0,

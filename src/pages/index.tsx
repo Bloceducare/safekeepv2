@@ -11,6 +11,8 @@ import slides from "@data/blog/slides";
 import BlogSlider from "@components/BlogSlider";
 import DashboardIcon from "../../public/dashboard-icon.svg";
 import WalletIcon from "../../public/wallet-header.svg";
+import * as NavigationMenu from '@radix-ui/react-navigation-menu';
+import AnimatedSection from "@components/AnimatedSetion";
 
 const Features = () => {
   const [showDashTwo, setShowDashTwo] = useState(false);
@@ -39,7 +41,7 @@ const Features = () => {
   var height = refDash?.current?.offsetHeight;
 
   return (
-    <div>
+    <div>    
       <div>
         <div className="text-center max-w-2xl mx-auto  lg:p-0 p-5">
           <div className="text-safe-light-100 bg-safekeep-grey-200 inline-block rounded-3xl lg:py-2 py-4 px-4 lg:text-xl text-lg text-center mx-auto uppercase mb-6">What can you do on safekeep</div>
@@ -98,7 +100,7 @@ const Features = () => {
           </div>
         </div>
       </div>
-
+  <AnimatedSection>
       <div className="text-center max-w-2xl mx-auto  lg:p-0 p-5">
         <div className="text-safe-light-100 bg-safekeep-grey-200 inline-block rounded-3xl lg:py-2 py-4 px-4 lg:text-xl text-lg text-center mx-auto uppercase mb-6">
           get an inside tour of safekeep dapp
@@ -128,6 +130,8 @@ const Features = () => {
           </div>
         </div>
       </div>
+  </AnimatedSection>
+  <AnimatedSection>
       <div className="text-center max-w-5xl mx-auto ">
         <div className="text-safe-light-100 bg-safekeep-grey-200 inline-block rounded-3xl lg:py-2 py-4 px-4 lg:text-xl text-lg text-center mx-auto uppercase mb-6">Safekeep Ecosystem</div>
         <p className="text-4xl  mx-auto  text-safekeep-blue leading-tight mb-16">Safekeep is the safest, most secure crypto vault to explore web3 without risk.</p>
@@ -209,6 +213,7 @@ const Features = () => {
           <div className="col-span-3  bg-gradient-to-r  from-[#0171FD]/40 to-[#1AE52D]/40 empty-home-gradient  lg:h-36 hidden lg:flex "></div>
         </div>
       </div>
+  </AnimatedSection>
     </div>
   );
 };
@@ -224,13 +229,21 @@ const Home: NextPage = () => {
         <div className="mb-24">
           <Hero />
         </div>
+        <AnimatedSection>
         <About />
+        </AnimatedSection>
+        <AnimatedSection>
         <Features />
+        </AnimatedSection>
 
         {/* <Ecosystem /> */}
         {/* <Development /> */}
+        <AnimatedSection>
         <Faq />
+        </AnimatedSection>
+        <AnimatedSection>
         <Cta />
+        </AnimatedSection>
         {/* <BlogSlider slides={slides} /> */}
       </div>
     </div>
