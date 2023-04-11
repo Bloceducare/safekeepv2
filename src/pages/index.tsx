@@ -47,34 +47,41 @@ const Features = () => {
           <div className="text-safe-light-100 bg-safekeep-grey-200 inline-block rounded-3xl lg:py-2 py-4 px-4 lg:text-xl text-lg text-center mx-auto uppercase mb-6">What can you do on safekeep</div>
           <p className="text-4xl  mx-auto  text-safekeep-blue leading-tight mb-16">With Safekeep, You can Trade, Backup, Assign and Inherit Crypto Tokens on the most user-friendly Dashboard.</p>
           <div className="flex flex-wrap text-left  justify-center items-end">
-            <div className="max-w-[10rem] border p-2 rounded-[10px] lg:mr-4 mb-8">
-              <div className="w-11 h-11 my-4">
+            <div className="max-w-[10rem] border p-4 rounded-[10px] lg:mr-4 mb-8">
+             <AnimatedSection>
+             <div className="w-11 h-11 my-4">
                 <Image width={40} height={40} src="/user-square.svg" alt="user-icon" />
               </div>
               Assign a percentage of your Tokens to Inheritors
+             </AnimatedSection>
             </div>
-            <div className="max-w-[18rem] border p-2 rounded-[10px] mb-8">
-              <span className="text-safe-light-700">
+            <div className="max-w-[18rem] border p-4 rounded-[10px] mb-8">
+          <AnimatedSection>
+          <span className="text-safe-light-700">
                 <div className="w-11 h-11 mb-2">
                   <Image width={40} height={40} src="/home-hashtag.svg" alt="security-icon" />
                 </div>
                 Multiple Security? Why not,
               </span>{" "}
               Add Multi-signatories to confirm transactions on your vault.
+          </AnimatedSection>
             </div>
           </div>
           <div className="flex flex-wrap text-left lg:-translate-x-10  justify-center ">
-            <div className="text-xl max-w-[18rem] border p-2 rounded-[10px] lg:mr-4 mb-8 px-4">
-              <span className="text-safe-light-700">
+            <div className="text-xl max-w-[18rem] border p-4 rounded-[10px] lg:mr-4 mb-8 px-4">
+            <AnimatedSection>
+            <span className="text-safe-light-700">
                 <div className="mb-2">
                   <Image width={40} height={40} src="/glass.svg" alt="ux-experience-icon" />
                 </div>
                 New to Crypto?
               </span>{" "}
               Safekeep has the cleanest, smoothest Experience.
+            </AnimatedSection>
             </div>
-            <div className="max-w-[13rem] border p-2 rounded-[10px] px-4  text-xl">
-              <div className=" my-4 mb-8 flex justify-between items-center">
+            <div className="max-w-[13rem] border p-4 rounded-[10px] px-4  text-xl">
+          <AnimatedSection>
+          <div className=" my-4 mb-8 flex justify-between items-center">
                 <div>
                   <Image width={40} height={40} src="/safekeep-icon-home.svg" alt="security-icon" />
                 </div>
@@ -83,18 +90,21 @@ const Features = () => {
                 </div>
               </div>
               Contribute to new features on SafekeepDAO
+          </AnimatedSection>
             </div>
           </div>
           <div className="flex flex-wrap text-left  justify-center items-end lg:translate-x-10 text-xl ">
             <div
               className="
             lg:-translate-y-3
-            max-w-[13rem] border p-2 rounded-[10px] lg:mr-4 mb-8 px-4"
+            max-w-[13rem] border p-4 rounded-[10px] lg:mr-4 mb-8 px-4  lg:my-0 mt-8"
             >
-              <div className="my-4">
+     <AnimatedSection>
+     <div className="my-4">
                 <Image width={40} height={40} src="/swap-icon.svg" alt="swap-icon" />
               </div>
               Swap, Trade, Bridge and Sell tokens on Multichains.
+     </AnimatedSection>
             </div>
             <div className="hidden lg:block w-[18rem] border p-2 rounded-[10px] mb-8 lg:h-44"></div>
           </div>
@@ -148,28 +158,37 @@ const Features = () => {
             </div>
             <div className="flex justify-between items-center -mt-2">
               <div>
-                <div className="flex items-center">
+                <AnimatedSection>
+                <div className="flex items-center  mt-4">
                   <img src="/user-square.svg" alt="" className="scale-75" />
 
                   <div>
-                    <p className="lg:text-2xl text-xl font-medium safe-darky">Multi-Sig Security.</p>
+                    <p className="lg:text-2xl text-xl font-medium safe-darky ">Multi-Sig Security.</p>
                   </div>
                 </div>
                 <p className="text-left">Bard is Google's artificial intelligence chatbot. It will work exactly like ChatGPT, that is, users will be able to use the chatbot through conversation.</p>
+            
+                  </AnimatedSection>
               </div>
               <div className="pl-4">
-                {/* <img className="scale-125" src="/safekeep-3d.svg" alt="safekeep-3d.svg" /> */}
+                <AnimatedSection>
                 <Image src="/safekeep-3d.svg" height={380} width={380} alt="safekeep-3d.svg" />
+             
+                </AnimatedSection>
               </div>
             </div>
           </div>
           <div className=" col-span-3 lg:translate-y-[15rem] lg:mb-0 mb-12">
             <div className="rounded-2xl bg-safekeep-blue pl-5 pt-5 ">
               <div className="mr-5">
+                <AnimatedSection>
+
                 <Image src="wallets-icon.svg" height={550} width={550} alt="wallets-icon" />
+                </AnimatedSection>
               </div>
               <div className="text-safekeep-white ">
-                <div className="flex items-center mt-6">
+              <AnimatedSection>
+              <div className="flex items-center mt-6">
                   <img className="mr-4  " src="/wallet-2.svg" alt="wallet icon" />
                   <p className="text-2xl">Connect with a Non-Custodian Wallet</p>
                 </div>
@@ -182,6 +201,7 @@ const Features = () => {
                     <img className="mr-4 rounded-br-2xl  " src="/pan-two.svg" alt="pan-two-icon" />
                   </div>
                 </div>
+              </AnimatedSection>
               </div>
             </div>
           </div>
@@ -190,12 +210,16 @@ const Features = () => {
         <div className="lg:grid grid-cols-6 gap-6 lg:translate-y-[15rem]  lg:p-0 p-5 lg:mb-[20rem] ">
           <div className="col-span-3">
             <div className="flex  justify-center lg:justify-start">
+              <AnimatedSection className="flex">
               <Image className="lg:flex hidden" width={150} height={400} src="./assets-home-dash-left.svg" alt="assets-home-dash-left" />
               <Image width={300} height={200} src="./assets-home-dash.svg" alt="assets-home-dash" />
               <Image className="lg:flex hidden" width={150} height={400} src="./assets-home-dash-right.svg" alt="assets-home-dash-rights" />
+           
+              </AnimatedSection>
             </div>
             <div className=" ">
-              <div className="flex items-center mt-6">
+           <AnimatedSection>
+           <div className="flex items-center mt-6">
                 <img className="mr-4  " src="/bitcoin-icon.svg" alt="bitcoin icon" />
                 <p className="text-2xl safe-darky">Assets Transparency.</p>
               </div>
@@ -208,6 +232,7 @@ const Features = () => {
                   <img className="mr-4 rounded-br-2xl  " src="/crypto-icon.svg" alt="crypto-icon" />
                 </div>
               </div>
+           </AnimatedSection>
             </div>
           </div>
           <div className="col-span-3  bg-gradient-to-r  from-[#0171FD]/40 to-[#1AE52D]/40 empty-home-gradient  lg:h-36 hidden lg:flex "></div>
@@ -229,12 +254,12 @@ const Home: NextPage = () => {
         <div className="mb-24">
           <Hero />
         </div>
-        <AnimatedSection>
+        
         <About />
-        </AnimatedSection>
-        <AnimatedSection>
+        
+      
         <Features />
-        </AnimatedSection>
+     
 
         {/* <Ecosystem /> */}
         {/* <Development /> */}
