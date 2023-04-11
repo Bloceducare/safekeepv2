@@ -1,8 +1,6 @@
 import HeaderLogo from "assets/images/HomeHero/hero-wheel.png";
 import EtheruemLogo from "assets/images/HomeHero/ethereum-logo.svg";
 import Image from "next/image";
-import Wallet from "assets/images/HomeHero/wallet.svg";
-import { LazyVideo } from "react-lazy-media";
 import Button from "@components/primitives/button";
 import ConnectButton from "@components/ConnectButton";
 import AnimateText from "./AnimatedActionText";

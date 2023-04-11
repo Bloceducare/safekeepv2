@@ -32,12 +32,10 @@ const About = () => {
           <p className="font-paralucentMedium text-4xl  leading-[48px] lg:text-[69px] lg:leading-[83px] text-center max-w-[729px] w-full text-white mx-auto">
             safekeep prepares you for the <span className="blog-author font-paralucentDemiBold">unexpected</span>
           </p>
-          {aboutData.map(i => (
-            <AnimatedSection key={i.id}>
+          {aboutData.map(i => (           
             <div  className="pt-10 lg:pt-22 w-full lg:mb-24">
               <SingleAbout {...i} />
-            </div>
-            </AnimatedSection>
+            </div>       
           ))}
         </div>
       </div>
