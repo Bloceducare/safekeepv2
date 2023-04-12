@@ -1,15 +1,15 @@
-import Button from "@components/primitives/button";
-import Modal from "@components/primitives/modal";
-import * as Dialog from "@radix-ui/react-dialog";
-import { useState } from "react";
-import Cancel from "@images/Dashboard/multi/multi-disc.svg";
-import VaultIcon from "@images/Dashboard/multi/vault.svg";
-import VaultSuccess from "@images/Dashboard/multi/vaultsuccess.svg";
+import Button from '@components/primitives/button';
+import Modal from '@components/primitives/modal';
+import * as Dialog from '@radix-ui/react-dialog';
+import { useState } from 'react';
+import Cancel from '@images/Dashboard/multi/multi-disc.svg';
+import VaultIcon from '@images/Dashboard/multi/vault.svg';
+import VaultSuccess from '@images/Dashboard/multi/vaultsuccess.svg';
 
 const wait = async (wait: number) => {
-  return new Promise(resolve => {
+  return new Promise((resolve) => {
     setTimeout(() => {
-      resolve("done");
+      resolve('done');
     }, wait * 1000);
   });
 };
@@ -22,7 +22,8 @@ const Content = () => {
         </div>
         <p className="text-2xl ">Disconnect Multi-Sig</p>
         <div className="text-safekeep-gray-100 text-sm mt-2 mb-3">
-          This feature provides your with 2-factor authentication for transaction confirmations, are you sure you want to disconnect this feature?.
+          This feature provides your with 2-factor authentication for transaction confirmations, are you sure you want
+          to disconnect this feature?.
         </div>
       </div>
     </div>
@@ -68,12 +69,12 @@ const Disconnect = ({ toggle, text }) => {
             </div>
           </>
         ) : (
-          <>
+          <div className="w-full flex flex-col items-center">
             <Content />
             <Button onClick={removeSig} type="solid" className="mt-2">
               Disconnect
             </Button>
-          </>
+          </div>
         )}
       </Modal>
     </>

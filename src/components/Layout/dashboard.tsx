@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import Logo from '@images/Header/safekeepLogo.svg';
-import navs, { Dashfooter, newFeature } from '@config/navs';
+import SmallLogo from 'assets/images/safekeep-logo-small.svg';
+import WalletLogo from 'assets/images/wallet-3.svg';
+import navs, { Dashfooter, newFeature, smallScreenNavs } from '@config/navs';
 import GasStation from '@images/Dashboard/gas-station.svg';
 import { IChild } from 'interface';
 import Link from 'next/link';
@@ -19,46 +21,53 @@ interface ILink {
   title: string;
   icon: string;
   href?: string;
-  aLink?:boolean
+  aLink?: boolean;
 }
 
 export const DashOtherLinks = ({ ...data }: ILink & { soon?: boolean }) => {
-  const { title, soon = false, icon: Icon , aLink=true} = data;
+  const { title, soon = false, icon: Icon, aLink = true } = data;
   return (
     <>
-    {
-      aLink ? <>    <Link href={data.href ?? '/'}>
-      <div className="flex justify-between mb-6">
-        <div className="flex">
-          {/* @ts-ignore */}
-          <Icon className="mr-2" />
-          <span className="text-safekeep-gray-200 font-bold font-dmSans" >{title}</span>
-        </div>
-        {!!soon && (
-          <div>
-            <span className="p-1 px-2 text-xs border rounded-full text-safe-green-700 border-safe-green-700">SOON</span>
+      {aLink ? (
+        <>
+          {' '}
+          <Link href={data.href ?? '/'}>
+            <div className="flex justify-between mb-6">
+              <div className="flex flex-col items-center lg:flex-row">
+                {/* @ts-ignore */}
+                <Icon className="lg:mr-2 " className="text-[#929292] z-50" />
+                <span className="text-safekeep-gray-200 font-bold font-dmSans">{title}</span>
+              </div>
+              {!!soon && (
+                <div>
+                  <span className="p-1 px-2 text-xs border rounded-full text-safe-green-700 border-safe-green-700">
+                    SOON
+                  </span>
+                </div>
+              )}
+            </div>
+          </Link>
+        </>
+      ) : (
+        <>
+          {' '}
+          <div className="flex justify-between mb-6">
+            <div className="flex">
+              {/* @ts-ignore */}
+              <Icon className="mr-2" />
+              <span className="text-safekeep-gray-200 font-bold font-dmSans">{title}</span>
+            </div>
+            {!!soon && (
+              <div>
+                <span className="p-1 px-2 text-xs border rounded-full text-safe-green-700 border-safe-green-700">
+                  SOON
+                </span>
+              </div>
+            )}
           </div>
-        )}
-      </div>
-    </Link></> :<>  <div className="flex justify-between mb-6">
-        <div className="flex">
-          {/* @ts-ignore */}
-          <Icon className="mr-2" />
-          <span className="text-safekeep-gray-200 font-bold font-dmSans" >{title}</span>
-        </div>
-        {!!soon && (
-          <div>
-            <span className="p-1 px-2 text-xs border rounded-full text-safe-green-700 border-safe-green-700">SOON</span>
-          </div>
-        )}
-      </div>
-    
-    
+        </>
+      )}
     </>
-    }
- 
-    </>
-
   );
 };
 const NavLink = ({ ...data }: ILink) => {
@@ -105,12 +114,12 @@ const DashboardLayout = ({ children }: IChild) => {
     setSidebarOpen((state) => !state);
   };
   const { pathname } = useRouter();
-  
+
   return (
     <>
-      <div className="relative grid-cols-12 lg:grid ">
+      <div className="relative">
         <div
-          className={`h-screen col-span-3 p-4 pt-10 pl-12 overflow-scroll overflow-x-hidden overflow-y-scroll pr-7 font-dmSans   bg-safekeep-white lg:relative hidden w-full lg:block`}
+          className={`h-[100vh] col-span-3 p-4 pt-10 pl-12 overflow-scroll overflow-x-hidden overflow-y-scroll pr-7 font-dmSans   bg-safekeep-white lg:fixed lg:max-w-[350px] lg:w-full hidden lg:block`}
         >
           <div className="flex flex-col justify-center">
             <div className="flex items-center justify-between mb-6 ">
@@ -134,7 +143,7 @@ const DashboardLayout = ({ children }: IChild) => {
           </div>
 
           <div className="mt-10">
-            <DashOtherLinks href="/dashboard/settings" id={0} title="Settings" icon={Settings} />         
+            <DashOtherLinks href="/dashboard/settings" id={0} title="Settings" icon={Settings} />
             <SupportDropdownMenu />
             <DashOtherLinks href={pathname} id={2} title="Logout" icon={Logout} />
 
@@ -159,16 +168,16 @@ const DashboardLayout = ({ children }: IChild) => {
           </div>
         </div>
 
-        <div className="col-span-9 ">
+        <div className=" w-full lg:pl-[350px] ">
           <div className="flex items-center justify-between p-4 lg:hidden">
             <div>
               <div className="">
-                <img src="safekeep-dark-bg.svg" alt="logo" className="w-2/3" />
+                <SmallLogo />
               </div>
             </div>
             <div className="flex">
               <img className="scale-125" src="/search-icon.svg" alt="search icon" />
-              <img className="ml-4 scale-125" src="/wallet-header.svg" alt="search icon" />
+              <WalletLogo className="ml-4 scale-125" />
             </div>
           </div>
           <div className="justify-between hidden grid-cols-10 p-3 lg:grid header-background">
@@ -233,12 +242,15 @@ const DashboardLayout = ({ children }: IChild) => {
         </div>
       </div>
 
-      <div className="fixed bottom-0 w-full  p-8 py-4 border bg-safekeep-white border-3 text-safekeep-gray-300 lg:hidden">
+      <div className="fixed bottom-0 w-full  p-8 py-4 border z-30 bg-safekeep-white border-3 text-safekeep-gray-300 lg:hidden">
         <div className="flex justify-between">
-          <div>Overview</div>
-          <div>SafeVault</div>
-          <div>Settings</div>
-          <div>More</div>
+          {smallScreenNavs.map((item) => (
+            <div key={item.id} className="text-[#929292] z-50">
+              <DashOtherLinks {...item} />
+            </div>
+          ))}
+          <DashOtherLinks href="/dashboard/settings" id={0} title="Settings" icon={Settings} />
+          <DashOtherLinks href="/dashboard/settings" id={0} title="More" icon={Settings} />
         </div>
       </div>
     </>
