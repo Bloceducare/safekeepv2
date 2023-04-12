@@ -34,8 +34,8 @@ const Header = () => {
   }, [signedIn, address]);
 // 
   return (
-    <>
-      <div className="bg-header-background shadow-3xl backdrop-blur-xl z-[100] fixed w-full left-0 top-0">
+    <div className="bg-[#E5F1FF] ">
+      <div className="md:bg-[#fff]/70 bg-[#fff]/50  w-full left-0 top-0">
         <div className="max-w-screen-2xl mx-auto py-5 lg:py-[30px] flex flex-row w-full px-8 lg:px-9 justify-between items-center text-center">
           <Link href="/">
             <HeaderLogo className="w-40 h-9 lg:h-11 lg:w-44" />
@@ -69,7 +69,7 @@ const Header = () => {
           </div>
           <div className="items-center justify-center hidden lg:flex">
             <ConnectButton>
-              <div className="py-2 mr-8 text-white rounded-lg font-paralucentLight px-9 bg-safekeep-blue"> Get Safekeep</div>
+              <div className="py-2 mr-8 trounded-lg font-paralucentLight px-9 rounded-[8px] bg-safekeep-blue  text-safekeep-white"> Get Safekeep</div>
             </ConnectButton>
             <ModeSwitch />
           </div>
@@ -81,7 +81,7 @@ const Header = () => {
       </div>
       </div>
      
-    </>
+    </div>
   );
 };
 

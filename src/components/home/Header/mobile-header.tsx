@@ -26,7 +26,7 @@ export default function App() {
               animate={{ opacity: 1, height: "auto" , left:0}}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.2 }}
-              className="sm:hidden shadow-lg top-0 absolute  min-h-screen w-full bg-safekeep-white" 
+              className="sm:hidden shadow-lg top-0 absolute  min-h-screen w-full bg-safekeep-white z-50" 
             >
                 <div className="flex justify-between p-8">
                     <div>
@@ -50,7 +50,7 @@ export default function App() {
                 </div>
          
 {
-    headerNavs.map((nav)=>(  <div className="py-3 pl-8 flex justify-start">
+    headerNavs.map((nav)=>(  <div className="py-3 pl-8 flex justify-start" onClick={toggleMenu}>
          {
             nav.href ? <>  <Link  href={nav.href}    className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:text-gray-900 focus:bg-gray-50"
             >

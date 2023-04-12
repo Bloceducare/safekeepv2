@@ -11,7 +11,7 @@ const Faq = () => {
             <input type="checkbox" id="toggle-15" className="accordion-toggle" />
             <label
               for="toggle-15"
-              className="accordion-title text-[48px] leading-[58px] font-paralucentLight"
+              className="accordion-title text-2xl leading-[58px] font-paralucentMedium"
               style={{
                 background: "linear-gradient(206.51deg, #01A0FF -0.2%, #0123F7 130.88%)",
                 //   @ts-ignore
@@ -39,7 +39,7 @@ const Faq = () => {
             <input type="checkbox" id="toggle-16" className="accordion-toggle" />
             <label
               for="toggle-16"
-              className="accordion-title text-[48px] leading-[58px] font-paralucentLight"
+              className="accordion-title  text-2xl leading-[58px] font-paralucentMedium"
               style={{
                 background: "linear-gradient(206.51deg, #01A0FF -0.2%, #0123F7 130.88%)",
                 //   @ts-ignore

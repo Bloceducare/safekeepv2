@@ -1,6 +1,6 @@
 import NextImage from "next/image";
 
-const Image = ({ src = "", width = 0, height = 0, alt = "", className = "", fill = false, size = "100vw" }) => {
+const Image = ({ src = "", width = 0, height = 0, alt = "", className = "", fill = false, size = "100vw" , ...props}) => {
   return (
     <NextImage
       src={src}
@@ -15,6 +15,7 @@ const Image = ({ src = "", width = 0, height = 0, alt = "", className = "", fill
           })}
       alt={src}
       className={className}
+      {...props}
     />
   );
 };
