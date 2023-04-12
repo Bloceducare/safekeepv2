@@ -10,7 +10,7 @@ const SingleAbout = ({ title, description, id }) => {
           <AnimatedSection>
           <div className="w-full">
             <p className="text-2xl leading-[38px] lg:text-5xl lg:leading-[58px] font-paralucentMedium safe-darky">{title}</p>
-            <p className="mt-11 text-xl font-polySansTrial ">{description}</p>
+            <p className="mt-11 text-xl font-dmSans">{description}</p>
           </div>
           </AnimatedSection>
         </div>

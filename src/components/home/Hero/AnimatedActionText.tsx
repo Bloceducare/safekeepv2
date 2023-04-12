@@ -10,7 +10,7 @@ const textVariants = {
   exit: { opacity: 0, y: 20 },
 };
 
-const AnimatedText = ({ text, delay, isHidden }) => {
+const AnimatedText = ({ text, delay, isHidden , className}) => {
   const controls = useAnimation();
 
   useEffect(() => {
@@ -24,7 +24,7 @@ const AnimatedText = ({ text, delay, isHidden }) => {
 
   return (
     <motion.span
-      className="blog-author inline-flex"
+      className={`blog-author inline-flex ${className}`}
       variants={textVariants}
       initial="initial"
       animate={controls}
@@ -36,7 +36,7 @@ const AnimatedText = ({ text, delay, isHidden }) => {
   );
 };
 
-const App = () => {
+const App = ({className=""}) => {
   const [currentTextIndex, setCurrentTextIndex] = useState(0);
 
   useEffect(() => {
@@ -55,6 +55,7 @@ const App = () => {
   return (
     
       <AnimatedText
+      className={className}      
         text={
           currentTextIndex === texts.length - 1
             ? texts[0]
