@@ -37,6 +37,13 @@
   font-style: normal;
 }
 
+body {
+  font-family: "DM Sans"
+}
+
+.hero-gradient {
+  background: radial-gradient(23.25% 62.06% at 25.12% 71.26%, #B1D5FF 0%, #E5F1FF 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
+}
 
 @tailwind components;
 @tailwind utilities;

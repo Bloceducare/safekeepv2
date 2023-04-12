@@ -14,6 +14,72 @@ import WalletIcon from "../../public/wallet-header.svg";
 import * as NavigationMenu from '@radix-ui/react-navigation-menu';
 import AnimatedSection from "@components/AnimatedSetion";
 
+
+import { motion } from "framer-motion";
+
+const partnersIm = ["/metamask-logo.svg", "/eth-logo.svg"]
+const AnimatedImage = ({im}) => {
+  return (
+  <>
+ <div className="border">
+    <div className="relative  overflow-x-hidden h-12 w-full"   
+      >   
+
+      
+      {partnersIm.map((path, index) => (
+        <motion.img
+          key={index}
+          src={path}
+          alt={`animated-image-${index}`}
+          style={{
+            position: "absolute",
+            top: 0,
+            left: index === 0 ? 0 : "-100%",
+            maxWidth: "none"
+          }}
+          animate={{ left: index === 0 ? "100%" : 0 }}
+          transition={{
+            duration: 5,
+            repeat: Infinity,           
+            ease: "linear",
+            delay: index * 5
+          }}
+        />
+      ))}
+
+      {/* <motion.img 
+      src={im}  
+      initial={{
+        left:"0%"
+      }}
+      animate={{ left: "100%" }}  
+      transition={{
+        duration: 5,
+        repeat: Infinity,       
+        ease: "linear"
+      }}
+      className="absolute" />
+     */}
+    </div>
+    </div>
+  </>
+  );
+};
+
+const Partners = ()=>{
+
+  return (
+    <div className="flex justify-evenly">
+      {partnersIm.map((im)=> { 
+        console.log(im)
+        return <AnimatedImage im={im} />
+      })
+       
+      }
+    </div>
+  )
+}
+
 const Features = () => {
   const [showDashTwo, setShowDashTwo] = useState(false);
   useEffect(() => {
@@ -254,10 +320,16 @@ const Home: NextPage = () => {
         <div className="mb-24">
           <Hero />
         </div>
+      
+        <div className="">
+       {/* <Partners /> */}
+       {/* <AnimatedImage im="/metamask-logo.svg" /> */}
+       {/* <AnimatedImage im="/eth-logo.svg" /> */}
+       
+        </div>
+      
         
         <About />
-        
-      
         <Features />
      
 
