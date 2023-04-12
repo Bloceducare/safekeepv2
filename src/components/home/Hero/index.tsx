@@ -9,7 +9,7 @@ import AnimateText from "./AnimatedActionText";
 const Hero = () => {
   
   return (
-    <div className="relative max-w-full w-full px:8 lg:px-0 lg:pt-40 hero-gradient pb-12">
+    <div className="relative max-w-full w-full px:8 lg:px-0 m-0 lg:pt-40 hero-gradient pb-12">
       <div className="lg:hidden relative w-full flex justify-end z-20">
         <Image alt="Hero Wheel" src={HeaderLogo} width="400" height="400" />
       </div>
