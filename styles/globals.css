@@ -1,41 +1,6 @@
+@import url('./font.css');
 @tailwind base;
 
-@font-face {
-  font-family: "Paralucent-Medium";
-  src: url('../src/assets/fonts/paralucent/Paralucent-Medium.ttf');
-  font-weight: normal;
-  font-style: normal;
-}
-  
-@font-face {
-  font-family: "Paralucent-DemiBold";
-  src: url('../src/assets/fonts/paralucent/Paralucent-DemiBold.ttf');
-  font-weight: normal;
-  font-style: normal;
-}
-  
-@font-face {
-  font-family: "Paralucent-Light";
-  src: url('../src/assets/fonts/paralucent/Paralucent-Light.ttf');
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "PolySans Trial";
-  src: url('../src/assets/fonts/polysans-trial/PolySansTrial-Neutral.otf');
-  font-weight: normal;
-  font-style: normal;
-}
-
-
-
-@font-face {
-  font-family: "DM Sans";
-  src: url('../src/assets/fonts/dm-sans/DMSans-Regular.ttf');
-  font-weight: normal;
-  font-style: normal;
-}
 
 body {
   font-family: "DM Sans"

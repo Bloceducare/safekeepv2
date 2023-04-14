@@ -85,22 +85,22 @@ const Features = () => {
   const [showDashTwo, setShowDashTwo] = useState(false);
   useEffect(() => {
     const element = document.getElementById("dash-icon");
-    window.addEventListener(
-      "scroll",
-      () => {
-        if (!element) return;
-        var offset = element.getBoundingClientRect().top - element.offsetParent.getBoundingClientRect().top;
-        const top = window.pageYOffset + window.innerHeight - offset;
+    // window.addEventListener(
+    //   "scroll",
+    //   () => {
+    //     if (!element) return;
+    //     var offset = element.getBoundingClientRect().top - element.offsetParent.getBoundingClientRect().top;
+    //     const top = window.pageYOffset + window.innerHeight - offset;
 
-        if (top >= element.scrollHeight) {
-          setShowDashTwo(true);
-          // console.log("bottom");
-        } else {
-          setShowDashTwo(false);
-        }
-      },
-      { passive: false }
-    );
+    //     if (top >= element.scrollHeight) {
+    //       setShowDashTwo(true);
+    //       // console.log("bottom");
+    //     } else {
+    //       setShowDashTwo(false);
+    //     }
+    //   },
+    //   { passive: false }
+    // );
   }, []);
 
   const refDash = useRef(null);
@@ -187,8 +187,8 @@ const Features = () => {
         <div className="overflow-x-hidden relative flex justify-center items-center  -z-20 md:hidden">
   <div className="absolute">   
   <div>
-    <Image className="mx-auto relative -z-30" src="/profile-ui.png" alt="profile ui" width={200} height={200} />
-    <div className="max-w-sm border p-8 rounded-[10px] bg-[white] box-white -z-50 mx-3  ">     
+    <Image className="mx-auto relative z-20" src="/profile-ui.png" alt="profile ui" width={200} height={200} />
+    <div className="max-w-sm border p-8 rounded-[10px] bg-[white] relative box-white z-30 mx-3  ">     
       <div className="text-gray-900 font-semibold">Get an Insider view</div>
       <div className="ext-gray-600">Looking to see how safekeep can help you protect your assets, explore our demo app</div>
    <div>
@@ -199,7 +199,9 @@ const Features = () => {
 
   </div>
   </div>
-<svg width="414" height="731" viewBox="0 0 414 731" fill="none" xmlns="http://www.w3.org/2000/svg">
+<svg 
+className="z-10 relative"
+width="414" height="731" viewBox="0 0 414 731" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M522.404 495.091L522.577 495.19H522.618C530.337 500.551 535.844 508.536 538.109 517.657C540.393 526.854 539.223 536.569 534.82 544.961C530.417 553.353 523.088 559.84 514.219 563.194C505.369 566.541 495.599 566.534 486.754 563.177L476.183 557.178L476.182 557.177L342.383 480.974L341.866 480.68L341.462 481.116C318.639 505.739 288.965 522.972 256.259 530.599L255.679 530.734V531.329V691.621C255.657 701.276 252.026 710.574 245.499 717.692C238.971 724.81 230.018 729.234 220.395 730.095C210.772 730.957 201.174 728.194 193.484 722.349C185.813 716.518 180.592 708.038 178.841 698.568V531.102V530.511L178.268 530.373C147.457 522.92 119.394 506.887 97.3334 484.137L96.9165 483.707L96.405 484.018L-38.6465 566.212L-38.6504 566.215L-44.2755 569.686C-52.7689 573.978 -62.5455 574.998 -71.7438 572.553C-80.9521 570.105 -88.9361 564.354 -94.1725 556.399C-99.4089 548.443 -101.531 538.84 -100.135 529.42C-98.7405 520.019 -93.9384 511.458 -86.6419 505.364L-76.4475 499.138L-76.4463 499.137L57.0487 417.93L57.5497 417.625L57.3747 417.065C47.3667 385.052 47.1038 350.789 56.6193 318.626L56.7881 318.056L56.2711 317.762L-80.293 240.044L-80.2978 240.042L-90.5271 234.119C-97.992 228.224 -103.026 219.79 -104.668 210.424C-106.314 201.04 -104.44 191.38 -99.4043 183.29C-94.369 175.201 -86.5259 169.251 -77.3757 166.579C-68.2336 163.909 -58.428 164.698 -49.8317 168.795L-44.2807 171.927L-44.2775 171.929L94.6403 251.202L95.1528 251.494L95.5576 251.065C117.9 227.375 146.647 210.683 178.306 203.017L178.879 202.878V202.288V32.4336C180.629 22.9691 185.843 14.4941 193.507 8.66258C201.189 2.81738 210.778 0.0494487 220.396 0.901224C230.013 1.753 238.966 6.16307 245.5 13.2672C252.033 20.3714 255.677 29.6576 255.717 39.3063V201.909V202.504L256.296 202.639C286.764 209.744 314.647 225.193 336.817 247.253L337.234 247.668L337.736 247.362L470.511 166.533L470.513 166.532L480.966 160.121C489.672 156.687 499.329 156.519 508.15 159.649C516.992 162.787 524.394 169.024 528.982 177.203C533.569 185.382 535.031 194.947 533.095 204.122C531.162 213.286 525.97 221.439 518.483 227.07L513.016 230.461L513.011 230.464L378.192 312.465L377.683 312.775L377.87 313.342C388.577 345.669 389.314 380.466 379.985 413.216L379.824 413.782L380.335 414.073L516.638 491.793L516.638 491.794L522.404 495.091ZM218.036 479.646H218.038C248.381 479.646 277.484 467.616 298.961 446.195C320.438 424.774 332.535 395.713 332.595 365.388V365.387C332.595 342.798 325.896 320.716 313.343 301.931C300.79 283.147 282.948 268.502 262.07 259.847C241.193 251.192 218.216 248.916 196.045 253.306C173.874 257.697 153.502 268.556 137.503 284.513C121.505 300.469 110.598 320.807 106.16 342.956C101.723 365.105 103.955 388.072 112.573 408.954C121.191 429.836 135.81 447.697 154.581 460.279C173.352 472.861 195.434 479.601 218.036 479.646Z" stroke="url(#paint0_linear_2633_50201)" stroke-width="1.5"/>
 <defs>
 <linearGradient id="paint0_linear_2633_50201" x1="217" y1="129.5" x2="217" y2="680.918" gradientUnits="userSpaceOnUse">
@@ -350,18 +352,7 @@ const Home: NextPage = () => {
 
       <div className="w-full">
           <Hero />
-        <div className="mb-24">
-        </div>
-      
-        <div className="">
-       {/* <Partners /> */}
-       {/* <AnimatedImage im="/metamask-logo.svg" /> */}
-       {/* <AnimatedImage im="/eth-logo.svg" /> */}
-       
-        </div>
-      
-        
-        <About />
+              <About />
         <Features />    
         <AnimatedSection>
         <Faq />

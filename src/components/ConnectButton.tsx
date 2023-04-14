@@ -13,7 +13,7 @@ const ConnectButton = ({ children, className }: IProps) => {
           return (
             <>
               {children ? (
-                <button onClick={show} className={className}>{children}</button>
+                <span onClick={show} className={`cursor-pointer ${className}`}>{children}</span>
               ) : (
                 <>
                   <button onClick={show} className={`w-full flex p-1 py-2 mx-1 text-center items-center justify-center text-[#fff] border rounded-lg bg-safekeep-blue mb-4 lg:mb-0 ${className}`}>

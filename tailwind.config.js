@@ -17,7 +17,8 @@ module.exports = {
       paralucentDemiBold: ["Paralucent-DemiBold", "sans-serif"],
       paralucentLight: ["Paralucent-Light", "sans-serif"],
       polySansTrial: ["PolySans Trial", "sans-serif"],
-      dmSans: ["DM Sans", "sans-serif"]
+      dmSans: ["DM Sans", "sans-serif"],
+      sans: ["DM Sans", "sans-serif"]
     },
     extend: {
       colors: {
@@ -58,7 +59,7 @@ module.exports = {
         "safe-green-800": "#008800",
         "safe-dark-main": "#001268",
         "safekeep-blue-100": "#E6F1FF",
-        "safekeep-blue-700": "#0150B4",
+        "safekeep-blue-700": "#00094D",
         "safekeep-main": "#F0FCFF",
         "safekeep-yellow-100": "#FEFDE6",
         "safekeep-green-100": "#E6FEE6",
