@@ -14,34 +14,31 @@ import Link from 'next/link';
 
 const SupportDropdownMenu = () => {
   const [isOpen, setOpen] = useState(false);
-  const {events } = useRouter();
+  const { events } = useRouter();
   const toggleMenu = () => setOpen(!isOpen);
   const closeMenu = () => setOpen(false);
 
-
   useEffect(() => {
     events.on('routeChangeStart', closeMenu);
-    return () => events.off('routeChangeStart',closeMenu);
+    return () => events.off('routeChangeStart', closeMenu);
   }, [events]);
 
-  const handleStopProgation =(e) =>{
-    console.log("tryin to stop Event")
-    e.stopPropagation(); 
-
-  }
+  const handleStopProgation = (e) => {
+    console.log('trying to stop Event');
+    e.stopPropagation();
+  };
   return (
     <>
       <div
         className="flex justify-between cursor-pointer"
         onClick={(e) => {
-          console.log("I an cakkkedl")
+          console.log('I an cakkkedl');
           e.stopPropagation();
-          toggleMenu()
-         
+          toggleMenu();
         }}
       >
         <div>
-          <DashOtherLinks aLink={false}  id={0} title="Support" icon={Support} />
+          <DashOtherLinks aLink={false} id={0} title="Support" icon={Support} />
         </div>
 
         <div>
@@ -60,10 +57,10 @@ const SupportDropdownMenu = () => {
                 className="min-w-[220px] bg-safekeep-white rounded-md shadow-[0px_10px_38px_-10px_rgba(22,_23,_24,_0.35),_0px_10px_20px_-15px_rgba(22,_23,_24,_0.2)] will-change-[opacity,transform] data-[side=top]:animate-slideDownAndFade data-[side=right]:animate-slideLeftAndFade data-[side=bottom]:animate-slideUpAndFade data-[side=left]:animate-slideRightAndFade "
                 sideOffset={5}
               >
-                <DropdownMenu.Item 
-                 disabled
-                 
-                className=" leading-none  rounded-[3px]  relative select-none outline-none data-[disabled]:text-safekeep-blue-300 data-[disabled]:pointer-events-none data-[highlighted]:bg-safekeep-blue-400 data-[highlighted]:text-violet1">
+                <DropdownMenu.Item
+                  disabled
+                  className=" leading-none  rounded-[3px]  relative select-none outline-none data-[disabled]:text-safekeep-blue-300 data-[disabled]:pointer-events-none data-[highlighted]:bg-safekeep-blue-400 data-[highlighted]:text-violet1"
+                >
                   <div className="flex py-3" onClick={handleStopProgation}>
                     <Image src="/reply.svg" className="mx-3" width={10} height={10} />
                     <div className="flex items-center    group-data-[highlighted]:text-white group-data-[disabled]:text-mauve8">
@@ -74,20 +71,21 @@ const SupportDropdownMenu = () => {
                 </DropdownMenu.Item>
 
                 <DropdownMenu.Item className="  leading-none rounded-[3px]  relative select-none outline-none data-[disabled]:text-mauve8 data-[disabled]:pointer-events-none data-[highlighted]:bg-safekeep-blue-400 data-[highlighted]:text-violet1">
-                <Link href="/dashboard/support/report-a-bug">
-                  <div className="flex py-3">
-                    <Image src="/reply.svg" className="mx-3" width={10} height={10} />
-                    <div className="flex items-center    group-data-[highlighted]:text-white group-data-[disabled]:text-mauve8">
-                      <ReportBug className="mr-2" />
-                      <div className="safe-darky">Report Bug</div>
+                  <Link href="/dashboard/support/report-a-bug">
+                    <div className="flex py-3">
+                      <Image src="/reply.svg" className="mx-3" width={10} height={10} />
+                      <div className="flex items-center    group-data-[highlighted]:text-white group-data-[disabled]:text-mauve8">
+                        <ReportBug className="mr-2" />
+                        <div className="safe-darky">Report Bug</div>
+                      </div>
                     </div>
-                  </div>
                   </Link>
                 </DropdownMenu.Item>
 
-                <DropdownMenu.Item 
-                 disabled
-                className=" leading-none rounded-[3px]   relative select-none outline-none data-[disabled]:text-mauve8 data-[disabled]:pointer-events-none data-[highlighted]:bg-safekeep-blue-400 data-[highlighted]:text-violet1">
+                <DropdownMenu.Item
+                  disabled
+                  className=" leading-none rounded-[3px]   relative select-none outline-none data-[disabled]:text-mauve8 data-[disabled]:pointer-events-none data-[highlighted]:bg-safekeep-blue-400 data-[highlighted]:text-violet1"
+                >
                   <div className="flex py-3  ">
                     <Image src="/reply.svg" className="mx-3" width={10} height={10} />
                     <div className="flex items-center   group-data-[highlighted]:text-white group-data-[disabled]:text-mauve8">
@@ -108,18 +106,19 @@ const SupportDropdownMenu = () => {
                     </div>
                   </Link>
                 </DropdownMenu.Item>
-                <DropdownMenu.Item 
-                 disabled
-                className="  leading-none rounded-[3px]   relative select-none outline-none data-[disabled]:text-mauve8 data-[disabled]:pointer-events-none data-[highlighted]:bg-safekeep-blue-400 data-[highlighted]:text-violet1">
+                <DropdownMenu.Item
+                  disabled
+                  className="  leading-none rounded-[3px]   relative select-none outline-none data-[disabled]:text-mauve8 data-[disabled]:pointer-events-none data-[highlighted]:bg-safekeep-blue-400 data-[highlighted]:text-violet1"
+                >
                   <div className="flex py-3 justify-between items-center">
-                    <div className='flex'>
-                    <Image src="/reply.svg" className="mx-3" width={10} height={10} />
-                    <div className="flex items-center   group-data-[highlighted]:text-white group-data-[disabled]:text-mauve8">                      
-                      <NewFeat className="mr-2" />
-                      <div className="safe-darky">What is New</div>
-                    </div>                     
+                    <div className="flex">
+                      <Image src="/reply.svg" className="mx-3" width={10} height={10} />
+                      <div className="flex items-center   group-data-[highlighted]:text-white group-data-[disabled]:text-mauve8">
+                        <NewFeat className="mr-2" />
+                        <div className="safe-darky">What is New</div>
+                      </div>
                     </div>
-                    <div className='bg-safe-green-700 mr-3 w-2 h-2 rounded-full'></div>
+                    <div className="bg-safe-green-700 mr-3 w-2 h-2 rounded-full"></div>
                   </div>
                 </DropdownMenu.Item>
               </DropdownMenu.Content>

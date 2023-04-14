@@ -12,7 +12,7 @@ const ConnectInheritors = () => {
         <ConnectedInheritors setStep={setStep} />
       ) : (
         <div className="w-full mx-auto max-w-[1100px] mt-8">
-          <div className="w-full lg:flex items-center gap-4 justify-between">
+          <div className="w-full flex items-center gap-4 justify-between">
             <button>
               <ArrowLeft />
             </button>

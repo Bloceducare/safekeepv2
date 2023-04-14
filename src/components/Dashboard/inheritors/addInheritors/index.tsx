@@ -31,7 +31,7 @@ const AddInheritors = ({ setConnectType }) => {
       handleCloseButton={(e) => {
         setConnectType(null);
       }}
-      className="w-full max-w-[318px] p-9 lg:max-w-[462px] bg-[#FFFFFF] mx-auto"
+      className="w-full p-9 max-w-[462px] bg-[#FFFFFF] mx-auto"
     >
       <div className="w-full">
         <ModalTitle>
