@@ -1,10 +1,5 @@
+const RequestFeature = () => {
+  return <>Request Feat</>;
+};
 
-
-const RequestFeature =()=>{
-    return <>
-    
-    Request Feat
-    </>
-}
-
-export default RequestFeature
+export default RequestFeature;

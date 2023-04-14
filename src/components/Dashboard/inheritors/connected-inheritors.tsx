@@ -12,9 +12,11 @@ const ConnectedInheritors = ({ setStep }) => {
     <div className="w-full mx-auto max-w-[1100px] mt-8">
       <div className="w-full lg:flex items-center gap-4 justify-between">
         <div className="flex gap-3">
-          <button>
-            <ArrowLeft />
-          </button>
+          <a href="/dashboard">
+            <button>
+              <ArrowLeft />
+            </button>
+          </a>
           <p className="font-paralucentMedium text-lg text-[#333D8A]">Inheritors</p>
         </div>
 

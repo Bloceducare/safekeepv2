@@ -32,10 +32,11 @@ export const DashOtherLinks = ({ ...data }: ILink & { soon?: boolean }) => {
         <>
           {' '}
           <Link href={data.href ?? '/'}>
-            <div className="flex justify-between mb-6">
-              <div className="flex flex-col items-center lg:flex-row">
-                {/* @ts-ignore */}
-                <Icon className="lg:mr-2 " className="text-[#929292] z-50" />
+            <div className="flex justify-between lg:mb-6">
+              <div className="flex flex-col items-center text-red-500 lg:flex-row">
+                <div className="lg:mr-2 text-red-500 z-50 h-6 w-6">
+                  <Icon />
+                </div>
                 <span className="text-safekeep-gray-200 font-bold font-dmSans">{title}</span>
               </div>
               {!!soon && (
@@ -249,8 +250,8 @@ const DashboardLayout = ({ children }: IChild) => {
               <DashOtherLinks {...item} />
             </div>
           ))}
-          <DashOtherLinks href="/dashboard/settings" id={0} title="Settings" icon={Settings} />
-          <DashOtherLinks href="/dashboard/settings" id={0} title="More" icon={Settings} />
+          <DashOtherLinks href="/dashboard/settings" id={3} title="Settings" icon={Settings} />
+          <DashOtherLinks href="/dashboard/settings" id={4} title="More" icon={Settings} />
         </div>
       </div>
     </>
