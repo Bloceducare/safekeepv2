@@ -18,6 +18,8 @@ const BlogSlider = ({ slides }: IProps) => {
     setCurrentSlide(currentSlide === slides.length - 1 ? 0 : currentSlide + 1);
   };
 
+  // lg:grid grid-cols-3
+
   return (
     <div className="max-w-screen-2xl mx-auto py-5 lg:py-[30px] flex flex-row w-full px-8 lg:px-9 justify-between items-center text-center relative">
       <button className="absolute left-0 -translate-y-1/2 lg:flex top-1/2">

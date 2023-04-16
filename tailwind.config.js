@@ -41,7 +41,7 @@ module.exports = {
         "safekeep-gray-100": "#606060",
         "safekeep-gray-200": "#B5B5B5",
         "safekeep-gray-300": "#929292",
-        "safekeep-gray-400": "#E2E4E8",
+        "safekeep-gray-400": "#606060",
         "safekeep-gray-500": "#525C76",
         "safekeep-gray-600": "#B2B7C2",
         "safekeep-gray-900": "#070707",
