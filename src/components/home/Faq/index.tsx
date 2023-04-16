@@ -1,24 +1,30 @@
-import Cancel from "assets/images/Faq/close-circle.svg";
 import AngleDown from "assets/images/Faq/angle-down.svg";
 
 const Faq = () => {
   return (
     <div className="relative max-w-[1026px] w-full px-8 lg:px-9 mb-32 mx-auto flex flex-col text-black">
-      <p className="font-paralucentMedium text-4xl leading-[48px] lg:text-[69px] lg:leading-[83px]">FAQ</p>
+      <div className="text-center">
+      <p className="font-paralucentMedium text-4xl leading-[48px] lg:text-[69px] lg:leading-[83px] text-safekeep-blue">FAQ</p>
+      <p className="safe-darky font-dm">
+      All the important questions you want answered, fast.
+      </p>
+      </div>
+   
       <div className="mt-14">
         <div className="accordion-group">
           <div className="accordion">
             <input type="checkbox" id="toggle-15" className="accordion-toggle" />
             <label
               for="toggle-15"
-              className="accordion-title text-2xl leading-[58px] font-paralucentMedium"
+              className="accordion-title text-2xl leading-[58px] font-paralucentMedium border-0"
               style={{
                 background: "linear-gradient(206.51deg, #01A0FF -0.2%, #0123F7 130.88%)",
                 //   @ts-ignore
                 "-webkit-background-clip": " text",
                 "-webkit-text-fill-color": "transparent",
                 "background-clip": "text",
-                "text-fill-color": "transparent"
+                "text-fill-color": "transparent",          
+                borderTop:"2px solid #E6F1FF",
               }}
             >
               What is Safekeep
@@ -39,14 +45,15 @@ const Faq = () => {
             <input type="checkbox" id="toggle-16" className="accordion-toggle" />
             <label
               for="toggle-16"
-              className="accordion-title  text-2xl leading-[58px] font-paralucentMedium"
+              className="accordion-title  text-2xl leading-[58px] font-paralucentMedium border-0"
               style={{
                 background: "linear-gradient(206.51deg, #01A0FF -0.2%, #0123F7 130.88%)",
                 //   @ts-ignore
                 "-webkit-background-clip": " text",
                 "-webkit-text-fill-color": "transparent",
                 "background-clip": "text",
-                "text-fill-color": "transparent"
+                "text-fill-color": "transparent",
+                borderTop:"2px solid #E6F1FF",
               }}
             >
               How do i Protect my wallet
