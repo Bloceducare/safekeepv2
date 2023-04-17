@@ -7,7 +7,7 @@ import ConnectButton from "@components/ConnectButton";
 const Cta = () => {
   return (
     <>
-      <PageLayout className=" mx-4">
+      <PageLayout className="px-4 mx-auto">
         <div className="relative">
           <div className="absolute left-1/2 top-1/2 -translate-y-1/2 -translate-x-1/2">
             <div className="flex flex-col items-center justify-center ">

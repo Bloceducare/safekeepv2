@@ -1,26 +1,28 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import Faq from "@components/home/Faq";
-import BlogSlider from "@components/BlogSlider";
 import AboutHero from "@components/AboutHero";
-import TextWithImage from "@components/TextWithImage";
-import slides from "@data/blog/slides";
 import Image from "@components/primitives/image";
 import PageLayout from "@layout/page";
-import JoinImg from "@images/About/join.svg"
 import Button from "@components/primitives/button";
+import AnimatedSection from "@components/AnimatedSetion";
+import Blog from "@components/Blogs";
+import Cta from "@components/home/Cta";
 
 const Explainer = () => {
   return (
+    <AnimatedSection>
     <div className="flex justify-center -translate-y-16 pb-16 overflow-x-hidden mx-10">
       <Image className="scale-125" src={"/explainer-place.svg"} width={500} height={500} alt="placeholder" />
     </div>
+    </AnimatedSection>
   );
 };
 
 const Partners = () => {
   return (
-    <PageLayout className="mb-32 ">
+  <AnimatedSection>
+      <PageLayout className="mb-32 ">
       <div className="text-center">
         <div className="pill-btn-grey inline-block font-dmSans">Partners</div>
         <div className="grid lg:grid-cols-3 grid-cols-2 ">
@@ -48,6 +50,7 @@ const Partners = () => {
           </div>
       </div>
     </PageLayout>
+  </AnimatedSection>
   );
 };
 
@@ -72,8 +75,8 @@ const Join = ()=>{
           <Image src="/join.svg" width={350} height={350} />        
         </div>
       </div>
-      <div className="mt-12">
-          <Button onlyBtn className="px-10 font-paralucentLight lg:hidden mx-auto  flex ">
+      <div className="mt-12 ">
+          <Button onlyBtn className="px-10 text-center font-paralucentLight lg:hidden w-full mx-auto   ">
           View open roles
           </Button>
         </div>
@@ -84,23 +87,27 @@ const Join = ()=>{
 }
 const TeamMember = ({ name = "Daniel Ezekwe", role = "Founder & CEO", imgUrl = "/team-icon.svg" }) => {
   return (
-    <div className="flex justify-center flex-col rounded-xl shadow-xl  p-4 ">
+    <div className="flex justify-center flex-col rounded-xl shadow-xl  p-4 m-8">
       <Image className="mx-auto" src={imgUrl} alt="eth-logo" height={70} width={70} />
       <p className="text-3xl mb-1">{name}</p>
       <p className="text-safekeep-blue-700/50 ">{role}</p>
     </div>
   );
 };
+
+
 const Team = () => {
   return (
     <PageLayout className="text-center">
       <div className="pill-btn-grey inline-block ">brains and minds</div>
       <div className="text-safekeep-blue text-4xl mb-10">The Safekeep Team</div>
       <div className="lg:grid grid-cols-3 flex flex-col">
-        {new Array(6).fill(null).map((_, idx) => (
+        {new Array(6).fill(null).map((_, idx) => 
+        (<AnimatedSection>
           <div key={idx} className="col-span-1 justify-self-center self-center  my-10">
-            <TeamMember />
+            <TeamMember />          
           </div>
+            </AnimatedSection>
         ))}
       </div>
     </PageLayout>
@@ -114,12 +121,15 @@ const About: NextPage = () => {
       </Head>
       <div className="w-full [&>section]:mb-32">
         <AboutHero />
-        <Explainer />
-        <Partners />
+        <Explainer />   
+        <Partners />   
+        <Team />
         <Join />
-        <Team />        
-        <Faq />           
-        <BlogSlider slides={slides} />
+       <Blog />
+       <Faq />  
+       <AnimatedSection>
+        <Cta />
+       </AnimatedSection>
       </div>
     </div>
   );
