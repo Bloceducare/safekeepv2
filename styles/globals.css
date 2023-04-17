@@ -80,8 +80,13 @@ text-fill-color: transparent;
 .safe-gradient-glow {
   background: linear-gradient(152.35deg, #0171FD 16.92%, #1AE52D 106.95%);
 }
+
+.xbox-shadow{
+  box-shadow: 0px 18px 35px rgba(43, 92, 207, 0.12);
+}
 .safe-gradient-safeguard {
-  background: linear-gradient(206.51deg, #01A0FF -0.2%, #0123F7 130.88%);
+  border:1px solid #01A0FF ;
+  /* background: linear-gradient(206.51deg, #01A0FF -0.2%, #0123F7 130.88%); */
 }
 
 
