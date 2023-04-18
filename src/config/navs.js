@@ -50,6 +50,9 @@ const navs = [
     icon: HomeGrid,
     href: '/dashboard/vault',
   },
+];
+
+export const safevaultNavs = [
   {
     id: 2,
     title: 'Multi Sig',

@@ -30,7 +30,7 @@ const SupportDropdownMenu = () => {
   return (
     <>
       <div
-        className="flex justify-between cursor-pointer"
+        className="flex justify-between items-center cursor-pointer hover:bg-safekeep-hover rounded-lg pr-2"
         onClick={(e) => {
           console.log('I an cakkkedl');
           e.stopPropagation();
