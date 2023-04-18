@@ -54,12 +54,12 @@ const SupportDropdownMenu = () => {
 
             <DropdownMenu.Portal>
               <DropdownMenu.Content
-                className="min-w-[220px] bg-safekeep-white rounded-md shadow-[0px_10px_38px_-10px_rgba(22,_23,_24,_0.35),_0px_10px_20px_-15px_rgba(22,_23,_24,_0.2)] will-change-[opacity,transform] data-[side=top]:animate-slideDownAndFade data-[side=right]:animate-slideLeftAndFade data-[side=bottom]:animate-slideUpAndFade data-[side=left]:animate-slideRightAndFade "
+                className="min-w-[260px] py-3 bg-safekeep-white rounded-md shadow-[0px_10px_38px_-10px_rgba(22,_23,_24,_0.35),_0px_10px_20px_-15px_rgba(22,_23,_24,_0.2)] will-change-[opacity,transform] data-[side=top]:animate-slideDownAndFade data-[side=right]:animate-slideLeftAndFade data-[side=bottom]:animate-slideUpAndFade data-[side=left]:animate-slideRightAndFade "
                 sideOffset={5}
               >
                 <DropdownMenu.Item
                   disabled
-                  className=" leading-none  rounded-[3px]  relative select-none outline-none data-[disabled]:text-safekeep-blue-300 data-[disabled]:pointer-events-none data-[highlighted]:bg-safekeep-blue-400 data-[highlighted]:text-violet1"
+                  className=" leading-none  rounded-[3px] px-5 relative select-none outline-none data-[disabled]:text-safekeep-blue-300 data-[disabled]:pointer-events-none data-[highlighted]:bg-safekeep-blue-400 data-[highlighted]:text-violet1"
                 >
                   <div className="flex py-3" onClick={handleStopProgation}>
                     <Image src="/reply.svg" className="mx-3" width={10} height={10} />
@@ -70,7 +70,7 @@ const SupportDropdownMenu = () => {
                   </div>
                 </DropdownMenu.Item>
 
-                <DropdownMenu.Item className="  leading-none rounded-[3px]  relative select-none outline-none data-[disabled]:text-mauve8 data-[disabled]:pointer-events-none data-[highlighted]:bg-safekeep-blue-400 data-[highlighted]:text-violet1">
+                <DropdownMenu.Item className="  leading-none rounded-[3px] px-5  relative select-none outline-none data-[disabled]:text-mauve8 data-[disabled]:pointer-events-none data-[highlighted]:bg-safekeep-blue-400 data-[highlighted]:text-violet1">
                   <Link href="/dashboard/support/report-a-bug">
                     <div className="flex py-3">
                       <Image src="/reply.svg" className="mx-3" width={10} height={10} />
@@ -84,7 +84,7 @@ const SupportDropdownMenu = () => {
 
                 <DropdownMenu.Item
                   disabled
-                  className=" leading-none rounded-[3px]   relative select-none outline-none data-[disabled]:text-mauve8 data-[disabled]:pointer-events-none data-[highlighted]:bg-safekeep-blue-400 data-[highlighted]:text-violet1"
+                  className=" leading-none rounded-[3px]  px-5 relative select-none outline-none data-[disabled]:text-mauve8 data-[disabled]:pointer-events-none data-[highlighted]:bg-safekeep-blue-400 data-[highlighted]:text-violet1"
                 >
                   <div className="flex py-3  ">
                     <Image src="/reply.svg" className="mx-3" width={10} height={10} />
@@ -95,7 +95,7 @@ const SupportDropdownMenu = () => {
                   </div>
                 </DropdownMenu.Item>
 
-                <DropdownMenu.Item className="  leading-nonerounded-[3px]  relative select-none outline-none data-[disabled]:text-mauve8 data-[disabled]:pointer-events-none data-[highlighted]:bg-safekeep-blue-400 data-[highlighted]:text-violet1">
+                <DropdownMenu.Item className=" px-5 leading-nonerounded-[3px]  relative select-none outline-none data-[disabled]:text-mauve8 data-[disabled]:pointer-events-none data-[highlighted]:bg-safekeep-blue-400 data-[highlighted]:text-violet1">
                   <Link href="/dashboard/support/request-feature">
                     <div className="flex py-3 ">
                       <Image src="/reply.svg" className="mx-3" width={10} height={10} />
@@ -108,7 +108,7 @@ const SupportDropdownMenu = () => {
                 </DropdownMenu.Item>
                 <DropdownMenu.Item
                   disabled
-                  className="  leading-none rounded-[3px]   relative select-none outline-none data-[disabled]:text-mauve8 data-[disabled]:pointer-events-none data-[highlighted]:bg-safekeep-blue-400 data-[highlighted]:text-violet1"
+                  className=" px-5 leading-none rounded-[3px]   relative select-none outline-none data-[disabled]:text-mauve8 data-[disabled]:pointer-events-none data-[highlighted]:bg-safekeep-blue-400 data-[highlighted]:text-violet1"
                 >
                   <div className="flex py-3 justify-between items-center">
                     <div className="flex">
