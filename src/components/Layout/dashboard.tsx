@@ -2,7 +2,7 @@ import { useState } from 'react';
 import Logo from '@images/Header/safekeepLogo.svg';
 import SmallLogo from 'assets/images/safekeep-logo-small.svg';
 import WalletLogo from 'assets/images/wallet-3.svg';
-import navs, { Dashfooter, newFeature, smallScreenNavs } from '@config/navs';
+import navs, { Dashfooter, newFeature, smallScreenNavs, safevaultNavs } from '@config/navs';
 import GasStation from '@images/Dashboard/gas-station.svg';
 import { IChild } from 'interface';
 import Link from 'next/link';
@@ -15,6 +15,8 @@ import Settings from '@images/Dashboard/settings.svg';
 import Support from '@images/Dashboard/support.svg';
 import Logout from '@images/Dashboard/logout.svg';
 import SupportDropdownMenu from '@components/Dashboard/support/SupportMenu';
+import SideArrow from 'assets/images/side-arrow.svg';
+import { ChevronDownIcon } from '@radix-ui/react-icons';
 
 interface ILink {
   id: number;
@@ -22,22 +24,35 @@ interface ILink {
   icon: string;
   href?: string;
   aLink?: boolean;
+  marginBottom?: boolean;
 }
 
 export const DashOtherLinks = ({ ...data }: ILink & { soon?: boolean }) => {
-  const { title, soon = false, icon: Icon, aLink = true } = data;
+  const { title, soon = false, icon: Icon, aLink = true, marginBottom = true } = data;
+  const router = useRouter();
+  const isActive = data.href === router.pathname;
+  // const isActive = false;
+  console.log(isActive, data.href, router.pathname);
+  const { href } = data;
   return (
     <>
       {aLink ? (
         <>
           {' '}
-          <Link href={data.href ?? '/'}>
-            <div className="flex justify-between lg:mb-6">
+          <Link
+            href={data.href ?? '/'}
+            className={` hover:bg-safekeep-hover hover:text-safekeep-gray-200 hover:font-bold text-safekeep-gray-200  rounded-lg`}
+          >
+            <div
+              className={`flex justify-between items-center px-2 ${marginBottom ? 'mb-4' : 'mb-0 py-3'} ${
+                isActive ? 'bg-safekeep-blue text-safekeep-white ' : 'text-safekeep-gray-200'
+              } rounded-lg`}
+            >
               <div className="flex flex-col items-center text-red-500 lg:flex-row">
                 <div className="lg:mr-2 text-red-500 z-50 h-6 w-6">
                   <Icon />
                 </div>
-                <span className="text-safekeep-gray-200 font-bold font-dmSans">{title}</span>
+                <span className=" font-dmSans">{title}</span>
               </div>
               {!!soon && (
                 <div>
@@ -52,11 +67,11 @@ export const DashOtherLinks = ({ ...data }: ILink & { soon?: boolean }) => {
       ) : (
         <>
           {' '}
-          <div className="flex justify-between mb-6">
-            <div className="flex">
+          <div className="flex justify-between items-center py-2.5 px-2">
+            <div className="flex items-center">
               {/* @ts-ignore */}
               <Icon className="mr-2" />
-              <span className="text-safekeep-gray-200 font-bold font-dmSans">{title}</span>
+              <span className="text-safekeep-gray-200 font-dmSans">{title}</span>
             </div>
             {!!soon && (
               <div>
@@ -74,36 +89,101 @@ export const DashOtherLinks = ({ ...data }: ILink & { soon?: boolean }) => {
 const NavLink = ({ ...data }: ILink) => {
   const Icon = data.icon;
   const router = useRouter();
-  // const isActive = data.href === router.pathname;
-  const isActive = false;
+  const isActive = data.href === router.pathname;
+  // const isActive = false;
   const { href } = data;
   return (
     <Link
       href={href}
-      className={`${isActive ? 'bg-safekeep-blue text-safekeep-white ' : ''} flex  items-center  p-2 rounded-md `}
+      className={`${
+        isActive ? 'bg-safekeep-blue text-safekeep-white ' : ''
+      } flex  items-center  px-2 py-2.5 rounded-md `}
     >
-      <div className="mr-2">
+      <div className="flex">
         <div className="mr-2">
-          <Icon />
+          <div className="mr-2">
+            <Icon />
+          </div>
         </div>
-      </div>
-      <div>
-        <span className={isActive ? '' : 'text-transparent bg-clip-text bg-gradient-to-r from-[#001873] to-[#011A91] '}>
-          {data.title}
-        </span>
+        <div>
+          <span
+            className={isActive ? '' : 'text-transparent bg-clip-text bg-gradient-to-r from-[#001873] to-[#011A91] '}
+          >
+            {data.title}
+          </span>
+        </div>
       </div>
     </Link>
   );
 };
 
 const NavLinks = () => {
+  const [openSafevault, setOpenSafevault] = useState(false);
   return (
     <>
-      {navs.map((item) => (
-        <div className="mb-6 safekeep-darky-blue " key={item.id}>
-          <NavLink {...item} />
+      {navs.map((item) => {
+        if (item.title === 'Safevault') {
+          const Icon = item.icon;
+          const router = useRouter();
+          const isActive = item.href === router.pathname;
+          return (
+            <div
+              className={`mb-4 flex gap-1 justify-between items-center w-full pr-2 safekeep-darky-blue hover:bg-safekeep-hover hover:text-safekeep-gray-200 rounded-lg ${
+                isActive ? 'bg-safekeep-blue text-safekeep-white ' : ''
+              } flex  items-center  px-2 py-2.5 rounded-md cursor-pointer`}
+              key={item.id}
+              onClick={(e) => setOpenSafevault(!openSafevault)}
+            >
+              <Link href={item.href} className="flex">
+                <div className="mr-2">
+                  <div className="mr-2">
+                    <Icon />
+                  </div>
+                </div>
+                <div>
+                  <span
+                    className={
+                      isActive ? '' : 'text-transparent bg-clip-text bg-gradient-to-r from-[#001873] to-[#011A91] '
+                    }
+                  >
+                    {item.title}
+                  </span>
+                </div>
+              </Link>
+              <ChevronDownIcon
+                className={`${openSafevault ? 'rotate-180' : ''}`}
+                onClick={(e) => setOpenSafevault(!openSafevault)}
+              ></ChevronDownIcon>
+            </div>
+          );
+        } else {
+          return (
+            <div className="mb-4 safekeep-darky-blue hover:bg-safekeep-hover rounded-lg" key={item.id}>
+              <NavLink {...item} />
+            </div>
+          );
+        }
+      })}
+      <div className={`flex flex-col gap-2 transition-all duration-100 ${openSafevault ? 'flex' : 'hidden'}`}>
+        {safevaultNavs.map((item) => (
+          <div className="safekeep-darky-blue hover:bg-safekeep-hover rounded-lg flex items-center" key={item.id}>
+            <SafevaultSvg item={item} />
+          </div>
+        ))}
+      </div>
+    </>
+  );
+};
+
+const SafevaultSvg = ({ item }) => {
+  return (
+    <>
+      <div className="w-full flex justify-between items-center">
+        <SideArrow />
+        <div className="max-w-[237px] w-full ml-2.5">
+          <DashOtherLinks {...item} marginBottom={false} />
         </div>
-      ))}
+      </div>
     </>
   );
 };
@@ -119,50 +199,54 @@ const DashboardLayout = ({ children }: IChild) => {
   return (
     <>
       <div className="relative">
-        <div
-          className={`h-[100vh] col-span-3 p-4 pt-10 pl-12 overflow-scroll overflow-x-hidden overflow-y-scroll pr-7 font-dmSans   bg-safekeep-white lg:fixed lg:max-w-[350px] lg:w-full hidden lg:block`}
-        >
-          <div className="flex flex-col justify-center">
-            <div className="flex items-center justify-between mb-6 ">
-              <div className="">
-                <Logo className="h-12" />
+        <div className="bg-safekeep-white h-[100vh] col-span-3 p-4 pt-10 pl-12 overflow-auto overflow-x-hidden overflow-y-scroll pr-7 font-dmSans lg:fixed lg:max-w-[350px] lg:w-full hidden lg:flex lg:flex-col lg:justify-between">
+          <div className={`lg:flex lg:flex-col lg:justify-between lg:max-h-[1100px]`}>
+            <div className="flex flex-col justify-center">
+              <div className="flex items-center justify-between mb-6 ">
+                <div className="">
+                  <Logo className="h-12" />
+                </div>
+              </div>
+              <div className="flex flex-col justify-between h-full">
+                <div>
+                  <NavLinks />
+                </div>
               </div>
             </div>
-            <div className="flex flex-col justify-between h-full">
-              <div className="mb-12">
-                <NavLinks />
-              </div>
-              <div className="">
-                <div className="mb-6 font-medium tracking-widest uppercase">new features</div>
-                {newFeature.map((item) => (
-                  <div key={item.id}>
-                    <DashOtherLinks {...item} />
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
 
-          <div className="mt-10">
-            <DashOtherLinks href="/dashboard/settings" id={0} title="Settings" icon={Settings} />
-            <SupportDropdownMenu />
-            <DashOtherLinks href={pathname} id={2} title="Logout" icon={Logout} />
+            <div className="mt-6">
+              <div>
+                <div className="">
+                  <div className="mb-6 font-medium tracking-widest uppercase">new features</div>
+                  {newFeature.map((item) => (
+                    <div key={item.id}>
+                      <DashOtherLinks {...item} />
+                    </div>
+                  ))}
+                </div>
+                <DashOtherLinks href="/dashboard/settings" id={0} title="Settings" icon={Settings} />
+                <SupportDropdownMenu />
+                <div className="hover:bg-safekeep-hover rounded-lg">
+                  <DashOtherLinks href={pathname} aLink={false} id={2} title="Logout" icon={Logout} />
+                </div>
 
-            {/* {Dashfooter.map(item => (
+                {/* {Dashfooter.map(item => (
               <div key={item.id}>               
                 <DashOtherLinks {...item} />
               </div>
             ))} */}
-          </div>
+              </div>
 
-          <div>
-            <div className="flex items-center justify-between text-safe-dark-main font-bold ">
-              <div className="text-[10px]">Privacy Policy</div>
-              <div className="text-[10px]">Terms of Service</div>
-              <div>
-                <div className="flex items-center">
-                  <GasStation className="mr-2" />
-                  <span className=" text-xs">19.2</span>
+              <div className="mt-6">
+                <div className="flex items-center justify-between text-safe-dark-main font-dmSans ">
+                  <div className="text-[10px]">Privacy Policy</div>
+                  <div className="text-[10px]">Terms of Service</div>
+                  <div>
+                    <div className="flex items-center">
+                      <GasStation className="mr-2" />
+                      <span className=" text-xs">19.2</span>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
