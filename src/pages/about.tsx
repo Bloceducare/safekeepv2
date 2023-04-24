@@ -7,7 +7,6 @@ import PageLayout from "@layout/page";
 import Button from "@components/primitives/button";
 import AnimatedSection from "@components/AnimatedSetion";
 import Blog from "@components/Blogs";
-import Cta from "@components/home/Cta";
 
 const Explainer = () => {
   return (
@@ -126,10 +125,7 @@ const About: NextPage = () => {
         <Team />
         <Join />
        <Blog />
-       <Faq />  
-       <AnimatedSection>
-        <Cta />
-       </AnimatedSection>
+       <Faq />        
       </div>
     </div>
   );
