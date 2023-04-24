@@ -5,7 +5,6 @@ import Image from "@components/primitives/image";
 import Hero from "@components/home/Hero";
 import About from "@components/About";
 import Development from "@components/Development";
-import Cta from "@components/home/Cta";
 import Faq from "@components/home/Faq";
 import slides from "@data/blog/slides";
 import BlogSlider from "@components/BlogSlider";
@@ -356,10 +355,7 @@ const Home: NextPage = () => {
         <Features />    
         <AnimatedSection>
         <Faq />
-        </AnimatedSection>
-        <AnimatedSection>
-        <Cta />
-        </AnimatedSection>
+        </AnimatedSection>       
       </div>
     </div>
   );

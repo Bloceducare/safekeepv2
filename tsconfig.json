@@ -25,6 +25,7 @@
       "@pages/*": ["pages/*"],
       "@images/*": ["assets/images/*"],
       "@video/*": ["assets/video/*"],
+      "@pdfs/*": ["assets/pdfs/*"],
       "@data/*": ["data/*"],
       "@config/*": ["config/*"],
       "@server/*": ["server/*"],    
