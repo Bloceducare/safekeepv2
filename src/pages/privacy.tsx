@@ -1,5 +1,5 @@
 import PrivacyView from "@views/privacy"
-import privacypdf from "../assets/pdfs/safekeepterms.pdf"
+//import privacypdf from "../assets/pdfs/safekeepterms.pdf"
 // import PdfViewer from "@components/pdfViewer"
 
 
